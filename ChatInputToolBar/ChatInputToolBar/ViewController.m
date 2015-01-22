@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "ChatInputTextView.h"
+#import "ChatInputToolBar.h"
 
 @interface ViewController ()
 
@@ -29,10 +29,11 @@
 - (void)test
 {
     [self.view setBackgroundColor:[UIColor lightGrayColor]];
-    ChatInputTextView *textView = [[ChatInputTextView alloc] initWithFrame:CGRectMake(0, 100, 320, 24)];
-    textView.placeHolder = @"这是测试！";
+    ChatInputToolBar *chatBar = [[ChatInputToolBar alloc] initWithFrame:CGRectMake(0, 150, 320, 44)];
+    chatBar.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleTopMargin;
+    //textView.placeHolder = @"这是测试！";
     //textView.font = [UIFont systemFontOfSize:28];
-    [self.view addSubview:textView];
+    [self.view addSubview:chatBar];
 }
 
 @end
