@@ -15,7 +15,10 @@
 		E73857EC1A68EB20003D864D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E73857EA1A68EB20003D864D /* LaunchScreen.xib */; };
 		E73857F81A68EB20003D864D /* ChatInputToolBarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E73857F71A68EB20003D864D /* ChatInputToolBarTests.m */; };
 		E738580D1A690600003D864D /* ChatInputTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E738580A1A690600003D864D /* ChatInputTextView.m */; };
-		E738580E1A690600003D864D /* ChatInputToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E738580C1A690600003D864D /* ChatInputToolBar.m */; };
+		E738580E1A690600003D864D /* LTZInputToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E738580C1A690600003D864D /* LTZInputToolBar.m */; };
+		E7D92EA81A78C16900CE2608 /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7D92EA71A78C16900CE2608 /* HPGrowingTextView.m */; };
+		E7D92EAC1A78C17500CE2608 /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = E7D92EAB1A78C17500CE2608 /* HPTextViewInternal.m */; };
+		E7D92EAF1A78D29200CE2608 /* LTZKeyboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7D92EAE1A78D29200CE2608 /* LTZKeyboardController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +47,14 @@
 		E73857F71A68EB20003D864D /* ChatInputToolBarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatInputToolBarTests.m; sourceTree = "<group>"; };
 		E73858091A690600003D864D /* ChatInputTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatInputTextView.h; sourceTree = "<group>"; };
 		E738580A1A690600003D864D /* ChatInputTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatInputTextView.m; sourceTree = "<group>"; };
-		E738580B1A690600003D864D /* ChatInputToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatInputToolBar.h; sourceTree = "<group>"; };
-		E738580C1A690600003D864D /* ChatInputToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatInputToolBar.m; sourceTree = "<group>"; };
+		E738580B1A690600003D864D /* LTZInputToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputToolBar.h; sourceTree = "<group>"; };
+		E738580C1A690600003D864D /* LTZInputToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZInputToolBar.m; sourceTree = "<group>"; };
+		E7D92EA71A78C16900CE2608 /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPGrowingTextView.m; sourceTree = "<group>"; };
+		E7D92EA91A78C17500CE2608 /* HPGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPGrowingTextView.h; sourceTree = "<group>"; };
+		E7D92EAA1A78C17500CE2608 /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTextViewInternal.h; sourceTree = "<group>"; };
+		E7D92EAB1A78C17500CE2608 /* HPTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPTextViewInternal.m; sourceTree = "<group>"; };
+		E7D92EAD1A78D29200CE2608 /* LTZKeyboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZKeyboardController.h; sourceTree = "<group>"; };
+		E7D92EAE1A78D29200CE2608 /* LTZKeyboardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZKeyboardController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,12 +138,26 @@
 		E73858081A690600003D864D /* class */ = {
 			isa = PBXGroup;
 			children = (
+				E7D92EAD1A78D29200CE2608 /* LTZKeyboardController.h */,
+				E7D92EAE1A78D29200CE2608 /* LTZKeyboardController.m */,
+				E7D92EA01A78C12A00CE2608 /* HPGrowingTextView */,
 				E73858091A690600003D864D /* ChatInputTextView.h */,
 				E738580A1A690600003D864D /* ChatInputTextView.m */,
-				E738580B1A690600003D864D /* ChatInputToolBar.h */,
-				E738580C1A690600003D864D /* ChatInputToolBar.m */,
+				E738580B1A690600003D864D /* LTZInputToolBar.h */,
+				E738580C1A690600003D864D /* LTZInputToolBar.m */,
 			);
 			path = class;
+			sourceTree = "<group>";
+		};
+		E7D92EA01A78C12A00CE2608 /* HPGrowingTextView */ = {
+			isa = PBXGroup;
+			children = (
+				E7D92EAA1A78C17500CE2608 /* HPTextViewInternal.h */,
+				E7D92EAB1A78C17500CE2608 /* HPTextViewInternal.m */,
+				E7D92EA91A78C17500CE2608 /* HPGrowingTextView.h */,
+				E7D92EA71A78C16900CE2608 /* HPGrowingTextView.m */,
+			);
+			path = HPGrowingTextView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,7 +262,10 @@
 			files = (
 				E73857E41A68EB20003D864D /* ViewController.m in Sources */,
 				E73857E11A68EB20003D864D /* AppDelegate.m in Sources */,
-				E738580E1A690600003D864D /* ChatInputToolBar.m in Sources */,
+				E738580E1A690600003D864D /* LTZInputToolBar.m in Sources */,
+				E7D92EAC1A78C17500CE2608 /* HPTextViewInternal.m in Sources */,
+				E7D92EA81A78C16900CE2608 /* HPGrowingTextView.m in Sources */,
+				E7D92EAF1A78D29200CE2608 /* LTZKeyboardController.m in Sources */,
 				E738580D1A690600003D864D /* ChatInputTextView.m in Sources */,
 				E73857DE1A68EB20003D864D /* main.m in Sources */,
 			);
