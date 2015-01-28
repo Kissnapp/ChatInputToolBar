@@ -21,9 +21,6 @@
 #define DEFAULT_TALK_BUTTON_WIDTH 80.0f
 #define DEFAULT_TALK_BUTTON_HEIGHT DEFAULT_TALK_BUTTON_WIDTH
 
-NSString * const LTZInputToolBarNotificationKeyboardDidChangeFrame = @"LTZInputToolBarNotificationKeyboardDidChangeFrame";
-NSString * const LTZInputToolBarUserInfoKeyKeyboardDidChangeFrame = @"LTZInputToolBarUserInfoKeyKeyboardDidChangeFrame";
-
 @interface LTZInputToolBar ()<UITextViewDelegate, HPGrowingTextViewDelegate>
 {
     UIButton                *_voiceSwitchBtn;
@@ -44,19 +41,10 @@ NSString * const LTZInputToolBarUserInfoKeyKeyboardDidChangeFrame = @"LTZInputTo
 
 @implementation LTZInputToolBar
 
+#pragma mark - public methods
 - (id)initWithFrame:(CGRect)frame
 {
     return [self initWithFrame:frame scrollView:nil inView:nil gestureRecognizer:nil delegate:nil];
-}
-
-- (void)dealloc
-{
-    _scrollView = nil;
-    _contextView = nil;
-    _panGestureRecognizer = nil;
-    _delegate = nil;
-    [self endListeningForKeyboard];
-    [_panGestureRecognizer removeTarget:self action:@selector(dismissKeyboard:)];
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -80,54 +68,22 @@ NSString * const LTZInputToolBarUserInfoKeyKeyboardDidChangeFrame = @"LTZInputTo
     return self;
 }
 
-- (void)_setupViews
-{
-    self.userInteractionEnabled = YES;
-    self.backgroundColor = [UIColor redColor];
-    
-    _inputTextView = ({
-        HPGrowingTextView *textView = [[HPGrowingTextView alloc] initWithFrame:CGRectMake(6, 4, 240, 36)];
-        textView.isScrollable = NO;
-        textView.contentInset = UIEdgeInsetsMake(0, 5, 0, 5);
-        
-        textView.minNumberOfLines = 1;
-        textView.maxNumberOfLines = 5;
-        // you can also set the maximum height in points with maxHeight
-        // textView.maxHeight = 200.0f;
-        textView.returnKeyType = UIReturnKeySend; //just as an example
-        textView.font = [UIFont systemFontOfSize:16.0f];
-        textView.delegate = self;
-        textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
-        textView.backgroundColor = [UIColor whiteColor];
-        textView.placeholder = @"send new message...";
-        textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        
-        // textView.text = @"test\n\ntest";
-        // textView.animateHeightChange = NO; //turns off animation
-        
-        textView;
-    });;
-    
-    [self addSubview:_inputTextView];
-    /*
-    NSMutableArray *Constraints = [NSMutableArray array];
-    
-    [Constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-MARGIN1-[_inputTextView]-MARGIN1-|" options:0 metrics:@{@"MARGIN1":[NSNumber numberWithFloat:DEFAULT_MAGIN_WIDTH]} views:NSDictionaryOfVariableBindings(_inputTextView)]];
-    
-    [Constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-MARGIN1-[_inputTextView]-MARGIN1-|" options:0 metrics:@{@"MARGIN1":[NSNumber numberWithFloat:DEFAULT_MAGIN_HEIGHT]} views:NSDictionaryOfVariableBindings(_inputTextView)]];
-    
-    [self addConstraints:Constraints];
-     */
-    
-}
-
 - (void)beginListeningForKeyboard
 {
-    [self addNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(inputKeyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(inputKeyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
 }
 - (void)endListeningForKeyboard
 {
-    [self removeNotifications];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)resignFirstResponder
@@ -139,25 +95,6 @@ NSString * const LTZInputToolBarUserInfoKeyKeyboardDidChangeFrame = @"LTZInputTo
 {
     _panGestureRecognizer = panGestureRecognizer;
     [_panGestureRecognizer addTarget:self action:@selector(resignFirstResponder)];
-}
-
-#pragma mark init and delete the keyboard noifications Methods
--(void)addNotifications
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                           selector:@selector(inputKeyboardWillShow:)
-                               name:UIKeyboardWillShowNotification
-                             object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                           selector:@selector(inputKeyboardWillHide:)
-                               name:UIKeyboardWillHideNotification
-                             object:nil];
-}
--(void)removeNotifications
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 #pragma mark - 监听键盘的显示与隐藏
@@ -207,6 +144,58 @@ NSString * const LTZInputToolBarUserInfoKeyKeyboardDidChangeFrame = @"LTZInputTo
     [UIView commitAnimations];
 }
 
+#pragma mark - private methods
+- (void)dealloc
+{
+    _scrollView = nil;
+    _contextView = nil;
+    _panGestureRecognizer = nil;
+    _delegate = nil;
+    [self endListeningForKeyboard];
+    [_panGestureRecognizer removeTarget:self action:@selector(dismissKeyboard:)];
+}
+
+- (void)_setupViews
+{
+    self.userInteractionEnabled = YES;
+    self.backgroundColor = [UIColor redColor];
+    
+    _inputTextView = ({
+        HPGrowingTextView *textView = [[HPGrowingTextView alloc] initWithFrame:CGRectMake(6, 4, 240, 36)];
+        textView.isScrollable = NO;
+        textView.contentInset = UIEdgeInsetsMake(0, 5, 0, 5);
+        
+        textView.minNumberOfLines = 1;
+        textView.maxNumberOfLines = 5;
+        // you can also set the maximum height in points with maxHeight
+        // textView.maxHeight = 200.0f;
+        textView.returnKeyType = UIReturnKeySend; //just as an example
+        textView.font = [UIFont systemFontOfSize:16.0f];
+        textView.delegate = self;
+        textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
+        textView.backgroundColor = [UIColor whiteColor];
+        textView.placeholder = @"send new message...";
+        textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        
+        // textView.text = @"test\n\ntest";
+        // textView.animateHeightChange = NO; //turns off animation
+        
+        textView;
+    });;
+    
+    [self addSubview:_inputTextView];
+    /*
+     NSMutableArray *Constraints = [NSMutableArray array];
+     
+     [Constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-MARGIN1-[_inputTextView]-MARGIN1-|" options:0 metrics:@{@"MARGIN1":[NSNumber numberWithFloat:DEFAULT_MAGIN_WIDTH]} views:NSDictionaryOfVariableBindings(_inputTextView)]];
+     
+     [Constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-MARGIN1-[_inputTextView]-MARGIN1-|" options:0 metrics:@{@"MARGIN1":[NSNumber numberWithFloat:DEFAULT_MAGIN_HEIGHT]} views:NSDictionaryOfVariableBindings(_inputTextView)]];
+     
+     [self addConstraints:Constraints];
+     */
+    
+}
+
 - (void)updateScrollViewCurrentInsetsWithValue:(CGFloat)value
 {
     UIEdgeInsets insets = self.scrollView.contentInset;
@@ -235,26 +224,7 @@ NSString * const LTZInputToolBarUserInfoKeyKeyboardDidChangeFrame = @"LTZInputTo
     return insets;
 }
 
-
-#pragma mark - private methods
-static inline CGFloat HeightWith(UITextView *textView)
-{
-    return textView.contentSize.height + 2 * DEFAULT_MAGIN_HEIGHT;
-}
-/*
-#pragma mark - UITextViewDelegate methods
-- (void)textViewDidChange:(UITextView *)textView
-{
-    CGRect frame = textView.frame;
-    frame.size = textView.contentSize;
-    
-    [UIView animateWithDuration:0.25 animations:^{
-        textView.frame = frame;
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, HeightWith(textView));
-    }];
-}
-*/
-#pragma mark - HPGrowingTextViewDelegate
+#pragma mark - HPGrowingTextViewDelegate methods
 - (void)growingTextView:(HPGrowingTextView *)growingTextView willChangeHeight:(float)height
 {
     float diff = (growingTextView.frame.size.height - height);
@@ -267,32 +237,26 @@ static inline CGFloat HeightWith(UITextView *textView)
     [self updateScrollViewCurrentInsetsWithValue:diff];
 }
 
-/*
- + (float) heightForTextView: (UITextView *)textView
- {
- 
- float fPadding = 16.0; // 8.0px x 2
- CGSize constraint = CGSizeMake(textView.contentSize.width - fPadding, CGFLOAT_MAX);
- //CGSize size = [strText sizeWithFont: textView.font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
- NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
- paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
- 
- NSDictionary *attributes = @{
- NSFontAttributeName:textView.font,
- NSParagraphStyleAttributeName:paragraphStyle.copy
- };
- 
- 
- CGSize size = [text boundingRectWithSize:constraint
- options:NSStringDrawingUsesLineFragmentOrigin
- attributes:attributes
- context:nil].size;
- 
- float fHeight = size.height + 16.0;
- 
- return fHeight;
- }
- */
+- (BOOL)growingTextView:(HPGrowingTextView *)growingTextView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    
+    if ([text isEqualToString:@"\n"])
+    {
+        NSString * content = growingTextView.text;
+        if (content.length == 0 || [content isEqualToString:@""]){
+            NSLog(@"请输入内容");
+        }
+        else {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(ltzInputToolBar:didSentTextContent:)]) {
+                [self.delegate ltzInputToolBar:self didSentTextContent:content];
+            }
+            
+            growingTextView.text = @"";
+        }
+        return NO;
+    }
+    return YES;
+}
 
 
 /*

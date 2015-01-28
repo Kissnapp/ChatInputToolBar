@@ -8,27 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-/**
- *  Posted when the system keyboard frame changes.
- *  The object of the notification is the LTZInputToolBar object.
- *  The `userInfo` dictionary contains the new keyboard frame for key
- *  `LTZInputToolBarUserInfoKeyKeyboardDidChangeFrame`.
- */
-FOUNDATION_EXPORT NSString * const LTZInputToolBarNotificationKeyboardDidChangeFrame;
-
-/**
- *  Contains the new keyboard frame wrapped in an `NSValue` object.
- */
-FOUNDATION_EXPORT NSString * const LTZInputToolBarUserInfoKeyKeyboardDidChangeFrame;
-
 @class HPGrowingTextView;
 @protocol LTZInputToolBarDelegate;
+
 @interface LTZInputToolBar : UIImageView
 /**
  *  The object that acts as the delegate of the LTZInputToolBar.
  */
 @property (weak, nonatomic) id<LTZInputToolBarDelegate> delegate;
-
+/**
+ *  The pan gesture recognizer responsible for handling user interaction with the system keyboard.
+ */
+@property (strong, nonatomic) UIPanGestureRecognizer *panGestureRecognizer;
 /**
  *  The text view in which the user is editing with the system keyboard.
  */
@@ -43,21 +34,19 @@ FOUNDATION_EXPORT NSString * const LTZInputToolBarUserInfoKeyKeyboardDidChangeFr
  */
 @property (strong, nonatomic, readonly) UIScrollView *scrollView;
 
-/**
- *  The pan gesture recognizer responsible for handling user interaction with the system keyboard.
- */
-@property (strong, nonatomic) UIPanGestureRecognizer *panGestureRecognizer;
+
 
 /**
- *  <#Description#>
+ *  init a object with a view which this inputToolBar view will display on
  *
- *  @param frame                <#frame description#>
- *  @param scrollView           <#scrollView description#>
- *  @param contextView          <#contextView description#>
- *  @param panGestureRecognizer <#panGestureRecognizer description#>
- *  @param delegate             <#delegate description#>
  *
- *  @return <#return value description#>
+ *  @param frame                frame
+ *  @param scrollView           scrollView
+ *  @param contextView          contextView
+ *  @param panGestureRecognizer panGestureRecognizer
+ *  @param delegate             delegate
+ *
+ *  @return this object
  */
 - (id)initWithFrame:(CGRect)frame
          scrollView:(UIScrollView *)scrollView
@@ -74,11 +63,14 @@ FOUNDATION_EXPORT NSString * const LTZInputToolBarUserInfoKeyKeyboardDidChangeFr
  *  Tells the keyboard controller that it should end listening for system keyboard notifications.
  */
 - (void)endListeningForKeyboard;
-
+/**
+ *  close the keyboard
+ */
 - (void)resignFirstResponder;
 
 
 @end
+
 
 
 
@@ -87,19 +79,6 @@ FOUNDATION_EXPORT NSString * const LTZInputToolBarUserInfoKeyKeyboardDidChangeFr
 @required
 @optional
 
-/**
- *  Tells the delegate that the keyboard frame has changed.
- *
- *  @param keyboardController The keyboard controller that is notifying the delegate.
- *  @param keyboardFrame      The new frame of the keyboard in the coordinate system of the `contextView`.
- */
-- (void)keyboardController:(LTZInputToolBar *)inputToolBar keyboardDidChangeFrame:(CGRect)keyboardFrame;
-
-/**
- *  Tells the delegate that the keyboard has been hidden.
- *
- *  @param keyboardController The keyboard controller that is notifying the delegate.
- */
-- (void)keyboardControllerKeyboardDidHide:(LTZInputToolBar *)inputToolBar;
+- (void)ltzInputToolBar:(LTZInputToolBar *)ltzInputToolBar didSentTextContent:(NSString *)content;
 
 @end
