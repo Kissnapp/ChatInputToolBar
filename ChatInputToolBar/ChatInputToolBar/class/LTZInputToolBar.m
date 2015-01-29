@@ -9,13 +9,13 @@
 #import "LTZInputToolBar.h"
 #import "HPGrowingTextView.h"
 
-#define DEFAULT_MAGIN_WIDTH 8.0f
+#define DEFAULT_MAGIN_WIDTH 4.0f
 #define DEFAULT_MAGIN_HEIGHT DEFAULT_MAGIN_WIDTH
 
-#define DEFAULT_BUTTON_HEIGHT 25.0f
+#define DEFAULT_BUTTON_HEIGHT (self.frame.size.height - 2*DEFAULT_MAGIN_HEIGHT)
 #define DEFAULT_BUTTON_WITDH DEFAULT_BUTTON_HEIGHT
 
-#define DEFAULT_TEXT_VIEW_WIDTH (self.frame.size.width - 5*DEFAULT_MAGIN_WIDTH - 3*DEFAULT_MAGIN_WIDTH)
+#define DEFAULT_TEXT_VIEW_WIDTH (self.frame.size.width - 5*DEFAULT_MAGIN_WIDTH - 3*DEFAULT_BUTTON_WITDH)
 #define DEFAULT_TEXT_VIEW_HEIGHT (self.frame.size.height - 2*DEFAULT_MAGIN_HEIGHT)
 
 #define DEFAULT_TALK_BUTTON_WIDTH 80.0f
@@ -26,15 +26,15 @@
     UIButton                *_voiceSwitchBtn;
     UIButton                *_expressionSwitchBtn;
     UIButton                *_moreSwitchBtn;
+    UIButton                *_recordBtn;
     HPGrowingTextView       *_inputTextView;
     
     UIView                  *_contextView;
     UIScrollView            *_scrollView;
     
-    BOOL _isObserving;
     
-    UIView *_keyboardView;
-    
+    BOOL                    _isKeyboardShow;
+    BOOL                    _isInputViewShow;
 }
 
 @end
@@ -62,6 +62,7 @@
         self.panGestureRecognizer = panGestureRecognizer;
         
         // Initialization code
+        [self _initData];
         [self _setupViews];
         [self beginListeningForKeyboard];
     }
@@ -100,10 +101,12 @@
 #pragma mark - 监听键盘的显示与隐藏
 -(void)inputKeyboardWillShow:(NSNotification *)notification
 {
+    _isKeyboardShow = YES;
     [self keyboardWillShowHide:notification];
 }
 -(void)inputKeyboardWillHide:(NSNotification *)notification
 {
+    _isKeyboardShow = NO;
     [self keyboardWillShowHide:notification];
 }
 
@@ -137,14 +140,55 @@
                                 inputViewFrameY,
                                 inputViewFrame.size.width,
                                 inputViewFrame.size.height);
-        [self setScrollViewInsetsWithBottomValue:(self.contextView.frame.size.height - self.frame.origin.y - self.frame.size.height)];
+        if ([notification.name isEqualToString:UIKeyboardWillShowNotification]) {
+            [self setScrollViewInsetsWithBottomValue:(self.contextView.frame.size.height - self.frame.origin.y - self.frame.size.height + _inputTextView.bounds.size.height-_recordBtn.bounds.size.height)];
+        }else if ([notification.name isEqualToString:UIKeyboardWillHideNotification] && _inputTextView.hidden){
+            [self setScrollViewInsetsWithBottomValue:(self.contextView.frame.size.height - self.frame.origin.y - self.frame.size.height)];
+        }else if ([notification.name isEqualToString:UIKeyboardWillHideNotification] && !_inputTextView.hidden) {
+            [self setScrollViewInsetsWithBottomValue:(self.contextView.frame.size.height - self.frame.origin.y - self.frame.size.height + _inputTextView.bounds.size.height-_recordBtn.bounds.size.height)];
+        }
     }
     
     // end animation action
     [UIView commitAnimations];
 }
 
+- (void)switchVoiceButton:(id)sender
+{
+    
+    
+    [_inputTextView setHidden:_isInputViewShow];
+    [_recordBtn setHidden:!_isInputViewShow];
+    [_voiceSwitchBtn setBackgroundImage:[UIImage imageNamed:(_isInputViewShow ? @"chat_input_keyboard_button":@"chat_input_voice_button")] forState:UIControlStateNormal];
+    
+    CGFloat height = _inputTextView.bounds.size.height - _recordBtn.bounds.size.height;
+    CGRect newFrame = self.frame;
+    if (_isInputViewShow) {
+        
+        newFrame.origin.y += height;
+        newFrame.size.height -= height;
+        
+    }else{
+    
+        newFrame.origin.y -= height;
+        newFrame.size.height += height;
+        height = -height;
+    }
+    
+    self.frame = newFrame;
+    [self updateScrollViewCurrentInsetsWithValue:height];
+    
+    _isInputViewShow ? [self resignFirstResponder]:[_inputTextView becomeFirstResponder];
+    
+    _isInputViewShow = !_isInputViewShow;
+}
+
 #pragma mark - private methods
+- (void)_initData
+{
+    _isInputViewShow = YES;
+}
+
 - (void)dealloc
 {
     _scrollView = nil;
@@ -152,21 +196,31 @@
     _panGestureRecognizer = nil;
     _delegate = nil;
     [self endListeningForKeyboard];
-    [_panGestureRecognizer removeTarget:self action:@selector(dismissKeyboard:)];
 }
 
 - (void)_setupViews
 {
     self.userInteractionEnabled = YES;
-    self.backgroundColor = [UIColor redColor];
+    self.image = [[UIImage imageNamed:@"chat_input_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(2.0f, 0.0f, 0.0f, 0.0f)
+                                                                        resizingMode:UIImageResizingModeStretch];
+    
+    _voiceSwitchBtn = ({
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(DEFAULT_MAGIN_WIDTH, DEFAULT_MAGIN_HEIGHT, DEFAULT_BUTTON_WITDH, DEFAULT_BUTTON_HEIGHT);
+        button.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+        [button setBackgroundImage:[UIImage imageNamed:@"chat_input_voice_button"] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(switchVoiceButton:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:button];
+        button;
+    });
     
     _inputTextView = ({
-        HPGrowingTextView *textView = [[HPGrowingTextView alloc] initWithFrame:CGRectMake(6, 4, 240, 36)];
+        HPGrowingTextView *textView = [[HPGrowingTextView alloc] initWithFrame:CGRectMake(2*DEFAULT_MAGIN_WIDTH + DEFAULT_BUTTON_WITDH, DEFAULT_MAGIN_HEIGHT, DEFAULT_TEXT_VIEW_WIDTH, DEFAULT_TEXT_VIEW_HEIGHT)];
         textView.isScrollable = NO;
         textView.contentInset = UIEdgeInsetsMake(0, 5, 0, 5);
         
         textView.minNumberOfLines = 1;
-        textView.maxNumberOfLines = 5;
+        textView.maxNumberOfLines = 4;
         // you can also set the maximum height in points with maxHeight
         // textView.maxHeight = 200.0f;
         textView.returnKeyType = UIReturnKeySend; //just as an example
@@ -176,13 +230,53 @@
         textView.backgroundColor = [UIColor whiteColor];
         textView.placeholder = @"send new message...";
         textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        
+    
         // textView.text = @"test\n\ntest";
         // textView.animateHeightChange = NO; //turns off animation
         
+        CGFloat cornerRadius = 6.0f;
+        textView.backgroundColor = [UIColor whiteColor];
+        textView.layer.borderWidth = 0.5f;
+        textView.layer.borderColor = [UIColor colorWithWhite:0.8f alpha:1.0f].CGColor;
+        textView.layer.cornerRadius = cornerRadius;
+        
         textView;
-    });;
+    });
     
+    _recordBtn = ({
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(2*DEFAULT_MAGIN_WIDTH + DEFAULT_BUTTON_WITDH, DEFAULT_MAGIN_HEIGHT, DEFAULT_TEXT_VIEW_WIDTH, DEFAULT_TEXT_VIEW_HEIGHT);
+        button.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+        [button setBackgroundImage:[[UIImage imageNamed:@"chat_record_bg"] stretchableImageWithLeftCapWidth:10 topCapHeight:10] forState:UIControlStateNormal];
+        [button setBackgroundImage:[[UIImage imageNamed:@"chat_record_selected_bg"] stretchableImageWithLeftCapWidth:10 topCapHeight:10] forState:UIControlStateHighlighted];
+        [button setTitle:@"按住\t对讲" forState:UIControlStateNormal];
+        [button setTitle:@"松开\t完成" forState:UIControlStateHighlighted];
+        [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        [self addSubview:button];
+        button;
+    });
+    
+    _expressionSwitchBtn = ({
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(3*DEFAULT_MAGIN_WIDTH+DEFAULT_BUTTON_WITDH+DEFAULT_TEXT_VIEW_WIDTH, DEFAULT_MAGIN_HEIGHT, DEFAULT_BUTTON_WITDH, DEFAULT_BUTTON_HEIGHT);
+        button.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+        [button setBackgroundImage:[UIImage imageNamed:@"chat_input_emo_button"] forState:UIControlStateNormal];
+        [self addSubview:button];
+        button;
+    });
+    
+    _moreSwitchBtn = ({
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(4*DEFAULT_MAGIN_WIDTH+2*DEFAULT_BUTTON_WITDH+DEFAULT_TEXT_VIEW_WIDTH, DEFAULT_MAGIN_HEIGHT, DEFAULT_BUTTON_WITDH, DEFAULT_BUTTON_HEIGHT);
+        button.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+        [button setBackgroundImage:[UIImage imageNamed:@"chat_input_action_button"] forState:UIControlStateNormal];
+        [self addSubview:button];
+        button;
+    });
+    
+    [_recordBtn setHidden:YES];
+    //[_inputTextView setHidden:YES];
     [self addSubview:_inputTextView];
     /*
      NSMutableArray *Constraints = [NSMutableArray array];
@@ -227,14 +321,14 @@
 #pragma mark - HPGrowingTextViewDelegate methods
 - (void)growingTextView:(HPGrowingTextView *)growingTextView willChangeHeight:(float)height
 {
-    float diff = (growingTextView.frame.size.height - height);
+    float changedHeight = (growingTextView.frame.size.height - height);
     
-    CGRect r = self.frame;
-    r.size.height -= diff;
-    r.origin.y += diff;
-    self.frame = r;
+    CGRect newFrame = self.frame;
+    newFrame.size.height -= changedHeight;
+    newFrame.origin.y += changedHeight;
+    self.frame = newFrame;
     
-    [self updateScrollViewCurrentInsetsWithValue:diff];
+    [self updateScrollViewCurrentInsetsWithValue:changedHeight];
 }
 
 - (BOOL)growingTextView:(HPGrowingTextView *)growingTextView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text

@@ -52,7 +52,7 @@
     chatBar = [[LTZInputToolBar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-44, self.view.frame.size.width, 44)
                                                            scrollView:self.tableView
                                                                inView:self.view
-                                                    gestureRecognizer:self.tableView.panGestureRecognizer
+                                                    gestureRecognizer:nil//self.tableView.panGestureRecognizer
                                                              delegate:self];
     chatBar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     //textView.placeHolder = @"这是测试！";

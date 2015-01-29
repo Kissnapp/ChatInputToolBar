@@ -85,11 +85,13 @@
 #endif
 {
     // Initialization code
+    /*
     CGFloat cornerRadius = 6.0f;
     self.backgroundColor = [UIColor whiteColor];
     self.layer.borderWidth = 0.5f;
-    self.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.layer.borderColor = [UIColor colorWithWhite:0.8f alpha:1.0f].CGColor;
     self.layer.cornerRadius = cornerRadius;
+     */
 
     CGRect r = self.frame;
     r.origin.y = 0;
@@ -102,8 +104,8 @@
     internalTextView.delegate = self;
     internalTextView.scrollEnabled = NO;
     internalTextView.font = [UIFont fontWithName:@"Helvetica" size:13]; 
-    //internalTextView.contentInset = UIEdgeInsetsZero;
-    internalTextView.contentInset = UIEdgeInsetsMake(cornerRadius, 0.0f, cornerRadius, 0.0f);
+    internalTextView.contentInset = UIEdgeInsetsZero;
+    //internalTextView.contentInset = UIEdgeInsetsMake(cornerRadius, 0.0f, cornerRadius, 0.0f);
     internalTextView.showsHorizontalScrollIndicator = NO;
     internalTextView.text = @"-";
     internalTextView.contentMode = UIViewContentModeRedraw;
