@@ -71,14 +71,3 @@
 
 @end
 
-
-
-
-@protocol LTZInputToolBarDelegate <NSObject>
-
-@required
-@optional
-
-- (void)ltzInputToolBar:(LTZInputToolBar *)ltzInputToolBar didSentTextContent:(NSString *)content;
-
-@end
