@@ -79,31 +79,9 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
     return self;
 }
 
-
-- (BOOL)becomeFirstResponder
+- (void)resignFirstResponder
 {
-    return [self.inputTool.inputTextView becomeFirstResponder];
-}
-
-- (BOOL)isFirstResponder
-{
-    return [self.inputTool.inputTextView isFirstResponder];
-}
-
-- (BOOL)resignFirstResponder
-{
-    if ([self isFirstResponder]) {
-        return [self.inputTool.inputTextView resignFirstResponder];
-    }else{
-        [self hideMoreViewOrExpressionView];
-    }
     
-    return YES;
-}
-
-- (CGFloat)currentToolHeight
-{
-    return self.inputTool.frame.size.height;
 }
 
 - (void)setPanGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer
@@ -164,62 +142,6 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
 {
     return CGRectMake(self.originFrame.origin.x, self.originFrame.origin.y - LTZInputToolBarDefaultKetboardHeight, self.originFrame.size.width, self.originFrame.size.height);
 }
-
-
-- (void)showMoreViewOrExpressionView
-{
-    // begin animation action
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:LTZInputToolBarDefaultAnimationDuration];
-    [UIView setAnimationCurve:(UIViewAnimationCurve)LTZInputToolBarDefaultAnimationCurve];
-    
-    
-    
-    //    // for ipad modal form presentations
-    //    CGFloat messageViewFrameBottom = self.contextView.frame.size.height - self.frame.size.height;
-    //
-    //    if(inputViewFrameY > messageViewFrameBottom) inputViewFrameY = messageViewFrameBottom;
-    
-    self.frame = self.defaultFrame;
-    
-    // end animation action
-    [UIView commitAnimations];
-}
-
-- (void)hideMoreViewOrExpressionView
-{
-    
-    if (self.inputTool.isMoreViewShowing || self.inputTool.isExpressionViewShowing){
-        
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:LTZInputToolBarDefaultAnimationDuration];
-        [UIView setAnimationCurve:(UIViewAnimationCurve)LTZInputToolBarDefaultAnimationCurve];
-        
-        
-        
-        //    // for ipad modal form presentations
-        //    CGFloat messageViewFrameBottom = self.contextView.frame.size.height - self.frame.size.height;
-        //
-        //    if(inputViewFrameY > messageViewFrameBottom) inputViewFrameY = messageViewFrameBottom;
-        
-        self.frame = self.originFrame;
-        
-        if (self.inputTool.isMoreViewShowing) {
-            self.inputTool.isMoreViewShowing = NO;
-        }
-        
-        if (self.inputTool.isExpressionViewShowing) {
-            self.inputTool.isExpressionViewShowing = NO;
-        }
-        
-        
-        // end animation action
-        [UIView commitAnimations];
-    }
-    
-}
-
-
 
 #pragma mark - private methods
 - (void)_initData

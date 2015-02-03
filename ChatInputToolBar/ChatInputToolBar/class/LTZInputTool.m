@@ -147,11 +147,9 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
     });
     
     [_recordButton setHidden:YES];
-    //[_inputTextView setHidden:YES];
     
     [self addSubview:_inputTextView];
     
-    //NSStringFromSelector(@selector(isHidden))
     [_inputTextView addObserver:self
                     forKeyPath:NSStringFromSelector(@selector(hidden))
                        options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew)
@@ -161,10 +159,6 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
 - (void)voiceButtonCliked:(id)sender
 {
     if (!self.isRecordViewShowing) {
-        
-//        if (![self isFirstResponder]) {
-//            [self hideMoreViewOrExpressionView];
-//        }
         
         [self prepareToRecord];
         
@@ -176,12 +170,20 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
 
 - (void)moreButtonCliked:(id)sender
 {
-    
+    if (self.isMoreViewShowing) {
+        [self prepareToInputText];
+    }else{
+        [self prepareToInputMoreInfo];
+    }
 }
 
 - (void)expressionButtonCliked:(id)sender
 {
-    
+    if (self.isExpressionViewShowing) {
+        [self prepareToInputText];
+    }else{
+        [self prepareToInputExpression];
+    }
 }
 
 - (void)prepareToRecord
@@ -192,6 +194,8 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
     
     if ([self.inputTextView isFirstResponder]) {
         [self.inputTextView resignFirstResponder];
+    }else{
+        [self hideMoreViewOrExpressionView];
     }
 }
 
@@ -212,11 +216,11 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
     self.isExpressionViewShowing = YES;
     self.isRecordViewShowing = NO;
     
-    if ([self isFirstResponder]) {
-        [self resignFirstResponder];
+    if ([self.inputTextView isFirstResponder]) {
+        [self.inputTextView resignFirstResponder];
     }
     
-    //[self showMoreViewOrExpressionView];
+    [self showMoreViewOrExpressionView];
     
 }
 
@@ -226,11 +230,11 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
     self.isExpressionViewShowing = NO;
     self.isRecordViewShowing = NO;
     
-    if ([self isFirstResponder]) {
-        [self resignFirstResponder];
+    if ([self.inputTextView isFirstResponder]) {
+        [self.inputTextView resignFirstResponder];
     }
     
-    //[self showMoreViewOrExpressionView];
+    [self showMoreViewOrExpressionView];
 }
 
 - (void)stopToInput
@@ -245,6 +249,44 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
     }
 }
 
+- (void)showMoreViewOrExpressionView
+{
+    // begin animation action
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:LTZInputToolBarDefaultAnimationDuration];
+    [UIView setAnimationCurve:(UIViewAnimationCurve)LTZInputToolBarDefaultAnimationCurve];
+    
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    UIView *view = window.rootViewController.view;
+    
+    CGRect newFrame = self.inView.frame;
+    newFrame.origin.y = view.frame.size.height - self.frame.size.height - LTZInputToolBarDefaultKetboardHeight;
+    _inView.frame = newFrame;
+    
+    // end animation action
+    [UIView commitAnimations];
+}
+
+- (void)hideMoreViewOrExpressionView
+{
+    
+    // begin animation action
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:LTZInputToolBarDefaultAnimationDuration];
+    [UIView setAnimationCurve:(UIViewAnimationCurve)LTZInputToolBarDefaultAnimationCurve];
+    
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    UIView *view = window.rootViewController.view;
+    
+    CGRect newFrame = self.inView.frame;
+    newFrame.origin.y = view.frame.size.height - self.frame.size.height;
+    _inView.frame = newFrame;
+    
+    // end animation action
+    [UIView commitAnimations];
+    
+}
+
 - (void)_initData
 {
     self.isKeyboardShowing = NO;
@@ -252,6 +294,7 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
     self.isExpressionViewShowing = NO;
     self.isMoreViewShowing = NO;
 }
+
 
 - (void)dealloc
 {
@@ -303,7 +346,7 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
 - (void)keyboardWillShowHide:(NSNotification *)notification
 {
     
-    if (!self.isMoreViewShowing && !self.isExpressionViewShowing) {
+    //if (!self.isMoreViewShowing && !self.isExpressionViewShowing) {
         
         CGRect keyboardRect = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
         
@@ -341,7 +384,8 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
         
         // end animation action
         [UIView commitAnimations];
-    }/*
+    //}
+    /*
       else if ([notification.name isEqualToString:UIKeyboardWillHideNotification]) {
       [self hideMoreViewOrExpressionView];
       }else if ([notification.name isEqualToString:UIKeyboardWillShowNotification]){
