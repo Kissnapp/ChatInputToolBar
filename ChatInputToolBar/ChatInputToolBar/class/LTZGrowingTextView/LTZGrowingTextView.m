@@ -1,11 +1,11 @@
 //
-//  HPTextView.m
+//  LTZTextView.m
 //
-//  Created by Hans Pinckaers on 29-06-10.
+//  Created by Peter Lee on 29-06-10.
 //
 //	MIT License
 //
-//	Copyright (c) 2011 Hans Pinckaers
+//	Copyright (c) 2011 Peter Lee
 //
 //	Permission is hereby granted, free of charge, to any person obtaining a copy
 //	of this software and associated documentation files (the "Software"), to deal
@@ -25,16 +25,16 @@
 //	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //	THE SOFTWARE.
 
-#import "HPGrowingTextView.h"
-#import "HPTextViewInternal.h"
+#import "LTZGrowingTextView.h"
+#import "LTZTextViewInternal.h"
 
-@interface HPGrowingTextView(private)
+@interface LTZGrowingTextView(private)
 -(void)commonInitialiser;
 -(void)resizeTextView:(NSInteger)newSizeH;
 -(void)growDidStop;
 @end
 
-@implementation HPGrowingTextView
+@implementation LTZGrowingTextView
 @synthesize internalTextView;
 @synthesize delegate;
 @synthesize maxHeight;
@@ -51,7 +51,7 @@
 @dynamic placeholder;
 @dynamic placeholderColor;
 
-// having initwithcoder allows us to use HPGrowingTextView in a Nib. -- aob, 9/2011
+// having initwithcoder allows us to use LTZGrowingTextView in a Nib. -- aob, 9/2011
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if ((self = [super initWithCoder:aDecoder])) {
@@ -97,9 +97,9 @@
     r.origin.y = 0;
     r.origin.x = 0;
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
-    internalTextView = [[HPTextViewInternal alloc] initWithFrame:r textContainer:textContainer];
+    internalTextView = [[LTZTextViewInternal alloc] initWithFrame:r textContainer:textContainer];
 #else
-    internalTextView = [[HPTextViewInternal alloc] initWithFrame:r];
+    internalTextView = [[LTZTextViewInternal alloc] initWithFrame:r];
 #endif
     internalTextView.delegate = self;
     internalTextView.scrollEnabled = NO;

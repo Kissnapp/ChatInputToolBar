@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class HPGrowingTextView;
+@class LTZInputTool;
 @protocol LTZInputToolBarDelegate;
 
 @interface LTZInputToolBar : UIImageView
@@ -23,7 +23,7 @@
 /**
  *  The text view in which the user is editing with the system keyboard.
  */
-@property (strong, nonatomic, readonly) HPGrowingTextView *inputTextView;
+@property (strong, nonatomic, readonly) LTZInputTool *inputTool;
 
 /**
  *  The view in which the keyboard will be shown. This should be the parent or a sibling of `textView`.
@@ -34,7 +34,11 @@
  */
 @property (strong, nonatomic, readonly) UIScrollView *scrollView;
 
++ (CGFloat)LTZInputToolDefaultHeight;
 
++ (CGFloat)LTZInputToolBarDefaultHeight;
+
+- (CGFloat)currentToolHeight;
 
 /**
  *  init a object with a view which this inputToolBar view will display on
@@ -54,15 +58,6 @@
   gestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer
            delegate:(id<LTZInputToolBarDelegate>)delegate;
 
-/**
- *  Tells the keyboard controller that it should begin listening for system keyboard notifications.
- */
-- (void)beginListeningForKeyboard;
-
-/**
- *  Tells the keyboard controller that it should end listening for system keyboard notifications.
- */
-- (void)endListeningForKeyboard;
 /**
  *  close the keyboard
  */

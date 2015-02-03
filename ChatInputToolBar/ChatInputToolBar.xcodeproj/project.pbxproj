@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E71854C41A809B9C001FBAD7 /* LTZInputTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E71854C31A809B9C001FBAD7 /* LTZInputTool.m */; };
+		E71854C71A80A636001FBAD7 /* LTZInputToolBarConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = E71854C61A80A636001FBAD7 /* LTZInputToolBarConstraints.m */; };
+		E71854CE1A80AE1E001FBAD7 /* LTZGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E71854CB1A80AE1E001FBAD7 /* LTZGrowingTextView.m */; };
+		E71854CF1A80AE1E001FBAD7 /* LTZTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = E71854CD1A80AE1E001FBAD7 /* LTZTextViewInternal.m */; };
 		E73857DE1A68EB20003D864D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E73857DD1A68EB20003D864D /* main.m */; };
 		E73857E11A68EB20003D864D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E73857E01A68EB20003D864D /* AppDelegate.m */; };
 		E73857E41A68EB20003D864D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73857E31A68EB20003D864D /* ViewController.m */; };
@@ -14,11 +18,8 @@
 		E73857E91A68EB20003D864D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E73857E81A68EB20003D864D /* Images.xcassets */; };
 		E73857EC1A68EB20003D864D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E73857EA1A68EB20003D864D /* LaunchScreen.xib */; };
 		E73857F81A68EB20003D864D /* ChatInputToolBarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E73857F71A68EB20003D864D /* ChatInputToolBarTests.m */; };
-		E738580D1A690600003D864D /* ChatInputTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E738580A1A690600003D864D /* ChatInputTextView.m */; };
+		E738580D1A690600003D864D /* LTZInputTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E738580A1A690600003D864D /* LTZInputTextView.m */; };
 		E738580E1A690600003D864D /* LTZInputToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E738580C1A690600003D864D /* LTZInputToolBar.m */; };
-		E7B9D74B1A7FD2B100D9EC02 /* LTZInputToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B9D74A1A7FD2B100D9EC02 /* LTZInputToolBarView.m */; };
-		E7D92EA81A78C16900CE2608 /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7D92EA71A78C16900CE2608 /* HPGrowingTextView.m */; };
-		E7D92EAC1A78C17500CE2608 /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = E7D92EAB1A78C17500CE2608 /* HPTextViewInternal.m */; };
 		E7D92EAF1A78D29200CE2608 /* LTZKeyboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7D92EAE1A78D29200CE2608 /* LTZKeyboardController.m */; };
 		E7D92EC61A7A3CF900CE2608 /* chat_record_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7D92EBB1A7A3CF900CE2608 /* chat_record_bg@2x.png */; };
 		E7D92EC71A7A3CF900CE2608 /* chat_record_selected_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7D92EBC1A7A3CF900CE2608 /* chat_record_selected_bg@2x.png */; };
@@ -47,6 +48,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E71854C21A809B9C001FBAD7 /* LTZInputTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputTool.h; sourceTree = "<group>"; };
+		E71854C31A809B9C001FBAD7 /* LTZInputTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZInputTool.m; sourceTree = "<group>"; };
+		E71854C51A80A636001FBAD7 /* LTZInputToolBarConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputToolBarConstraints.h; sourceTree = "<group>"; };
+		E71854C61A80A636001FBAD7 /* LTZInputToolBarConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZInputToolBarConstraints.m; sourceTree = "<group>"; };
+		E71854C81A80A6EE001FBAD7 /* LTZInputBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LTZInputBar.h; sourceTree = "<group>"; };
+		E71854CA1A80AE1E001FBAD7 /* LTZGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZGrowingTextView.h; sourceTree = "<group>"; };
+		E71854CB1A80AE1E001FBAD7 /* LTZGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZGrowingTextView.m; sourceTree = "<group>"; };
+		E71854CC1A80AE1E001FBAD7 /* LTZTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZTextViewInternal.h; sourceTree = "<group>"; };
+		E71854CD1A80AE1E001FBAD7 /* LTZTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZTextViewInternal.m; sourceTree = "<group>"; };
 		E73857D81A68EB20003D864D /* ChatInputToolBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatInputToolBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E73857DC1A68EB20003D864D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E73857DD1A68EB20003D864D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -60,16 +70,10 @@
 		E73857F11A68EB20003D864D /* ChatInputToolBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatInputToolBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E73857F61A68EB20003D864D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E73857F71A68EB20003D864D /* ChatInputToolBarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatInputToolBarTests.m; sourceTree = "<group>"; };
-		E73858091A690600003D864D /* ChatInputTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatInputTextView.h; sourceTree = "<group>"; };
-		E738580A1A690600003D864D /* ChatInputTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatInputTextView.m; sourceTree = "<group>"; };
+		E73858091A690600003D864D /* LTZInputTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputTextView.h; sourceTree = "<group>"; };
+		E738580A1A690600003D864D /* LTZInputTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZInputTextView.m; sourceTree = "<group>"; };
 		E738580B1A690600003D864D /* LTZInputToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputToolBar.h; sourceTree = "<group>"; };
 		E738580C1A690600003D864D /* LTZInputToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZInputToolBar.m; sourceTree = "<group>"; };
-		E7B9D7491A7FD2B100D9EC02 /* LTZInputToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputToolBarView.h; sourceTree = "<group>"; };
-		E7B9D74A1A7FD2B100D9EC02 /* LTZInputToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZInputToolBarView.m; sourceTree = "<group>"; };
-		E7D92EA71A78C16900CE2608 /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPGrowingTextView.m; sourceTree = "<group>"; };
-		E7D92EA91A78C17500CE2608 /* HPGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPGrowingTextView.h; sourceTree = "<group>"; };
-		E7D92EAA1A78C17500CE2608 /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTextViewInternal.h; sourceTree = "<group>"; };
-		E7D92EAB1A78C17500CE2608 /* HPTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPTextViewInternal.m; sourceTree = "<group>"; };
 		E7D92EAD1A78D29200CE2608 /* LTZKeyboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZKeyboardController.h; sourceTree = "<group>"; };
 		E7D92EAE1A78D29200CE2608 /* LTZKeyboardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZKeyboardController.m; sourceTree = "<group>"; };
 		E7D92EBB1A7A3CF900CE2608 /* chat_record_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_record_bg@2x.png"; sourceTree = "<group>"; };
@@ -109,6 +113,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E71854C91A80AE1E001FBAD7 /* LTZGrowingTextView */ = {
+			isa = PBXGroup;
+			children = (
+				E71854CA1A80AE1E001FBAD7 /* LTZGrowingTextView.h */,
+				E71854CB1A80AE1E001FBAD7 /* LTZGrowingTextView.m */,
+				E71854CC1A80AE1E001FBAD7 /* LTZTextViewInternal.h */,
+				E71854CD1A80AE1E001FBAD7 /* LTZTextViewInternal.m */,
+			);
+			path = LTZGrowingTextView;
+			sourceTree = "<group>";
+		};
 		E73857CF1A68EB20003D864D = {
 			isa = PBXGroup;
 			children = (
@@ -173,33 +188,25 @@
 		E73858081A690600003D864D /* class */ = {
 			isa = PBXGroup;
 			children = (
+				E71854C91A80AE1E001FBAD7 /* LTZGrowingTextView */,
 				E7D92EAD1A78D29200CE2608 /* LTZKeyboardController.h */,
 				E7D92EAE1A78D29200CE2608 /* LTZKeyboardController.m */,
-				E7D92EA01A78C12A00CE2608 /* HPGrowingTextView */,
-				E73858091A690600003D864D /* ChatInputTextView.h */,
-				E738580A1A690600003D864D /* ChatInputTextView.m */,
+				E73858091A690600003D864D /* LTZInputTextView.h */,
+				E738580A1A690600003D864D /* LTZInputTextView.m */,
+				E71854C21A809B9C001FBAD7 /* LTZInputTool.h */,
+				E71854C31A809B9C001FBAD7 /* LTZInputTool.m */,
 				E738580B1A690600003D864D /* LTZInputToolBar.h */,
 				E738580C1A690600003D864D /* LTZInputToolBar.m */,
-				E7B9D7491A7FD2B100D9EC02 /* LTZInputToolBarView.h */,
-				E7B9D74A1A7FD2B100D9EC02 /* LTZInputToolBarView.m */,
 				E7D92F161A7F4AAA00CE2608 /* LTZInputToolBarDelegate.h */,
 				E7D92F171A7F5D2400CE2608 /* LTZExpressionInputView.h */,
 				E7D92F181A7F5D2400CE2608 /* LTZExpressionInputView.m */,
 				E7D92F1A1A7F5D6000CE2608 /* LTZMoreInputView.h */,
 				E7D92F1B1A7F5D6000CE2608 /* LTZMoreInputView.m */,
+				E71854C81A80A6EE001FBAD7 /* LTZInputBar.h */,
+				E71854C51A80A636001FBAD7 /* LTZInputToolBarConstraints.h */,
+				E71854C61A80A636001FBAD7 /* LTZInputToolBarConstraints.m */,
 			);
 			path = class;
-			sourceTree = "<group>";
-		};
-		E7D92EA01A78C12A00CE2608 /* HPGrowingTextView */ = {
-			isa = PBXGroup;
-			children = (
-				E7D92EAA1A78C17500CE2608 /* HPTextViewInternal.h */,
-				E7D92EAB1A78C17500CE2608 /* HPTextViewInternal.m */,
-				E7D92EA91A78C17500CE2608 /* HPGrowingTextView.h */,
-				E7D92EA71A78C16900CE2608 /* HPGrowingTextView.m */,
-			);
-			path = HPGrowingTextView;
 			sourceTree = "<group>";
 		};
 		E7D92EB31A7A257700CE2608 /* images */ = {
@@ -333,16 +340,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E71854C71A80A636001FBAD7 /* LTZInputToolBarConstraints.m in Sources */,
 				E73857E41A68EB20003D864D /* ViewController.m in Sources */,
 				E7D92F1C1A7F5D6000CE2608 /* LTZMoreInputView.m in Sources */,
+				E71854CF1A80AE1E001FBAD7 /* LTZTextViewInternal.m in Sources */,
 				E73857E11A68EB20003D864D /* AppDelegate.m in Sources */,
-				E7B9D74B1A7FD2B100D9EC02 /* LTZInputToolBarView.m in Sources */,
 				E738580E1A690600003D864D /* LTZInputToolBar.m in Sources */,
 				E7D92F191A7F5D2400CE2608 /* LTZExpressionInputView.m in Sources */,
-				E7D92EAC1A78C17500CE2608 /* HPTextViewInternal.m in Sources */,
-				E7D92EA81A78C16900CE2608 /* HPGrowingTextView.m in Sources */,
 				E7D92EAF1A78D29200CE2608 /* LTZKeyboardController.m in Sources */,
-				E738580D1A690600003D864D /* ChatInputTextView.m in Sources */,
+				E738580D1A690600003D864D /* LTZInputTextView.m in Sources */,
+				E71854CE1A80AE1E001FBAD7 /* LTZGrowingTextView.m in Sources */,
+				E71854C41A809B9C001FBAD7 /* LTZInputTool.m in Sources */,
 				E73857DE1A68EB20003D864D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

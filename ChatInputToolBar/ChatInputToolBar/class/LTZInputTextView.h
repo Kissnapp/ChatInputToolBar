@@ -1,6 +1,6 @@
 //
-//  ChatInputTextView.h
-//  ChatInputToolBar
+//  LTZInputTextView.h
+//  LTZInputToolBar
 //
 //  Created by Peter Lee on 15/1/16.
 //  Copyright (c) 2015年 Peter Lee. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ChatInputTextView : UITextView
+@interface LTZInputTextView : UITextView
 
 /**
  *  The text to be displayed when the text view is empty. The default value is `nil`.

@@ -1,11 +1,11 @@
 //
-//  HPTextView.h
+//  LTZTextView.h
 //
-//  Created by Hans Pinckaers on 29-06-10.
+//  Created by Peter Lee on 29-06-10.
 //
 //	MIT License
 //
-//	Copyright (c) 2011 Hans Pinckaers
+//	Copyright (c) 2011 Peter Lee
 //
 //	Permission is hereby granted, free of charge, to any person obtaining a copy
 //	of this software and associated documentation files (the "Software"), to deal
@@ -33,31 +33,31 @@
 	#define NSTextAlignment UITextAlignment
 #endif
 
-@class HPGrowingTextView;
-@class HPTextViewInternal;
+@class LTZGrowingTextView;
+@class LTZTextViewInternal;
 
-@protocol HPGrowingTextViewDelegate
+@protocol LTZGrowingTextViewDelegate <NSObject>
 
 @optional
-- (BOOL)growingTextViewShouldBeginEditing:(HPGrowingTextView *)growingTextView;
-- (BOOL)growingTextViewShouldEndEditing:(HPGrowingTextView *)growingTextView;
+- (BOOL)growingTextViewShouldBeginEditing:(LTZGrowingTextView *)growingTextView;
+- (BOOL)growingTextViewShouldEndEditing:(LTZGrowingTextView *)growingTextView;
 
-- (void)growingTextViewDidBeginEditing:(HPGrowingTextView *)growingTextView;
-- (void)growingTextViewDidEndEditing:(HPGrowingTextView *)growingTextView;
+- (void)growingTextViewDidBeginEditing:(LTZGrowingTextView *)growingTextView;
+- (void)growingTextViewDidEndEditing:(LTZGrowingTextView *)growingTextView;
 
-- (BOOL)growingTextView:(HPGrowingTextView *)growingTextView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
-- (void)growingTextViewDidChange:(HPGrowingTextView *)growingTextView;
+- (BOOL)growingTextView:(LTZGrowingTextView *)growingTextView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
+- (void)growingTextViewDidChange:(LTZGrowingTextView *)growingTextView;
 
-- (void)growingTextView:(HPGrowingTextView *)growingTextView willChangeHeight:(float)height;
-- (void)growingTextView:(HPGrowingTextView *)growingTextView didChangeHeight:(float)height;
+- (void)growingTextView:(LTZGrowingTextView *)growingTextView willChangeHeight:(float)height;
+- (void)growingTextView:(LTZGrowingTextView *)growingTextView didChangeHeight:(float)height;
 
-- (void)growingTextViewDidChangeSelection:(HPGrowingTextView *)growingTextView;
-- (BOOL)growingTextViewShouldReturn:(HPGrowingTextView *)growingTextView;
+- (void)growingTextViewDidChangeSelection:(LTZGrowingTextView *)growingTextView;
+- (BOOL)growingTextViewShouldReturn:(LTZGrowingTextView *)growingTextView;
 
 @end
 
-@interface HPGrowingTextView : UIView <UITextViewDelegate> {
-	HPTextViewInternal *internalTextView;	
+@interface LTZGrowingTextView : UIView <UITextViewDelegate> {
+	LTZTextViewInternal *internalTextView;	
 	
 	int minHeight;
 	int maxHeight;
@@ -70,7 +70,7 @@
     NSTimeInterval animationDuration;
 	
 	//uitextview properties
-	NSObject <HPGrowingTextViewDelegate> *__unsafe_unretained delegate;
+	NSObject <LTZGrowingTextViewDelegate> *__unsafe_unretained delegate;
 	NSTextAlignment textAlignment;
 	NSRange selectedRange;
 	BOOL editable;
@@ -94,7 +94,7 @@
 
 
 //uitextview properties
-@property(unsafe_unretained) NSObject<HPGrowingTextViewDelegate> *delegate;
+@property(unsafe_unretained) NSObject<LTZGrowingTextViewDelegate> *delegate;
 @property(nonatomic,strong) NSString *text;
 @property(nonatomic,strong) UIFont *font;
 @property(nonatomic,strong) UIColor *textColor;

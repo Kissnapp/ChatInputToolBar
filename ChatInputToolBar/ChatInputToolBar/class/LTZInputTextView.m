@@ -1,14 +1,14 @@
 //
-//  ChatInputTextView.m
-//  ChatInputToolBar
+//  LTZInputTextView.m
+//  LTZInputToolBar
 //
 //  Created by Peter Lee on 15/1/16.
 //  Copyright (c) 2015年 Peter Lee. All rights reserved.
 //
 
-#import "ChatInputTextView.h"
+#import "LTZInputTextView.h"
 
-@interface ChatInputTextView ()
+@interface LTZInputTextView ()
 
 - (void)configureTextView;
 
@@ -21,9 +21,7 @@
 @end
 
 
-
-
-@implementation ChatInputTextView
+@implementation LTZInputTextView
 
 #pragma mark - Initialization
 

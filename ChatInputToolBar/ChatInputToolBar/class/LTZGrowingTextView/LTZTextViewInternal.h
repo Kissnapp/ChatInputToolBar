@@ -1,11 +1,11 @@
 //
-//  HPTextViewInternal.h
+//  LTZTextViewInternal.h
 //
-//  Created by Hans Pinckaers on 29-06-10.
+//  Created by Peter Lee on 29-06-10.
 //
 //	MIT License
 //
-//	Copyright (c) 2011 Hans Pinckaers
+//	Copyright (c) 2011 Peter Lee
 //
 //	Permission is hereby granted, free of charge, to any person obtaining a copy
 //	of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +28,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface HPTextViewInternal : UITextView
+@interface LTZTextViewInternal : UITextView
 
 @property (nonatomic, strong) NSString *placeholder;
 @property (nonatomic, strong) UIColor *placeholderColor;
