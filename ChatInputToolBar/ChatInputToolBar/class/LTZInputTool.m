@@ -464,7 +464,7 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
 {
     if (context == LTZInputTextViewHidenKeyValueObservingContext) {
         
-        if (object == _inputTextView && [keyPath isEqualToString:NSStringFromSelector(@selector(hidden))]) {//NSStringFromSelector(@selector(isHidden))
+        if (object == _inputTextView && [keyPath isEqualToString:NSStringFromSelector(@selector(hidden))]) {
             
             BOOL oldHidenState = [[change objectForKey:NSKeyValueChangeOldKey] boolValue];
             BOOL newHidenState = [[change objectForKey:NSKeyValueChangeNewKey] boolValue];
