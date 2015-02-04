@@ -29,7 +29,7 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
 @property (strong, nonatomic) LTZExpressionInputView    *expressionInputView;
 @property (strong, nonatomic) LTZMoreInputView          *moreInputView;
 
-@property (assign, nonatomic) CGRect                    defaultFrame;
+//@property (assign, nonatomic) CGRect                    defaultFrame;
 @property (assign, nonatomic) CGRect                    originFrame;
 @property (assign, nonatomic) UIEdgeInsets              scrollViewOriginEdgeInsets;
 
@@ -81,7 +81,7 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
 
 - (void)resignFirstResponder
 {
-    
+    [self.inputTool resignFirstResponder];
 }
 
 - (void)setPanGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer
@@ -137,12 +137,12 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
     
     return _expressionInputView;
 }
-
+/*
 - (CGRect)defaultFrame
 {
     return CGRectMake(self.originFrame.origin.x, self.originFrame.origin.y - LTZInputToolBarDefaultKetboardHeight, self.originFrame.size.width, self.originFrame.size.height);
 }
-
+*/
 #pragma mark - private methods
 - (void)_initData
 {
@@ -236,6 +236,15 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
 - (void)ltzInputTool:(LTZInputTool *)ltzInputTool didSentTextContent:content
 {
     
+}
+
+- (void)ltzInputToolDidShowExpressionView:(LTZInputTool *)ltzInputTool
+{
+    [self bringSubviewToFront:self.expressionInputView];
+}
+- (void)ltzInputToolDidShowMoreInfoView:(LTZInputTool *)ltzInputTool
+{
+    [self bringSubviewToFront:self.moreInputView];
 }
 
 

@@ -61,6 +61,21 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
     return self;
 }
 
+- (BOOL)resignFirstResponder
+{
+    BOOL result = NO;
+    
+    if ([_inputTextView isFirstResponder]) {
+        result = [_inputTextView resignFirstResponder];
+    }else{
+        [self resumeOriginalState];
+        [self hideMoreViewOrExpressionView];
+        result = YES;
+    }
+    
+    return result;
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - LTZInputTool object private methods
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -197,16 +212,22 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
     }else{
         [self hideMoreViewOrExpressionView];
     }
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(ltzInputToolDidShowRecordView:)]) {
+        [self.delegate ltzInputToolDidShowRecordView:self];
+    }
 }
 
 - (void)prepareToInputText
 {
-    self.isMoreViewShowing = NO;
-    self.isExpressionViewShowing = NO;
-    self.isRecordViewShowing = NO;
+    [self resumeOriginalState];
     
     if (![self.inputTextView isFirstResponder]) {
         [self.inputTextView becomeFirstResponder];
+    }
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(ltzInputToolDidShowInputTextView:)]) {
+        [self.delegate ltzInputToolDidShowInputTextView:self];
     }
 }
 
@@ -218,6 +239,10 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
     
     if ([self.inputTextView isFirstResponder]) {
         [self.inputTextView resignFirstResponder];
+    }
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(ltzInputToolDidShowExpressionView:)]) {
+        [self.delegate ltzInputToolDidShowExpressionView:self];
     }
     
     [self showMoreViewOrExpressionView];
@@ -234,23 +259,24 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
         [self.inputTextView resignFirstResponder];
     }
     
+    if (self.delegate && [self.delegate respondsToSelector:@selector(ltzInputToolDidShowMoreInfoView:)]) {
+        [self.delegate ltzInputToolDidShowMoreInfoView:self];
+    }
+    
     [self showMoreViewOrExpressionView];
 }
 
-- (void)stopToInput
+- (void)resumeOriginalState
 {
-    if ([_inputTextView isFirstResponder]) {
-        self.isMoreViewShowing = NO;
-        self.isExpressionViewShowing = NO;
-        self.isRecordViewShowing = NO;
-        
-    }else{
-        
-    }
+    self.isMoreViewShowing = NO;
+    self.isExpressionViewShowing = NO;
+    self.isRecordViewShowing = NO;
 }
 
 - (void)showMoreViewOrExpressionView
 {
+    if (!self.isMoreViewShowing && !self.isExpressionViewShowing) return;
+    
     // begin animation action
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:LTZInputToolBarDefaultAnimationDuration];
@@ -269,6 +295,7 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
 
 - (void)hideMoreViewOrExpressionView
 {
+    if (self.isMoreViewShowing || self.isExpressionViewShowing) return;
     
     // begin animation action
     [UIView beginAnimations:nil context:NULL];
@@ -346,7 +373,7 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
 - (void)keyboardWillShowHide:(NSNotification *)notification
 {
     
-    //if (!self.isMoreViewShowing && !self.isExpressionViewShowing) {
+    if (!self.isMoreViewShowing && !self.isExpressionViewShowing) {
         
         CGRect keyboardRect = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
         
@@ -384,53 +411,7 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
         
         // end animation action
         [UIView commitAnimations];
-    //}
-    /*
-      else if ([notification.name isEqualToString:UIKeyboardWillHideNotification]) {
-      [self hideMoreViewOrExpressionView];
-      }else if ([notification.name isEqualToString:UIKeyboardWillShowNotification]){
-      CGRect keyboardRect = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-      
-      // The keyboard animation time duration
-      NSTimeInterval animationDuration = [[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-      
-      // The keyboard animation curve
-      NSUInteger animationCurve = [[notification.userInfo valueForKey:UIKeyboardAnimationCurveUserInfoKey] unsignedIntegerValue];
-      
-      // begin animation action
-      [UIView beginAnimations:nil context:NULL];
-      [UIView setAnimationDuration:animationDuration];
-      [UIView setAnimationCurve:(UIViewAnimationCurve)animationCurve];
-      
-      {
-      CGRect newFrame = self.frame;
-      CGFloat newFrameY = self.originFrame.origin.y - keyboardRect.size.height;
-      newFrame.origin.y = newFrameY;
-      
-      self.frame = newFrame;
-      /*
-      // for ipad modal form presentations
-      CGFloat messageViewFrameBottom = self.contextView.frame.size.height - self.frame.size.height;
-      
-      if(inputViewFrameY > messageViewFrameBottom) inputViewFrameY = messageViewFrameBottom;
-      
-      self.frame = CGRectMake(inputViewFrame.origin.x,
-      inputViewFrameY,
-      inputViewFrame.size.width,
-      inputViewFrame.size.height);
-      if ([notification.name isEqualToString:UIKeyboardWillShowNotification]) {
-      [self setScrollViewInsetsWithBottomValue:(self.contextView.frame.size.height - self.frame.origin.y - self.frame.size.height + _inputTextView.bounds.size.height-_recordButton.bounds.size.height)];
-      }else if ([notification.name isEqualToString:UIKeyboardWillHideNotification] && self.isRecordViewShowing){
-      [self setScrollViewInsetsWithBottomValue:(self.contextView.frame.size.height - self.frame.origin.y - self.frame.size.height)];
-      }else if ([notification.name isEqualToString:UIKeyboardWillHideNotification] && !self.isRecordViewShowing) {
-      [self setScrollViewInsetsWithBottomValue:(self.contextView.frame.size.height - self.frame.origin.y - self.frame.size.height + _inputTextView.bounds.size.height-_recordButton.bounds.size.height)];
-      }
-      
-      }
-      
-      // end animation action
-      [UIView commitAnimations];
-      }*/
+    }
 }
 
 
@@ -463,6 +444,15 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - LTZGrowingTextViewDelegate methods
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (BOOL)growingTextViewShouldBeginEditing:(LTZGrowingTextView *)growingTextView
+{
+    [self resumeOriginalState];
+    return YES;
+}
+- (BOOL)growingTextViewShouldEndEditing:(LTZGrowingTextView *)growingTextView
+{
+    return YES;
+}
 - (void)growingTextView:(LTZGrowingTextView *)growingTextView willChangeHeight:(float)height
 {
     float changedHeight = (growingTextView.frame.size.height - height);
@@ -533,6 +523,7 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
     
     CGRect newFrame = self.frame;
     CGRect inViewFrame = self.inView.frame;
+    
     if (hidde) {//inputView :show->hidden
         
         //changed its height of frame

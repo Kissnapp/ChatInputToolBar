@@ -32,6 +32,8 @@
 
 - (instancetype)initWithFrame:(CGRect)frame inView:(UIView *)inView delegate:(id<LTZInputToolDelegate>)delegate;
 
+- (BOOL)resignFirstResponder;
+
 @end
 
 @protocol LTZInputToolDelegate <NSObject>
@@ -39,87 +41,10 @@
 @optional
 
 - (void)ltzInputTool:(LTZInputTool *)ltzInputTool didSentTextContent:content;
-/*
-- (void)ltzInputTool:(LTZInputTool *)ltzInputTool didPrepareToRecord
-{
-    self.isMoreViewShowing = NO;
-    self.isExpressionViewShowing = NO;
-    self.isRecordViewShowing = YES;
-    
-    
-}
 
-- (void)prepareToInputText
-{
-    self.isMoreViewShowing = NO;
-    self.isExpressionViewShowing = NO;
-    self.isRecordViewShowing = NO;
-    
-    if (![self isFirstResponder]) {
-        [self becomeFirstResponder];
-    }
-}
-
-- (void)prepareToInputExpression
-{
-    self.isMoreViewShowing = NO;
-    self.isExpressionViewShowing = YES;
-    self.isRecordViewShowing = NO;
-    
-    if ([self isFirstResponder]) {
-        [self resignFirstResponder];
-    }
-    
-    [self showMoreViewOrExpressionView];
-    
-}
-
-- (void)prepareToInputMoreInfo
-{
-    self.isMoreViewShowing = YES;
-    self.isExpressionViewShowing = NO;
-    self.isRecordViewShowing = NO;
-    
-    if ([self isFirstResponder]) {
-        [self resignFirstResponder];
-    }
-    
-    [self showMoreViewOrExpressionView];
-}
-
-- (void)stopToInput
-{
-    if ([_inputTextView isFirstResponder]) {
-        self.isMoreViewShowing = NO;
-        self.isExpressionViewShowing = NO;
-        self.isRecordViewShowing = NO;
-        
-    }else{
-        
-    }
-}
-
-- (void)showMoreViewOrExpressionView
-{
-    // begin animation action
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:LTZInputToolBarDefaultAnimationDuration];
-    [UIView setAnimationCurve:(UIViewAnimationCurve)LTZInputToolBarDefaultAnimationCurve];
-    
-    
-    
-    //    // for ipad modal form presentations
-    //    CGFloat messageViewFrameBottom = self.contextView.frame.size.height - self.frame.size.height;
-    //
-    //    if(inputViewFrameY > messageViewFrameBottom) inputViewFrameY = messageViewFrameBottom;
-    
-    self.frame = self.defaultFrame;
-    
-    // end animation action
-    [UIView commitAnimations];
-}
-
-- (void)hideMoreViewOrExpressionView
-*/
+- (void)ltzInputToolDidShowRecordView:(LTZInputTool *)ltzInputTool;
+- (void)ltzInputToolDidShowExpressionView:(LTZInputTool *)ltzInputTool;
+- (void)ltzInputToolDidShowMoreInfoView:(LTZInputTool *)ltzInputTool;
+- (void)ltzInputToolDidShowInputTextView:(LTZInputTool *)ltzInputTool;
 
 @end
