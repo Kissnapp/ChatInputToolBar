@@ -13,7 +13,7 @@
 #import "LTZInputToolBarDelegate.h"
 #import "LTZInputToolBarConstraints.h"
 
-#define ANIMATION_SHOW_VIEW 0
+#define ANIMATION_SHOW_VIEW 1
 
 static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyValueObservingContext;
 

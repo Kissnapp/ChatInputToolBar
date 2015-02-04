@@ -9,7 +9,7 @@
 #import "LTZInputTool.h"
 #import "LTZInputToolBarConstraints.h"
 
-#define DEFAULT_MAGIN_WIDTH 4.0f
+#define DEFAULT_MAGIN_WIDTH 8.0f
 #define DEFAULT_MAGIN_HEIGHT DEFAULT_MAGIN_WIDTH
 
 #define DEFAULT_BUTTON_HEIGHT (self.frame.size.height - 2*DEFAULT_MAGIN_HEIGHT)
@@ -17,9 +17,6 @@
 
 #define DEFAULT_TEXT_VIEW_WIDTH (self.frame.size.width - 5*DEFAULT_MAGIN_WIDTH - 3*DEFAULT_BUTTON_WITDH)
 #define DEFAULT_TEXT_VIEW_HEIGHT (self.frame.size.height - 2*DEFAULT_MAGIN_HEIGHT)
-
-#define DEFAULT_TALK_BUTTON_WIDTH 80.0f
-#define DEFAULT_TALK_BUTTON_HEIGHT DEFAULT_TALK_BUTTON_WIDTH
 
 static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewHidenKeyValueObservingContext;
 
@@ -270,6 +267,9 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
         [self addSubview:button];
         button;
     });
+    
+    //Ensure that _inputView's frame and _recordButton's frame are equal
+    _recordButton.frame = _inputTextView.frame;
     
     _expressionButton = ({
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
