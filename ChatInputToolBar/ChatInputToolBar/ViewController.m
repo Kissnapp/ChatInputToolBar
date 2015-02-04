@@ -52,7 +52,7 @@
     chatBar = [[LTZInputToolBar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-[LTZInputToolBar LTZInputToolDefaultHeight], self.view.frame.size.width, [LTZInputToolBar LTZInputToolBarDefaultHeight])
                                                            scrollView:self.tableView
                                                                inView:self.view
-                                                    gestureRecognizer:nil//self.tableView.panGestureRecognizer
+                                                    gestureRecognizer:self.tableView.panGestureRecognizer
                                                              delegate:self];
     chatBar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     //textView.placeHolder = @"这是测试！";
@@ -67,7 +67,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return 101;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:

@@ -23,14 +23,110 @@
 
 static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewHidenKeyValueObservingContext;
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - inline methods
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+static CGFloat LTZContentOffsetForBottom(UIScrollView *scrollView) {
+    CGFloat contentHeight = scrollView.contentSize.height;
+    CGFloat scrollViewHeight = scrollView.bounds.size.height;
+    
+    UIEdgeInsets contentInset = scrollView.contentInset;
+    CGFloat bottomInset = contentInset.bottom;
+    CGFloat topInset = contentInset.top;
+    
+    CGFloat contentOffsetY;
+    contentOffsetY = contentHeight - (scrollViewHeight - bottomInset);
+    contentOffsetY = MAX(contentOffsetY, -topInset);
+    
+    return contentOffsetY;
+}
+
+static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimationCurve curve) {
+    return (curve << 16 | UIViewAnimationOptionBeginFromCurrentState);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - UIScrollView+LTZInputTool
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+@interface UIScrollView (LTZInputTool)
+
+- (BOOL)ltz_isAtBottom;
+- (void)ltz_scrollToBottomAnimated:(BOOL)animated
+               withCompletionBlock:(void(^)(void))completionBlock;
+
+- (void)ltz_scrollToBottomWithOptions:(UIViewAnimationOptions)options
+                             duration:(CGFloat)duration
+                      completionBlock:(void(^)(void))completionBlock;
+
+@end
+
+#pragma mark - UIScrollView + LTZInputTool
+
+@implementation UIScrollView (LTZInputTool)
+
+
+- (BOOL)ltz_isAtBottom
+{
+    UIScrollView *scrollView = self;
+    CGFloat y = scrollView.contentOffset.y;
+    CGFloat yBottom = LTZContentOffsetForBottom(scrollView);
+    
+    return (y == yBottom);
+}
+
+- (void)ltz_scrollToBottomAnimated:(BOOL)animated
+               withCompletionBlock:(void(^)(void))completionBlock
+{
+    [self ltz_scrollToBottomWithOptions:0
+                               duration:LTZInputToolBarDefaultAnimationDuration
+                        completionBlock:completionBlock];
+}
+
+- (void)ltz_scrollToBottomWithOptions:(UIViewAnimationOptions)options
+                             duration:(CGFloat)duration
+                      completionBlock:(void(^)(void))completionBlock
+{
+    UIScrollView *scrollView = self;
+    CGPoint contentOffset = scrollView.contentOffset;
+    contentOffset.y = LTZContentOffsetForBottom(scrollView);
+    
+    void(^animations)() = ^{
+        scrollView.contentOffset = contentOffset;
+    };
+    
+    void(^completion)(BOOL) = ^(BOOL finished){
+        if (completionBlock) {
+            completionBlock();
+        }
+    };
+    
+    [UIView animateWithDuration:duration
+                          delay:0.0f
+                        options:options
+                     animations:animations
+                     completion:completion];
+}
+
+@end
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - LTZInputTool
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 @interface LTZInputTool ()
 {
-    UIView *_inView;
+    UIView          *_inView;
+    UIScrollView    *_scrollView;
 }
 @end
 
 @implementation LTZInputTool
 @synthesize inView = _inView;
+@synthesize scrollView = _scrollView;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - LTZInputTool class public methods
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -45,15 +141,20 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    return [self initWithFrame:frame inView:nil delegate:nil];
+    return [self initWithFrame:frame inView:nil scrollView:nil delegate:nil];
 }
 
-- (instancetype)initWithFrame:(CGRect)frame inView:(UIView *)inView delegate:(id<LTZInputToolDelegate>)delegate
+- (instancetype)initWithFrame:(CGRect)frame
+                       inView:(UIView *)inView
+                   scrollView:(UIScrollView *)scrollView
+                     delegate:(id<LTZInputToolDelegate>)delegate
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _inView = inView;
-        self.delegate = delegate;
+        _inView         =   inView;
+        _scrollView     =   scrollView;
+        self.delegate   =   delegate;
+        
         [self _initData];
         [self _setupViews];
         [self beginListeningForKeyboard];
@@ -76,6 +177,25 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
     return result;
 }
 
+- (BOOL)isFirstResponder
+{
+    BOOL result = NO;
+    
+    result = [_inputTextView isFirstResponder];
+    
+    if (!result) {
+        result = self.isMoreViewShowing || self.isRecordViewShowing || self.isExpressionViewShowing;
+    }
+    
+    return result;
+}
+- (BOOL)becomeFirstResponder
+{
+    if ([self isFirstResponder]) return NO;
+    
+    return [_inputTextView becomeFirstResponder];
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - LTZInputTool object private methods
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -83,11 +203,12 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
 - (void)_setupViews
 {
     self.userInteractionEnabled = YES;
-    /*
+#if 1
     self.image = [[UIImage imageNamed:@"chat_input_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(2.0f, 0.0f, 0.0f, 0.0f)
                                                                        resizingMode:UIImageResizingModeStretch];
-     */
-    self.backgroundColor = [UIColor redColor];
+#else
+    self.backgroundColor = [UIColor redColor];//For testing
+#endif
     _voiceButton = ({
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(DEFAULT_MAGIN_WIDTH, DEFAULT_MAGIN_HEIGHT, DEFAULT_BUTTON_WITDH, DEFAULT_BUTTON_HEIGHT);
@@ -112,7 +233,7 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
         textView.delegate = self;
         textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
         textView.backgroundColor = [UIColor whiteColor];
-        textView.placeholder = @"send new message...";
+        textView.placeholder = @"message...";
         textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         
         // textView.text = @"test\n\ntest";
@@ -291,6 +412,10 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
     
     // end animation action
     [UIView commitAnimations];
+    
+    [self.scrollView ltz_scrollToBottomWithOptions:LTZAnimationOptionsForCurve(LTZInputToolBarDefaultAnimationCurve)
+                                          duration:LTZInputToolBarDefaultAnimationDuration
+                                   completionBlock:nil];
 }
 
 - (void)hideMoreViewOrExpressionView
@@ -411,6 +536,11 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
         
         // end animation action
         [UIView commitAnimations];
+        
+        
+        [self.scrollView ltz_scrollToBottomWithOptions:LTZAnimationOptionsForCurve(animationCurve)
+                                              duration:animationDuration
+                                       completionBlock:nil];
     }
 }
 
@@ -447,6 +577,9 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
 - (BOOL)growingTextViewShouldBeginEditing:(LTZGrowingTextView *)growingTextView
 {
     [self resumeOriginalState];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(ltzInputToolWillBecomeFirstResponder:)]) {
+        [self.delegate ltzInputToolWillBecomeFirstResponder:self];
+    }
     return YES;
 }
 - (BOOL)growingTextViewShouldEndEditing:(LTZGrowingTextView *)growingTextView
@@ -468,6 +601,10 @@ static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewH
     inViewFrame.size.height -= changedHeight;
     inViewFrame.origin.y += changedHeight;
     _inView.frame = inViewFrame;
+    
+    [self.scrollView ltz_scrollToBottomWithOptions:LTZAnimationOptionsForCurve(LTZInputToolBarDefaultAnimationCurve)
+                                          duration:LTZInputToolBarDefaultAnimationDuration
+                                   completionBlock:nil];
 }
 
 - (BOOL)growingTextView:(LTZGrowingTextView *)growingTextView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text

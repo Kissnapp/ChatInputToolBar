@@ -21,6 +21,7 @@
 @property (strong, nonatomic) UIButton                  *recordButton;
 
 @property (strong, nonatomic, readonly) UIView          *inView;
+@property (strong, nonatomic, readonly) UIScrollView    *scrollView;
 
 @property (assign, nonatomic) BOOL                      isKeyboardShowing;
 @property (assign, nonatomic) BOOL                      isRecordViewShowing;
@@ -30,9 +31,14 @@
 
 + (CGFloat)LTZInputToolDefaultHeight;
 
-- (instancetype)initWithFrame:(CGRect)frame inView:(UIView *)inView delegate:(id<LTZInputToolDelegate>)delegate;
+- (instancetype)initWithFrame:(CGRect)frame
+                       inView:(UIView *)inView
+                   scrollView:(UIScrollView *)scrollView
+                     delegate:(id<LTZInputToolDelegate>)delegate;
 
 - (BOOL)resignFirstResponder;
+- (BOOL)isFirstResponder;
+- (BOOL)becomeFirstResponder;
 
 @end
 
@@ -46,5 +52,8 @@
 - (void)ltzInputToolDidShowExpressionView:(LTZInputTool *)ltzInputTool;
 - (void)ltzInputToolDidShowMoreInfoView:(LTZInputTool *)ltzInputTool;
 - (void)ltzInputToolDidShowInputTextView:(LTZInputTool *)ltzInputTool;
+
+- (void)ltzInputToolWillBecomeFirstResponder:(LTZInputTool *)ltzInputTool;
+- (void)ltzInputToolWillResignFirstResponder:(LTZInputTool *)ltzInputTool;
 
 @end

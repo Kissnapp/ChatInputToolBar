@@ -93,7 +93,10 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
 - (LTZInputTool *)inputTool
 {
     if (!_inputTool) {
-        _inputTool = [[LTZInputTool alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, [LTZInputTool LTZInputToolDefaultHeight]) inView:self delegate:self];
+        _inputTool = [[LTZInputTool alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, [LTZInputTool LTZInputToolDefaultHeight])
+                                                  inView:self
+                                              scrollView:_scrollView
+                                                delegate:self];
         [self addSubview:_inputTool];
     }
     
@@ -245,6 +248,15 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
 - (void)ltzInputToolDidShowMoreInfoView:(LTZInputTool *)ltzInputTool
 {
     [self bringSubviewToFront:self.moreInputView];
+}
+
+- (void)ltzInputToolWillBecomeFirstResponder:(LTZInputTool *)ltzInputTool
+{
+
+}
+- (void)ltzInputToolWillResignFirstResponder:(LTZInputTool *)ltzInputTool
+{
+
 }
 
 
