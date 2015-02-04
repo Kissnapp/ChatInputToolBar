@@ -13,6 +13,8 @@
 #import "LTZInputToolBarDelegate.h"
 #import "LTZInputToolBarConstraints.h"
 
+#define ANIMATION_SHOW_VIEW 0
+
 static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyValueObservingContext;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -103,6 +105,9 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
     return _inputTool;
 }
 
+#if ANIMATION_SHOW_VIEW
+
+#else
 - (LTZMoreInputView *)moreInputView
 {
     if (!_moreInputView) {
@@ -111,8 +116,8 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
             LTZMoreInputView *moreInputView = [[LTZMoreInputView alloc] initWithFrame:CGRectMake(0, self.frame.size.height, self.frame.size.width, LTZInputToolBarDefaultKetboardHeight)];
             
             moreInputView.image = [[UIImage imageNamed:@"chat_more_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(20.0f, 20.0f, 20.0f, 20.0f)
-                                                                                        resizingMode:UIImageResizingModeStretch];
-             
+                                                                                       resizingMode:UIImageResizingModeStretch];
+            
             moreInputView.userInteractionEnabled = YES;
             [self addSubview:moreInputView];
             moreInputView;
@@ -130,7 +135,7 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
             
             expressionInputView.image = [[UIImage imageNamed:@"chat_more_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(20.0f, 20.0f, 20.0f, 20.0f)
                                                                                              resizingMode:UIImageResizingModeStretch];
-             
+            
             
             expressionInputView.userInteractionEnabled = YES;
             [self addSubview:expressionInputView];
@@ -140,6 +145,8 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
     
     return _expressionInputView;
 }
+
+#endif
 
 #pragma mark - private methods
 - (void)_initData
@@ -176,19 +183,12 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
     self.image = [[UIImage imageNamed:@"chat_more_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(20.0f, 20.0f, 20.0f, 20.0f)
                                                                       resizingMode:UIImageResizingModeStretch];
     [self addSubview:self.inputTool];
+#if ANIMATION_SHOW_VIEW
+    
+#else
     self.expressionInputView.frame = CGRectMake(0, self.inputTool.frame.size.height, self.frame.size.width, LTZInputToolBarDefaultKetboardHeight);
     self.moreInputView.frame = CGRectMake(0, self.inputTool.frame.size.height, self.frame.size.width, LTZInputToolBarDefaultKetboardHeight);
-    
-    /*
-     NSMutableArray *Constraints = [NSMutableArray array];
-     
-     [Constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-MARGIN1-[_inputTextView]-MARGIN1-|" options:0 metrics:@{@"MARGIN1":[NSNumber numberWithFloat:DEFAULT_MAGIN_WIDTH]} views:NSDictionaryOfVariableBindings(_inputTextView)]];
-     
-     [Constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-MARGIN1-[_inputTextView]-MARGIN1-|" options:0 metrics:@{@"MARGIN1":[NSNumber numberWithFloat:DEFAULT_MAGIN_HEIGHT]} views:NSDictionaryOfVariableBindings(_inputTextView)]];
-     
-     [self addConstraints:Constraints];
-     */
-    
+#endif
 }
 
 - (void)updateScrollViewCurrentInsetsWithValue:(CGFloat)value
@@ -198,6 +198,71 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
     self.scrollView.contentInset = insets;
     self.scrollView.scrollIndicatorInsets = insets;
 }
+
+#if ANIMATION_SHOW_VIEW
+- (void)showViewAtIndex:(NSUInteger)index
+{
+    CGRect oldFrame = CGRectMake(0, self.frame.size.height, self.frame.size.width, LTZInputToolBarDefaultKetboardHeight);
+    CGRect newFrame = CGRectMake(0, self.inputTool.frame.size.height, self.frame.size.width, LTZInputToolBarDefaultKetboardHeight);
+    
+    void(^animations)() = NULL;
+    void(^completion)(BOOL) = NULL;
+    
+    if (index == 0) {// show the expression view
+        
+        self.expressionInputView = currentExpressionInputView(self, _expressionInputView);
+        self.expressionInputView.frame = oldFrame;
+        
+        animations = ^{
+            
+            self.expressionInputView.frame = newFrame;
+            
+            if (self.moreInputView) {
+                self.moreInputView.frame = oldFrame;
+            }
+            
+        };
+        
+        completion = ^(BOOL finished){
+            
+            [self bringSubviewToFront:self.expressionInputView];
+            
+        };
+        
+    }else{//show the more info view
+        
+        self.moreInputView = currentMoreInputView(self, _moreInputView);
+        self.moreInputView.frame = oldFrame;
+        
+        animations = ^{
+            
+            self.moreInputView.frame = newFrame;
+            
+            if (self.expressionInputView) {
+                self.expressionInputView.frame = oldFrame;
+            }
+            
+        };
+        
+        completion = ^(BOOL finished){
+            
+            [self bringSubviewToFront:self.moreInputView];
+            
+        };
+        
+    }
+    
+    [UIView animateWithDuration:LTZInputToolBarDefaultAnimationDuration
+                          delay:0.0f
+                        options:LTZAnimationOptionsForCurve(LTZInputToolBarDefaultAnimationCurve)
+                     animations:animations
+                     completion:completion];
+    
+}
+
+#else
+
+#endif
 
 #pragma mark - Key-value observing
 
@@ -218,10 +283,17 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
             //  KVO is triggered during panning (see below)
             //  panning occurs in contextView coordinates already
             CGFloat changedHeight = self.originFrame.origin.y - newKeyboardFrame.origin.y;
-            
+#if ANIMATION_SHOW_VIEW
+            if (self.expressionInputView && self.expressionInputView.frame.origin.y != self.frame.size.height) {
+                self.expressionInputView.frame = CGRectMake(0, self.inputTool.frame.size.height, self.frame.size.width, LTZInputToolBarDefaultKetboardHeight);
+            }
+            if (self.moreInputView && self.moreInputView.frame.origin.y != self.frame.size.height) {
+                self.moreInputView.frame = CGRectMake(0, self.inputTool.frame.size.height, self.frame.size.width, LTZInputToolBarDefaultKetboardHeight);
+            }
+#else
             self.expressionInputView.frame = CGRectMake(0, self.inputTool.frame.size.height, self.frame.size.width, LTZInputToolBarDefaultKetboardHeight);
             self.moreInputView.frame = CGRectMake(0, self.inputTool.frame.size.height, self.frame.size.width, LTZInputToolBarDefaultKetboardHeight);
-            
+#endif
             [self updateScrollViewCurrentInsetsWithValue:changedHeight];
         }
     }
@@ -238,11 +310,19 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
 
 - (void)ltzInputToolDidShowExpressionView:(LTZInputTool *)ltzInputTool
 {
+#if ANIMATION_SHOW_VIEW
+    [self showViewAtIndex:0];
+#else
     [self bringSubviewToFront:self.expressionInputView];
+#endif
 }
 - (void)ltzInputToolDidShowMoreInfoView:(LTZInputTool *)ltzInputTool
 {
+#if ANIMATION_SHOW_VIEW
+    [self showViewAtIndex:1];
+#else
     [self bringSubviewToFront:self.moreInputView];
+#endif
 }
 
 - (void)ltzInputToolWillBecomeFirstResponder:(LTZInputTool *)ltzInputTool
@@ -253,6 +333,59 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
 {
 
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - inline methods
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#if ANIMATION_SHOW_VIEW
+static inline LTZMoreInputView *currentMoreInputView(UIView *view,LTZMoreInputView *moreInputView)
+{
+    if (!moreInputView) {
+        moreInputView = ({
+            
+            LTZMoreInputView *MoreInputView = [[LTZMoreInputView alloc] initWithFrame:CGRectMake(0, view.frame.size.height, view.frame.size.width, LTZInputToolBarDefaultKetboardHeight)];
+            
+            MoreInputView.image = [[UIImage imageNamed:@"chat_more_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(20.0f, 20.0f, 20.0f, 20.0f)
+                                                                                       resizingMode:UIImageResizingModeStretch];
+            
+            MoreInputView.userInteractionEnabled = YES;
+            [view addSubview:MoreInputView];
+            MoreInputView;
+        });
+    }
+    
+    return moreInputView;
+}
+
+static inline LTZExpressionInputView *currentExpressionInputView(UIView *view,LTZExpressionInputView *expressionInputView)
+{
+    if (!expressionInputView) {
+        expressionInputView = ({
+            
+            LTZExpressionInputView *ExpressionInputView = [[LTZExpressionInputView alloc] initWithFrame:CGRectMake(0, view.frame.size.height, view.frame.size.width, LTZInputToolBarDefaultKetboardHeight)];
+            
+            ExpressionInputView.image = [[UIImage imageNamed:@"chat_more_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(20.0f, 20.0f, 20.0f, 20.0f)
+                                                                                             resizingMode:UIImageResizingModeStretch];
+            
+            ExpressionInputView.userInteractionEnabled = YES;
+            [view addSubview:ExpressionInputView];
+            ExpressionInputView;
+        });
+    }
+    
+    return expressionInputView;
+}
+
+static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimationCurve curve) {
+    return (curve << 16 | UIViewAnimationOptionBeginFromCurrentState);
+}
+
+#else
+
+#endif
+
+
 
 
 /*

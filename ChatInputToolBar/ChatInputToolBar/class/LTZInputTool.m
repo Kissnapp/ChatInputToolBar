@@ -247,6 +247,12 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
         textView.layer.borderColor = [UIColor colorWithWhite:0.8f alpha:1.0f].CGColor;
         textView.layer.cornerRadius = cornerRadius;
         
+        CGPoint center = textView.center;
+        center.y = self.center.y;
+        textView.center = center;
+        
+        [self addSubview:textView];
+        
         textView;
     });
     
@@ -260,6 +266,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
         [button setTitle:@"松开\t完成" forState:UIControlStateHighlighted];
         [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        [button setHidden:YES];
         [self addSubview:button];
         button;
     });
@@ -283,10 +290,6 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
         [self addSubview:button];
         button;
     });
-    
-    [_recordButton setHidden:YES];
-    
-    [self addSubview:_inputTextView];
     
     [_inputTextView addObserver:self
                     forKeyPath:NSStringFromSelector(@selector(hidden))

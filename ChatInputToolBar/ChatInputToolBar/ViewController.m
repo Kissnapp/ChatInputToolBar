@@ -36,6 +36,9 @@
 {
     self.tableView = ({
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 44.0) style:UITableViewStylePlain];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg.jpg"]];
+        //imageView.frame = CGRectMake(0, 0, tableView.frame.size.width, tableView.frame.size.height);
+        [tableView setBackgroundView:imageView];
         tableView.delegate = self;
         tableView.dataSource = self;
         [self.view addSubview:tableView];
@@ -79,7 +82,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-    
+    cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.text = [NSString stringWithFormat:@"这是第%d个UITableViewCell",indexPath.row];
     
     return cell;

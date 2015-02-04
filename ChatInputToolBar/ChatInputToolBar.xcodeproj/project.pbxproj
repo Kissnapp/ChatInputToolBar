@@ -11,6 +11,7 @@
 		E71854C71A80A636001FBAD7 /* LTZInputToolBarConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = E71854C61A80A636001FBAD7 /* LTZInputToolBarConstraints.m */; };
 		E71854CE1A80AE1E001FBAD7 /* LTZGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E71854CB1A80AE1E001FBAD7 /* LTZGrowingTextView.m */; };
 		E71854CF1A80AE1E001FBAD7 /* LTZTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = E71854CD1A80AE1E001FBAD7 /* LTZTextViewInternal.m */; };
+		E71854E41A822D93001FBAD7 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E71854E31A822D93001FBAD7 /* bg.jpg */; };
 		E73857DE1A68EB20003D864D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E73857DD1A68EB20003D864D /* main.m */; };
 		E73857E11A68EB20003D864D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E73857E01A68EB20003D864D /* AppDelegate.m */; };
 		E73857E41A68EB20003D864D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73857E31A68EB20003D864D /* ViewController.m */; };
@@ -57,6 +58,7 @@
 		E71854CB1A80AE1E001FBAD7 /* LTZGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZGrowingTextView.m; sourceTree = "<group>"; };
 		E71854CC1A80AE1E001FBAD7 /* LTZTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZTextViewInternal.h; sourceTree = "<group>"; };
 		E71854CD1A80AE1E001FBAD7 /* LTZTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZTextViewInternal.m; sourceTree = "<group>"; };
+		E71854E31A822D93001FBAD7 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
 		E73857D81A68EB20003D864D /* ChatInputToolBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatInputToolBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E73857DC1A68EB20003D864D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E73857DD1A68EB20003D864D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				E73857E21A68EB20003D864D /* ViewController.h */,
 				E73857E31A68EB20003D864D /* ViewController.m */,
 				E73857E51A68EB20003D864D /* Main.storyboard */,
+				E71854E31A822D93001FBAD7 /* bg.jpg */,
 				E73857E81A68EB20003D864D /* Images.xcassets */,
 				E73857EA1A68EB20003D864D /* LaunchScreen.xib */,
 				E73857DB1A68EB20003D864D /* Supporting Files */,
@@ -322,6 +325,7 @@
 				E7D92EC71A7A3CF900CE2608 /* chat_record_selected_bg@2x.png in Resources */,
 				E7D92ECE1A7A3CF900CE2608 /* chat_input_keyboard_button@3x.png in Resources */,
 				E7D92ED01A7A3CF900CE2608 /* chat_input_voice_button@3x.png in Resources */,
+				E71854E41A822D93001FBAD7 /* bg.jpg in Resources */,
 				E7D92F1E1A7F650A00CE2608 /* chat_more_bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
