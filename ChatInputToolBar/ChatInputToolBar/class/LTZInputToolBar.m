@@ -69,7 +69,7 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
         _scrollView = scrollView;
         _contextView = contextView;
         _delegate = delegate;
-        //_scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
+        _scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
         self.panGestureRecognizer = panGestureRecognizer;
         
         // Initialization code
@@ -140,12 +140,7 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
     
     return _expressionInputView;
 }
-/*
-- (CGRect)defaultFrame
-{
-    return CGRectMake(self.originFrame.origin.x, self.originFrame.origin.y - LTZInputToolBarDefaultKetboardHeight, self.originFrame.size.width, self.originFrame.size.height);
-}
-*/
+
 #pragma mark - private methods
 - (void)_initData
 {

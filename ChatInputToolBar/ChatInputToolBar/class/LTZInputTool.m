@@ -121,7 +121,9 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
 {
     UIView          *_inView;
     UIScrollView    *_scrollView;
+
 }
+
 @end
 
 @implementation LTZInputTool
