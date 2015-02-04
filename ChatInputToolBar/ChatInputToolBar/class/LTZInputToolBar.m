@@ -199,6 +199,16 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
     self.scrollView.scrollIndicatorInsets = insets;
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+
+}
+
 #if ANIMATION_SHOW_VIEW
 - (void)showViewAtIndex:(NSUInteger)index
 {
