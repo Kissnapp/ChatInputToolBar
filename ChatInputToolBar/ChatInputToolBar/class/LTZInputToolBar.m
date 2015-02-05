@@ -291,7 +291,7 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
             if (self.moreInputView && self.moreInputView.frame.origin.y != self.frame.size.height) {
                 self.moreInputView.frame = CGRectMake(0, self.inputTool.frame.size.height, self.frame.size.width, LTZInputToolBarDefaultKetboardHeight);
             }
-             
+            
 #else
             self.expressionInputView.frame = CGRectMake(0, self.inputTool.frame.size.height, self.frame.size.width, LTZInputToolBarDefaultKetboardHeight);
             self.moreInputView.frame = CGRectMake(0, self.inputTool.frame.size.height, self.frame.size.width, LTZInputToolBarDefaultKetboardHeight);
