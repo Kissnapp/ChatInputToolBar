@@ -65,7 +65,7 @@
 
 - (void)dismissKeyboard
 {
-    [chatBar resignFirstResponder];
+    //[chatBar resignFirstResponder];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
