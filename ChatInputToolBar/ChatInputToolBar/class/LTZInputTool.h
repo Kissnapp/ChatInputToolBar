@@ -40,6 +40,9 @@
 - (BOOL)isFirstResponder;
 - (BOOL)becomeFirstResponder;
 
+- (CGRect)currentFrameWhenRecord;
+- (CGRect)currentFrameWhenInput;
+
 @end
 
 @protocol LTZInputToolDelegate <NSObject>

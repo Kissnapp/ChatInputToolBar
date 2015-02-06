@@ -205,6 +205,20 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
     return [_inputTextView becomeFirstResponder];
 }
 
+- (CGRect)currentFrameWhenRecord
+{
+    CGRect frame = self.frame;
+    frame.size.height = LTZInputToolDefaultHeight;
+    return frame;
+}
+
+- (CGRect)currentFrameWhenInput
+{
+    CGRect frame = self.frame;
+    frame.size.height = LTZInputToolDefaultHeight + (_inputTextView.frame.size.height - _recordButton.frame.size.height);
+    return frame;
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - LTZInputTool object private methods
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
