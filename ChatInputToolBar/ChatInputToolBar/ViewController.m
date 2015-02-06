@@ -56,7 +56,8 @@
                                                            scrollView:self.tableView
                                                                inView:self.view
                                                     gestureRecognizer:self.tableView.panGestureRecognizer
-                                                             delegate:self];
+                                                             delegate:self
+                                          dataSource:self];
     chatBar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     //textView.placeHolder = @"这是测试！";
     //textView.font = [UIFont systemFontOfSize:28];
@@ -86,6 +87,51 @@
     cell.textLabel.text = [NSString stringWithFormat:@"这是第%d个UITableViewCell",indexPath.row];
     
     return cell;
+}
+
+/**
+ *  Called when send a text
+ *
+ *  @param ltzInputTool The input tool
+ */
+- (void)ltzInputTool:(LTZInputTool *)ltzInputTool didSentTextContent:content
+{
+    NSLog(content);
+}
+/**
+ *  when we press the record button
+ */
+- (void)didStartRecordingWithLTZInputTool:(LTZInputTool *)ltzInputTool
+{
+    NSLog(@"didStartRecordingWithLTZInputTool");
+}
+/**
+ *  When we cancel a recording action
+ */
+- (void)didCancelRecordingWithLTZInputTool:(LTZInputTool *)ltzInputTool
+{
+    NSLog(@"didCancelRecordingWithLTZInputTool");
+}
+/**
+ *  When we finish a recording action
+ */
+- (void)didFinishRecordingWithLTZInputTool:(LTZInputTool *)ltzInputTool
+{
+    NSLog(@"didFinishRecordingWithLTZInputTool");
+}
+/**
+ *  This method called when we our finger drag outside the inputTool view during recording action
+ */
+- (void)didDragOutsideWhenRecordingWithLTZInputTool:(LTZInputTool *)ltzInputTool
+{
+    NSLog(@"didDragOutsideWhenRecordingWithLTZInputTool");
+}
+/**
+ *  This method called when we our finger drag inside the inputTool again view during recording action
+ */
+- (void)didDragInsideWhenRecordingWithLTZInputTool:(LTZInputTool *)ltzInputTool
+{
+    NSLog(@"didDragInsideWhenRecordingWithLTZInputTool");
 }
 
 @end

@@ -21,7 +21,7 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
 #pragma mark - LTZInputToolBar
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-@interface LTZInputToolBar ()<UITextViewDelegate, LTZInputToolDelegate>
+@interface LTZInputToolBar ()<UITextViewDelegate, LTZInputToolPrivateDelegate>
 {
     UIView              *_contextView;
     UIScrollView        *_scrollView;
@@ -56,7 +56,7 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
 #pragma mark - public methods
 - (id)initWithFrame:(CGRect)frame
 {
-    return [self initWithFrame:frame scrollView:nil inView:nil gestureRecognizer:nil delegate:nil];
+    return [self initWithFrame:frame scrollView:nil inView:nil gestureRecognizer:nil delegate:nil dataSource:nil];
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -64,6 +64,7 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
              inView:(UIView *)contextView
   gestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer
            delegate:(id<LTZInputToolBarDelegate>)delegate
+         dataSource:(id<LTZInputToolBarDataSource>)dataSource
 {
     frame.size.height = LTZInputToolBarDefaultHeight;
     self = [super initWithFrame:frame];
@@ -71,6 +72,7 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
         _scrollView = scrollView;
         _contextView = contextView;
         _delegate = delegate;
+        _dataSource = dataSource;
         _scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
         self.panGestureRecognizer = panGestureRecognizer;
         
@@ -98,7 +100,8 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
         _inputTool = [[LTZInputTool alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, [LTZInputTool LTZInputToolDefaultHeight])
                                                   inView:self
                                               scrollView:_scrollView
-                                                delegate:self];
+                                        privatedDelegate:self
+                                          publicDelegate:self.delegate];
         [self addSubview:_inputTool];
     }
     
@@ -313,14 +316,8 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark - LTZInputToolDelegate methods
+#pragma mark - LTZInputToolPrivateDelegate methods
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)ltzInputTool:(LTZInputTool *)ltzInputTool didSentTextContent:content
-{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(ltzInputToolBar:didSentTextContent:)]) {
-        [self.delegate ltzInputToolBar:self didSentTextContent:content];
-    }
-}
 
 - (void)ltzInputToolDidShowRecordView:(LTZInputTool *)ltzInputTool
 {

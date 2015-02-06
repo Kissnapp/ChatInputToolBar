@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "LTZGrowingTextView.h"
 
-@protocol LTZInputToolDelegate;
-
+@protocol LTZInputToolPublicDelegate;
+@protocol LTZInputToolPrivateDelegate;
 @interface LTZInputTool : UIImageView<LTZGrowingTextViewDelegate>
 
 @property (strong, nonatomic) LTZGrowingTextView        *inputTextView;
@@ -27,14 +27,16 @@
 @property (assign, nonatomic) BOOL                      isRecordViewShowing;
 @property (assign, nonatomic) BOOL                      isExpressionViewShowing;
 @property (assign, nonatomic) BOOL                      isMoreViewShowing;
-@property (weak, nonatomic) id<LTZInputToolDelegate>    delegate;
+@property (weak, nonatomic) id<LTZInputToolPrivateDelegate>    privateDelegate;
+@property (weak, nonatomic) id<LTZInputToolPublicDelegate>    publicDelegate;
 
 + (CGFloat)LTZInputToolDefaultHeight;
 
 - (instancetype)initWithFrame:(CGRect)frame
                        inView:(UIView *)inView
                    scrollView:(UIScrollView *)scrollView
-                     delegate:(id<LTZInputToolDelegate>)delegate;
+             privatedDelegate:(id<LTZInputToolPrivateDelegate>)privateDelegate
+               publicDelegate:(id<LTZInputToolPublicDelegate>) publicDelegate;
 
 - (BOOL)resignFirstResponder;
 - (BOOL)isFirstResponder;
@@ -45,11 +47,9 @@
 
 @end
 
-@protocol LTZInputToolDelegate <NSObject>
+@protocol LTZInputToolPrivateDelegate <NSObject>
 
 @optional
-
-- (void)ltzInputTool:(LTZInputTool *)ltzInputTool didSentTextContent:content;
 
 - (void)ltzInputToolDidShowRecordView:(LTZInputTool *)ltzInputTool;
 - (void)ltzInputToolDidShowExpressionView:(LTZInputTool *)ltzInputTool;
@@ -58,5 +58,38 @@
 
 - (void)ltzInputToolWillBecomeFirstResponder:(LTZInputTool *)ltzInputTool;
 - (void)ltzInputToolWillResignFirstResponder:(LTZInputTool *)ltzInputTool;
+
+@end
+
+
+@protocol LTZInputToolPublicDelegate <NSObject>
+
+@optional
+/**
+ *  Called when send a text
+ *
+ *  @param ltzInputTool The input tool
+ */
+- (void)ltzInputTool:(LTZInputTool *)ltzInputTool didSentTextContent:content;
+/**
+ *  when we press the record button
+ */
+- (void)didStartRecordingWithLTZInputTool:(LTZInputTool *)ltzInputTool;
+/**
+ *  When we cancel a recording action
+ */
+- (void)didCancelRecordingWithLTZInputTool:(LTZInputTool *)ltzInputTool;
+/**
+ *  When we finish a recording action
+ */
+- (void)didFinishRecordingWithLTZInputTool:(LTZInputTool *)ltzInputTool;
+/**
+ *  This method called when we our finger drag outside the inputTool view during recording action
+ */
+- (void)didDragOutsideWhenRecordingWithLTZInputTool:(LTZInputTool *)ltzInputTool;
+/**
+ *  This method called when we our finger drag inside the inputTool again view during recording action
+ */
+- (void)didDragInsideWhenRecordingWithLTZInputTool:(LTZInputTool *)ltzInputTool;
 
 @end
