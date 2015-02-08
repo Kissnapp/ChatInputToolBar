@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class LTZMoreInputViewItem;
+@class LTZMoreInputItem;
+@class LTZMoreInputItemView;
 
 @protocol LTZMoreInputViewPublicDelegate;
 @protocol LTZMoreInputViewPrivateDelegate;
@@ -31,7 +32,7 @@
 
 @optional
 
-- (void)didSelecteMoreInputViewItem:(LTZMoreInputViewItem *)inputViewItem atIndex:(NSInteger)index;
+- (void)didSelecteMoreInputViewItem:(LTZMoreInputItem *)inputViewItem atIndex:(NSInteger)index;
 
 @end
 
@@ -52,7 +53,7 @@
 
 - (CGFloat)widthOfMoreInputViewItemShowInInLTZMoreInputView:(LTZMoreInputView *)ltzMoreInputView;
 - (CGFloat)heightOfMoreInputViewItemShowInInLTZMoreInputView:(LTZMoreInputView *)ltzMoreInputView;
-- (LTZMoreInputViewItem *)ltzMoreInputView:(LTZMoreInputView *)ltzMoreInputView moreInputViewItemShowAtIndex:(NSUInteger)index;
+- (LTZMoreInputItem *)ltzMoreInputView:(LTZMoreInputView *)ltzMoreInputView moreInputViewItemShowAtIndex:(NSUInteger)index;
 
 @end
 

@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 Peter Lee. All rights reserved.
 //
 
-#import "LTZMoreInputViewItem.h"
+#import "LTZMoreInputItem.h"
 
-@interface LTZMoreInputViewItem ()<NSCopying, NSCoding>
+@interface LTZMoreInputItem ()<NSCopying, NSCoding>
 {
     UIImage *_image;
     NSString *_title;
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation LTZMoreInputViewItem
+@implementation LTZMoreInputItem
 @synthesize image = _image;
 @synthesize title = _title;
 
@@ -43,7 +43,7 @@
 #pragma mark NSCopying Methods
 - (id)copyWithZone:(NSZone *)zone
 {
-    LTZMoreInputViewItem *newObject = [[[self class] allocWithZone:zone] init];
+    LTZMoreInputItem *newObject = [[[self class] allocWithZone:zone] init];
     //Here is a sample for using the NScoding method
     //Add your code here
     [newObject updateWithImage:self.image title:self.title];

@@ -7,6 +7,16 @@
 //
 
 #import "LTZMoreInputView.h"
+#import "LTZMoreInputItem.h"
+#import "LTZMoreInputItemView.h"
+
+@interface LTZMoreInputView ()
+{
+    UIScrollView    *_scrollView;
+    UIPageControl   *_pageControl;
+}
+
+@end
 
 @implementation LTZMoreInputView
 
@@ -20,6 +30,11 @@
         [self addSubview:label];
     }
     return self;
+}
+
+- (void)reloadData
+{
+
 }
                                                                                                                                                                                      
 @end

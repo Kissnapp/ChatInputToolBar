@@ -15,6 +15,7 @@
 		E73857E91A68EB20003D864D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E73857E81A68EB20003D864D /* Images.xcassets */; };
 		E73857EC1A68EB20003D864D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E73857EA1A68EB20003D864D /* LaunchScreen.xib */; };
 		E73857F81A68EB20003D864D /* ChatInputToolBarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E73857F71A68EB20003D864D /* ChatInputToolBarTests.m */; };
+		E7BAAF8A1A87A60A007BF116 /* LTZMoreInputItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BAAF891A87A60A007BF116 /* LTZMoreInputItemView.m */; };
 		E7E401CC1A84ABCC00919234 /* LTZExpressionInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E401B21A84ABCC00919234 /* LTZExpressionInputView.m */; };
 		E7E401CD1A84ABCC00919234 /* LTZGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E401B51A84ABCC00919234 /* LTZGrowingTextView.m */; };
 		E7E401CE1A84ABCC00919234 /* LTZTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E401B71A84ABCC00919234 /* LTZTextViewInternal.m */; };
@@ -46,7 +47,7 @@
 		E7E401FF1A84B62E00919234 /* chat_record_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401E91A84B62E00919234 /* chat_record_bg@3x.png */; };
 		E7E402001A84B62E00919234 /* chat_record_selected_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401EA1A84B62E00919234 /* chat_record_selected_bg@2x.png */; };
 		E7E402011A84B62E00919234 /* chat_record_selected_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401EB1A84B62E00919234 /* chat_record_selected_bg@3x.png */; };
-		E7E402041A84B66800919234 /* LTZMoreInputViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E402031A84B66800919234 /* LTZMoreInputViewItem.m */; };
+		E7E402041A84B66800919234 /* LTZMoreInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E402031A84B66800919234 /* LTZMoreInputItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		E73857F11A68EB20003D864D /* ChatInputToolBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatInputToolBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E73857F61A68EB20003D864D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E73857F71A68EB20003D864D /* ChatInputToolBarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatInputToolBarTests.m; sourceTree = "<group>"; };
+		E7BAAF881A87A60A007BF116 /* LTZMoreInputItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZMoreInputItemView.h; sourceTree = "<group>"; };
+		E7BAAF891A87A60A007BF116 /* LTZMoreInputItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZMoreInputItemView.m; sourceTree = "<group>"; };
 		E7E4013F1A846DAA00919234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		E7E401401A846DAA00919234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		E7E401B11A84ABCC00919234 /* LTZExpressionInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZExpressionInputView.h; sourceTree = "<group>"; };
@@ -118,8 +121,8 @@
 		E7E401E91A84B62E00919234 /* chat_record_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_record_bg@3x.png"; sourceTree = "<group>"; };
 		E7E401EA1A84B62E00919234 /* chat_record_selected_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_record_selected_bg@2x.png"; sourceTree = "<group>"; };
 		E7E401EB1A84B62E00919234 /* chat_record_selected_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_record_selected_bg@3x.png"; sourceTree = "<group>"; };
-		E7E402021A84B66800919234 /* LTZMoreInputViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZMoreInputViewItem.h; sourceTree = "<group>"; };
-		E7E402031A84B66800919234 /* LTZMoreInputViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZMoreInputViewItem.m; sourceTree = "<group>"; };
+		E7E402021A84B66800919234 /* LTZMoreInputItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZMoreInputItem.h; sourceTree = "<group>"; };
+		E7E402031A84B66800919234 /* LTZMoreInputItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZMoreInputItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,8 +292,10 @@
 			children = (
 				E7E401CA1A84ABCC00919234 /* LTZMoreInputView.h */,
 				E7E401CB1A84ABCC00919234 /* LTZMoreInputView.m */,
-				E7E402021A84B66800919234 /* LTZMoreInputViewItem.h */,
-				E7E402031A84B66800919234 /* LTZMoreInputViewItem.m */,
+				E7E402021A84B66800919234 /* LTZMoreInputItem.h */,
+				E7E402031A84B66800919234 /* LTZMoreInputItem.m */,
+				E7BAAF881A87A60A007BF116 /* LTZMoreInputItemView.h */,
+				E7BAAF891A87A60A007BF116 /* LTZMoreInputItemView.m */,
 			);
 			path = LTZMoreInputView;
 			sourceTree = "<group>";
@@ -454,13 +459,14 @@
 				E7E401D21A84ABCC00919234 /* LTZInputToolBarConstraints.m in Sources */,
 				E7E401D01A84ABCC00919234 /* LTZInputTool.m in Sources */,
 				E7E401D31A84ABCC00919234 /* LTZKeyboardController.m in Sources */,
+				E7BAAF8A1A87A60A007BF116 /* LTZMoreInputItemView.m in Sources */,
 				E7E401CC1A84ABCC00919234 /* LTZExpressionInputView.m in Sources */,
 				E73857E41A68EB20003D864D /* ViewController.m in Sources */,
 				E73857E11A68EB20003D864D /* AppDelegate.m in Sources */,
 				E7E401CE1A84ABCC00919234 /* LTZTextViewInternal.m in Sources */,
 				E7E401CD1A84ABCC00919234 /* LTZGrowingTextView.m in Sources */,
 				E73857DE1A68EB20003D864D /* main.m in Sources */,
-				E7E402041A84B66800919234 /* LTZMoreInputViewItem.m in Sources */,
+				E7E402041A84B66800919234 /* LTZMoreInputItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
