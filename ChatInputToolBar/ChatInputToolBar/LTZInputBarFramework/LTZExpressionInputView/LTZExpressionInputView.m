@@ -15,8 +15,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 40)];
-        label.backgroundColor = [UIColor redColor];
-        label.text = @"1.这是表情视图";
+        label.textAlignment = NSTextAlignmentCenter;
+        label.text = NSLocalizedStringFromTable(@"expresssion_test_info_title",@"LTZInputBar", nil);
         [self addSubview:label];
     }
     return self;

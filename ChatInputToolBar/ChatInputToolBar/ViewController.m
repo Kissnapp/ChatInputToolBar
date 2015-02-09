@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "LTZInputToolBar.h"
 
-@interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface ViewController ()<UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource>
 {
     UITapGestureRecognizer *_panGestureRecognizer;
     LTZInputToolBar *chatBar;
@@ -46,6 +46,7 @@
     });
     
     _panGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    _panGestureRecognizer.delegate = self;
     [self.view addGestureRecognizer:_panGestureRecognizer];
 }
 
@@ -66,7 +67,7 @@
 
 - (void)dismissKeyboard
 {
-    //[chatBar resignFirstResponder];
+    [chatBar resignFirstResponder];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -132,6 +133,24 @@
 - (void)didDragInsideWhenRecordingWithLTZInputTool:(LTZInputTool *)ltzInputTool
 {
     NSLog(@"didDragInsideWhenRecordingWithLTZInputTool");
+}
+
+#pragma mark - UIGestureRecognizerDelegate methods
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    // Disallow recognition of tap gestures in the segmented control.
+    
+    CGPoint touchPoint = [touch locationInView:chatBar];
+    
+    if (CGRectContainsPoint(chatBar.frame, touchPoint)) {//change it to your condition
+        return NO;
+    }
+    
+    if ([touch.view isKindOfClass:[UIImageView class]]) {
+        return NO;
+    }
+    
+    return YES;
 }
 
 @end

@@ -12,3 +12,6 @@
 
 "record_button_normal_title" = "press to record";
 "record_button_Highlighted_title" = "press to record";
+
+//test info
+"expresssion_test_info_title" = "This is the expression view here!";
