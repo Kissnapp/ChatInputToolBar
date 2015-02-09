@@ -6,14 +6,19 @@
 //  Copyright (c) 2015年 Peter Lee. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 @interface LTZMoreInputItem : NSObject
 
-@property (nonatomic, strong, readonly) UIImage *image;
-
+@property (nonatomic, strong, readonly) NSString *imageName;
+@property (nonatomic, strong, readonly) NSString *highlightName;
 @property (nonatomic, copy, readonly) NSString *title;
 
-- (instancetype)initWithImage:(UIImage *)image title:(NSString *)title;
-- (void)updateWithImage:(UIImage *)image title:(NSString *)title;
+- (instancetype)initWithImageName:(NSString *)imageName
+                    highlightName:(NSString *)highlightName
+                            title:(NSString *)title;
+
+- (void)updateWithImageName:(NSString *)imageName
+              highlightName:(NSString *)highlightName
+                      title:(NSString *)title;
 @end

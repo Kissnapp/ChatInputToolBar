@@ -7,9 +7,9 @@
 //
 
 #import "ViewController.h"
-#import "LTZInputToolBar.h"
+#import "LTZInputBarFramework/LTZInputBar.h"
 
-@interface ViewController ()<UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface ViewController ()<UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, LTZInputToolBarDataSource>
 {
     UITapGestureRecognizer *_panGestureRecognizer;
     LTZInputToolBar *chatBar;
@@ -135,18 +135,17 @@
     NSLog(@"didDragInsideWhenRecordingWithLTZInputTool");
 }
 
+- (NSUInteger)numberOfItemsShowInLTZMoreInputView:(LTZMoreInputView *)ltzMoreInputView
+{
+    return 20;
+}
+
 #pragma mark - UIGestureRecognizerDelegate methods
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
     // Disallow recognition of tap gestures in the segmented control.
     
-    CGPoint touchPoint = [touch locationInView:chatBar];
-    
-    if (CGRectContainsPoint(chatBar.frame, touchPoint)) {//change it to your condition
-        return NO;
-    }
-    
-    if ([touch.view isKindOfClass:[UIImageView class]]) {
+    if ([touch.view isKindOfClass:[LTZInputTool class]]) {
         return NO;
     }
     

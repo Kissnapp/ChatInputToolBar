@@ -49,6 +49,7 @@
 		E7E402011A84B62E00919234 /* chat_record_selected_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401EB1A84B62E00919234 /* chat_record_selected_bg@3x.png */; };
 		E7E402041A84B66800919234 /* LTZMoreInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E402031A84B66800919234 /* LTZMoreInputItem.m */; };
 		E7E402121A885FC600919234 /* LTZInputBar.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7E402141A885FC600919234 /* LTZInputBar.strings */; };
+		E7E4021E1A88C10F00919234 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E4021D1A88C10F00919234 /* UIColor+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,8 @@
 		E7E402061A885C0A00919234 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		E7E402151A885FCD00919234 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LTZInputBar.strings; sourceTree = "<group>"; };
 		E7E402161A885FD100919234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LTZInputBar.strings"; sourceTree = "<group>"; };
+		E7E4021C1A88C10F00919234 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
+		E7E4021D1A88C10F00919234 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +214,7 @@
 		E7E401AF1A84ABCC00919234 /* LTZInputBarFramework */ = {
 			isa = PBXGroup;
 			children = (
+				E7E4021B1A88C0DC00919234 /* LTZInputBarExtensions */,
 				E7E402071A885E5900919234 /* LTZInputBarLocalString */,
 				E7E401B01A84ABCC00919234 /* LTZExpressionInputView */,
 				E7E401C91A84ABCC00919234 /* LTZMoreInputView */,
@@ -340,6 +344,15 @@
 				E7E402141A885FC600919234 /* LTZInputBar.strings */,
 			);
 			path = LTZInputBarLocalString;
+			sourceTree = "<group>";
+		};
+		E7E4021B1A88C0DC00919234 /* LTZInputBarExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				E7E4021C1A88C10F00919234 /* UIColor+Extension.h */,
+				E7E4021D1A88C10F00919234 /* UIColor+Extension.m */,
+			);
+			path = LTZInputBarExtensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -476,6 +489,7 @@
 				E7BAAF8A1A87A60A007BF116 /* LTZMoreInputItemView.m in Sources */,
 				E7E401CC1A84ABCC00919234 /* LTZExpressionInputView.m in Sources */,
 				E73857E41A68EB20003D864D /* ViewController.m in Sources */,
+				E7E4021E1A88C10F00919234 /* UIColor+Extension.m in Sources */,
 				E73857E11A68EB20003D864D /* AppDelegate.m in Sources */,
 				E7E401CE1A84ABCC00919234 /* LTZTextViewInternal.m in Sources */,
 				E7E401CD1A84ABCC00919234 /* LTZGrowingTextView.m in Sources */,

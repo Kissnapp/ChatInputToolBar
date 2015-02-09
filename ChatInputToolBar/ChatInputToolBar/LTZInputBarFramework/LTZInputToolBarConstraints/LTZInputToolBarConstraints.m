@@ -15,5 +15,5 @@ CGFloat const  LTZInputToolBarDefaultKetboardHeight = 216.0f;
 NSTimeInterval const LTZInputToolBarDefaultAnimationDuration  = 0.25;
 NSInteger const LTZInputToolBarDefaultAnimationCurve = 7;
 
-CGFloat const LTZInputToolBarDefaultMutableViewRows = 2;
-CGFloat const LTZInputToolBarDefaultMutableViewColumns = 4;
+NSInteger const LTZInputToolBarDefaultMutableViewRows = 2;
+NSInteger const LTZInputToolBarDefaultMutableViewColumns = 4;

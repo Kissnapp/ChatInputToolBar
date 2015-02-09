@@ -10,33 +10,41 @@
 
 @interface LTZMoreInputItem ()<NSCopying, NSCoding>
 {
-    UIImage *_image;
+    NSString *_imageName;
+    NSString *_highlightName;
     NSString *_title;
 }
 
 @end
 
 @implementation LTZMoreInputItem
-@synthesize image = _image;
+@synthesize imageName = _imageName;
+@synthesize highlightName = _highlightName;
 @synthesize title = _title;
 
-- (instancetype)initWithImage:(UIImage *)image title:(NSString *)title
+- (instancetype)initWithImageName:(NSString *)imageName
+                    highlightName:(NSString *)highlightName
+                            title:(NSString *)title
 {
     if (self = [super init]) {
-        [self updateWithImage:image title:title];
+        [self updateWithImageName:imageName highlightName:highlightName title:title];
     }
     
     return self;
 }
-- (void)updateWithImage:(UIImage *)image title:(NSString *)title
+- (void)updateWithImageName:(NSString *)imageName
+              highlightName:(NSString *)highlightName
+                      title:(NSString *)title
 {
-    _image = image;
+    _imageName = imageName;
+    _highlightName = highlightName;
     _title = title;
 }
 
 - (void)dealloc
 {
-    _image = nil;
+    _imageName = nil;
+    _highlightName = nil;
     _title = nil;
 }
 
@@ -46,7 +54,7 @@
     LTZMoreInputItem *newObject = [[[self class] allocWithZone:zone] init];
     //Here is a sample for using the NScoding method
     //Add your code here
-    [newObject updateWithImage:self.image title:self.title];
+    [newObject updateWithImageName:self.imageName highlightName:self.highlightName title:self.title];
 
     return newObject;
 }
@@ -57,7 +65,8 @@
 {
     //Here is a sample for using the NScoding method
     //Add your code here
-    [aCoder encodeObject:self.image forKey:@"image"];
+    [aCoder encodeObject:self.imageName forKey:@"imageName"];
+    [aCoder encodeObject:self.highlightName forKey:@"highlightName"];
     [aCoder encodeObject:self.title forKey:@"title"];
 }
 
@@ -66,7 +75,7 @@
     if (self = [super init]) {
         //Here is a sample for using the NScoding method
         //Add your code here
-        [self updateWithImage:[aDecoder decodeObjectForKey:@"image"] title:[aDecoder decodeObjectForKey:@"title"]];
+        [self updateWithImageName:[aDecoder decodeObjectForKey:@"imageName"] highlightName:[aDecoder decodeObjectForKey:@"highlightName"] title:[aDecoder decodeObjectForKey:@"title"]];
     }
     return  self;
 }

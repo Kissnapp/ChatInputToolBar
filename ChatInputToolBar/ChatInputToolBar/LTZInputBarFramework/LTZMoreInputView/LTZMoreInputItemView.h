@@ -8,6 +8,28 @@
 
 #import <UIKit/UIKit.h>
 
+@class LTZMoreInputItem;
+
 @interface LTZMoreInputItemView : UIView
+
+@property (nonatomic, strong, readonly) LTZMoreInputItem *ltzMoreInputItem;
+
+- (instancetype)initWithFrame:(CGRect)frame
+                    imageName:(NSString *)imageName
+                highlightName:(NSString *)highlightName
+                        title:(NSString *)title;
+
+- (instancetype)initWithOriginX:(CGFloat)originX
+                        OriginY:(CGFloat)originY
+                      imageName:(NSString *)imageName
+                  highlightName:(NSString *)highlightName
+                          title:(NSString *)title;
+
+- (instancetype)initWithFrame:(CGRect)frame ltzMoreInputItem:(LTZMoreInputItem *)ltzMoreInputItem;
+- (instancetype)initWithOriginX:(CGFloat)originX
+                        OriginY:(CGFloat)originY
+               ltzMoreInputItem:(LTZMoreInputItem *)ltzMoreInputItem;
+
+- (void)addTag:(NSInteger)tag target:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;
 
 @end

@@ -116,7 +116,9 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
     if (!_moreInputView) {
         _moreInputView = ({
             
-            LTZMoreInputView *moreInputView = [[LTZMoreInputView alloc] initWithFrame:CGRectMake(0, self.frame.size.height, self.frame.size.width, LTZInputToolBarDefaultKetboardHeight)];
+            LTZMoreInputView *moreInputView = [[LTZMoreInputView alloc] initWithFrame:CGRectMake(0, self.frame.size.height, self.frame.size.width, LTZInputToolBarDefaultKetboardHeight) publicDelegate:self.delegate
+                                                                      privateDelegate:self
+                                                                           dataSource:self.dataSource];
             
             moreInputView.image = [[UIImage imageNamed:@"chat_more_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(20.0f, 20.0f, 20.0f, 20.0f)
                                                                                        resizingMode:UIImageResizingModeStretch];
@@ -505,12 +507,14 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #if ANIMATION_SHOW_VIEW
-static inline LTZMoreInputView *currentMoreInputView(UIView *view,LTZMoreInputView *moreInputView)
+static inline LTZMoreInputView *currentMoreInputView(LTZInputToolBar *view,LTZMoreInputView *moreInputView)
 {
     if (!moreInputView) {
         moreInputView = ({
             
-            LTZMoreInputView *MoreInputView = [[LTZMoreInputView alloc] initWithFrame:CGRectMake(0, view.frame.size.height, view.frame.size.width, LTZInputToolBarDefaultKetboardHeight)];
+            LTZMoreInputView *MoreInputView = [[LTZMoreInputView alloc] initWithFrame:CGRectMake(0, view.frame.size.height, view.frame.size.width, LTZInputToolBarDefaultKetboardHeight) publicDelegate:view.delegate
+                                                                      privateDelegate:view
+                                                                           dataSource:view.dataSource];
             
             MoreInputView.image = [[UIImage imageNamed:@"chat_more_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(20.0f, 20.0f, 20.0f, 20.0f)
                                                                                        resizingMode:UIImageResizingModeStretch];
@@ -524,7 +528,7 @@ static inline LTZMoreInputView *currentMoreInputView(UIView *view,LTZMoreInputVi
     return moreInputView;
 }
 
-static inline LTZExpressionInputView *currentExpressionInputView(UIView *view,LTZExpressionInputView *expressionInputView)
+static inline LTZExpressionInputView *currentExpressionInputView(LTZInputToolBar *view,LTZExpressionInputView *expressionInputView)
 {
     if (!expressionInputView) {
         expressionInputView = ({

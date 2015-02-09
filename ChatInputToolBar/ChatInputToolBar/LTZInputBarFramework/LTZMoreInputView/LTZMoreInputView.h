@@ -23,6 +23,11 @@
 
 @property (strong, nonatomic) NSArray *ltzMoreInputViewItems;
 
+- (instancetype)initWithFrame:(CGRect)frame
+               publicDelegate:(id <LTZMoreInputViewPublicDelegate>)publicDelegate
+              privateDelegate:(id <LTZMoreInputViewPrivateDelegate>)privateDelegate
+                   dataSource:(id <LTZMoreInputViewDataSource>) dataSource;
+
 - (void)reloadData;
 
 @end
@@ -32,7 +37,7 @@
 
 @optional
 
-- (void)didSelecteMoreInputViewItem:(LTZMoreInputItem *)inputViewItem atIndex:(NSInteger)index;
+- (void)ltzMoreInputView:(LTZMoreInputView *)ltzMoreInputView didSelecteMoreInputViewItemAtIndex:(NSInteger)index;
 
 @end
 
@@ -46,14 +51,14 @@
 
 @required
 
-- (NSUInteger)numberOfRowsShowInLTZMoreInputView:(LTZMoreInputView *)ltzMoreInputView;
-- (NSUInteger)numberOfColumnsShowInLTZMoreInputView:(LTZMoreInputView *)ltzMoreInputView;
+- (NSUInteger)numberOfItemsShowInLTZMoreInputView:(LTZMoreInputView *)ltzMoreInputView;
 
 @optional
 
-- (CGFloat)widthOfMoreInputViewItemShowInInLTZMoreInputView:(LTZMoreInputView *)ltzMoreInputView;
-- (CGFloat)heightOfMoreInputViewItemShowInInLTZMoreInputView:(LTZMoreInputView *)ltzMoreInputView;
 - (LTZMoreInputItem *)ltzMoreInputView:(LTZMoreInputView *)ltzMoreInputView moreInputViewItemShowAtIndex:(NSUInteger)index;
+- (NSString *)ltzMoreInputView:(LTZMoreInputView *)ltzMoreInputView imageNameShowAtIndex:(NSUInteger)index;
+- (NSString *)ltzMoreInputView:(LTZMoreInputView *)ltzMoreInputView highlightedImageNameShowAtIndex:(NSUInteger)index;
+- (NSString *)ltzMoreInputView:(LTZMoreInputView *)ltzMoreInputView titleShowAtIndex:(NSUInteger)index;
 
 @end
 

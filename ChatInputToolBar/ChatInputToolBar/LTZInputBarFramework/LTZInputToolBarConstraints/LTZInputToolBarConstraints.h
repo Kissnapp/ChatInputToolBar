@@ -18,5 +18,5 @@ UIKIT_EXTERN CGFloat const LTZMoreInputViewItemDefaultHeight;
 FOUNDATION_EXTERN NSTimeInterval const LTZInputToolBarDefaultAnimationDuration;
 FOUNDATION_EXTERN NSInteger const LTZInputToolBarDefaultAnimationCurve;
 
-FOUNDATION_EXTERN CGFloat const LTZInputToolBarDefaultMutableViewRows;
-FOUNDATION_EXTERN CGFloat const LTZInputToolBarDefaultMutableViewColumns;
+FOUNDATION_EXTERN NSInteger const LTZInputToolBarDefaultMutableViewRows;
+FOUNDATION_EXTERN NSInteger const LTZInputToolBarDefaultMutableViewColumns;
