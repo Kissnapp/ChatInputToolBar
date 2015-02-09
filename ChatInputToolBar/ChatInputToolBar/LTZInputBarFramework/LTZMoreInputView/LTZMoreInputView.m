@@ -82,16 +82,23 @@
     
     //Add item views below...
     
+    
     for (NSInteger index = 0; index < _itemCount; ++index) {
+        LTZMoreInputItem *item = nil;
+        LTZMoreInputItemView *itemView = nil;
         if (self.dataSource && [self.dataSource respondsToSelector:@selector(ltzMoreInputView:moreInputViewItemShowAtIndex:)]) {
-            LTZMoreInputItem *item = [self.dataSource ltzMoreInputView:self moreInputViewItemShowAtIndex:index];
-            LTZMoreInputItemView *itemView = [[LTZMoreInputItemView alloc] initWithFrame:<#(CGRect)#> ltzMoreInputItem:item];
-            itemView addTag:index target:self action:@selector(<#selector#>) forControlEvents:<#(UIControlEvents)#>
-            if (_hasMorePage) {
-                
-                [_scrollView addSubview:itemView];
-            }
+            item = [self.dataSource ltzMoreInputView:self moreInputViewItemShowAtIndex:index];
+            itemView = [[LTZMoreInputItemView alloc] initWithOriginX:<#(CGFloat)#> OriginY:<#(CGFloat)#> ltzMoreInputItem:<#(LTZMoreInputItem *)#>];
+            [itemView addTag:index target:self action:@selector(clikedOnButton:) forControlEvents:UIControlEventTouchUpInside];
+        }else{
+            NSString *
         }
+        
+        if (_hasMorePage) {
+            
+            [_scrollView addSubview:itemView];
+        }
+
     }
     
 }
