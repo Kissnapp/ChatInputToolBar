@@ -42,8 +42,6 @@
 
 + (CGFloat)LTZInputToolBarDefaultHeight;
 
-- (CGFloat)currentToolHeight;
-
 /**
  *  init a object with a view which this inputToolBar view will display on
  *
