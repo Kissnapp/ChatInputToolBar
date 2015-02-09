@@ -81,22 +81,42 @@
     [self updateScrollViewAndPageControlWithItemCount:_itemCount];
     
     //Add item views below...
-    
-    
     for (NSInteger index = 0; index < _itemCount; ++index) {
+        
         LTZMoreInputItem *item = nil;
-        LTZMoreInputItemView *itemView = nil;
-        if (self.dataSource && [self.dataSource respondsToSelector:@selector(ltzMoreInputView:moreInputViewItemShowAtIndex:)]) {
+        LTZMoreInputItemView *itemView = nil;//0.This is the view will add on UIScrollView
+        
+        //1.Get the item object form the data source method
+        if ([self.dataSource respondsToSelector:@selector(ltzMoreInputView:moreInputViewItemShowAtIndex:)]) {
+            
             item = [self.dataSource ltzMoreInputView:self moreInputViewItemShowAtIndex:index];
-            itemView = [[LTZMoreInputItemView alloc] initWithOriginX:<#(CGFloat)#> OriginY:<#(CGFloat)#> ltzMoreInputItem:<#(LTZMoreInputItem *)#>];
-            [itemView addTag:index target:self action:@selector(clikedOnButton:) forControlEvents:UIControlEventTouchUpInside];
-        }else{
-            NSString *
+            
+        }else{//2.if we can't get the item object directly, we should make one object form the data source methods
+            NSString *imageName = nil;
+            NSString *highlightName = nil;
+            NSString *title = nil;
+            
+            //3.Get the value we need to make item object
+            if ([self.dataSource respondsToSelector:@selector(ltzMoreInputView:imageNameShowAtIndex:)]) {
+                imageName = [self.dataSource ltzMoreInputView:self imageNameShowAtIndex:index];
+                highlightName = [self.dataSource ltzMoreInputView:self highlightedImageNameShowAtIndex:index];
+                title = [self.dataSource ltzMoreInputView:self titleShowAtIndex:index];
+            }
+            
+            //4.make item object
+            item = [[LTZMoreInputItem alloc] initWithImageName:imageName highlightName:highlightName title:title];
         }
         
-        if (_hasMorePage) {
-            
+        //5.Init the itemView with the item object we have get
+        itemView = [[LTZMoreInputItemView alloc] initWithOriginX:MARGIN_WIDTH OriginY:0.0 ltzMoreInputItem:item];
+        //6.setting the itemView
+        [itemView addTag:index target:self action:@selector(clikedOnButton:) forControlEvents:UIControlEventTouchUpInside];
+        
+        //7.we will add the itemView on the UIScrollView or self directly
+        if (_hasMorePage) {//9.if there is more page views for displaying,we should add this itemView on the UIScrollView
             [_scrollView addSubview:itemView];
+        }else{//9.if there is only one page views for displaying,we should add this itemView on self directly
+            [self addSubview:itemView];
         }
 
     }
@@ -119,6 +139,14 @@
 
 - (void)reloadData
 {
+    //1.If there is a scrollView object ,we should remove all its subviews
+    if (self.scrollView) {
+        [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    }
+    //2.Then,we should remove all self's subviews
+    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
+    //3.Update data source again
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(numberOfItemsShowInLTZMoreInputView:)]) {
         _itemCount = [self.dataSource numberOfItemsShowInLTZMoreInputView:self];
         _hasMorePage = (_itemCount > (LTZInputToolBarDefaultMutableViewRows * LTZInputToolBarDefaultMutableViewColumns)) ? :NO;

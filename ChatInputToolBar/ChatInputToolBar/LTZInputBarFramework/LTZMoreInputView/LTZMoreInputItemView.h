@@ -14,6 +14,9 @@
 
 @property (nonatomic, strong, readonly) LTZMoreInputItem *ltzMoreInputItem;
 
++ (CGFloat) defaultHeight;
++ (CGFloat) defaultWidth;
+
 - (instancetype)initWithFrame:(CGRect)frame
                     imageName:(NSString *)imageName
                 highlightName:(NSString *)highlightName

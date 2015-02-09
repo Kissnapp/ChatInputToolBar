@@ -36,6 +36,15 @@
 @implementation LTZMoreInputItemView
 @synthesize ltzMoreInputItem = _ltzMoreInputItem;
 
++ (CGFloat)defaultHeight
+{
+    return DEFAULT_ITEM_VIEW_HEIGHT;
+}
++ (CGFloat)defaultWidth
+{
+    return DEFAULT_ITEM_VIEW_WIDTH;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame
              ltzMoreInputItem:(LTZMoreInputItem *)ltzMoreInputItem
 {
