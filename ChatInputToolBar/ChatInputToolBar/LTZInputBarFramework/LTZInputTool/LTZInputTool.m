@@ -181,7 +181,11 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
         result = [_inputTextView resignFirstResponder];
     }else{
         [self hideMoreViewOrExpressionView];
-        [self resumeOriginalState];
+        
+        if (self.inputToolCurrentStateType != LTZInputToolStateTypeRecord) {
+            [self resumeOriginalState];
+        }
+
         result = YES;
     }
     

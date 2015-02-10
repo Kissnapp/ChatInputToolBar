@@ -217,52 +217,57 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
         
         self.expressionInputView = currentExpressionInputView(self, _expressionInputView);
         self.expressionInputView.frame = oldFrame;
+        self.expressionInputView.alpha = 0.0;
         
         [self bringSubviewToFront:self.expressionInputView];
-        self.expressionInputView.hidden = NO;
         
         if (self.moreInputView ) {
-            self.moreInputView.hidden = NO;
+            self.moreInputView.alpha = 1.0;
         }
         
         animations = ^{
             
             self.expressionInputView.frame = newFrame;
+            self.expressionInputView.alpha = 1.0;
             
             if (self.moreInputView && CGRectEqualToRect( self.moreInputView.frame , newFrame)) {
                 self.moreInputView.frame = oldFrame;
+                self.moreInputView.alpha = 0.0;
             }
             
         };
         
         completion = ^(BOOL finished){
-            self.moreInputView.hidden = YES;
+            
         };
         
     }else{//show the more info view
         
         self.moreInputView = currentMoreInputView(self, _moreInputView);
         self.moreInputView.frame = oldFrame;
+        self.moreInputView.alpha = 0.0;
         
         [self bringSubviewToFront:self.moreInputView];
-        self.moreInputView.hidden = NO;
         
         if (self.expressionInputView ) {
             self.expressionInputView.hidden = NO;
+            self.expressionInputView.alpha = 1.0;
         }
         
         animations = ^{
             
             self.moreInputView.frame = newFrame;
+            self.moreInputView.alpha = 1.0;
             
             if (self.expressionInputView && CGRectEqualToRect( self.expressionInputView.frame , newFrame)) {
                 self.expressionInputView.frame = oldFrame;
+                self.expressionInputView.alpha = 0.0;
             }
             
         };
         
         completion = ^(BOOL finished){
-            self.expressionInputView.hidden = YES;
+            
         };
         
     }
@@ -343,13 +348,15 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
         if ([ltzInputTool.inputTextView isFirstResponder]) {
             self.expressionInputView = currentExpressionInputView(self, _expressionInputView);
             self.expressionInputView.frame = oldFrame;
+            self.expressionInputView.alpha = 0.0;
+            
             [self bringSubviewToFront:self.expressionInputView];
-            self.expressionInputView.hidden = NO;
-            self.moreInputView.hidden = YES;
+            self.moreInputView.alpha = 0.0;
             
             void(^animations)() = ^{
                 
                 self.expressionInputView.frame = newFrame;
+                self.expressionInputView.alpha = 1.0;
                 
             };
             void(^completion)(BOOL) =^(BOOL finished){
@@ -366,8 +373,8 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
             self.expressionInputView = currentExpressionInputView(self, _expressionInputView);
             self.expressionInputView.frame = newFrame;
             [self bringSubviewToFront:self.expressionInputView];
-            self.expressionInputView.hidden = NO;
-            self.moreInputView.hidden = YES;
+            self.expressionInputView.alpha = 1.0;
+            self.moreInputView.alpha = 0.0;
         }
     }
 #else
@@ -387,12 +394,13 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
             self.moreInputView = currentMoreInputView(self, _moreInputView);
             self.moreInputView.frame = oldFrame;
             [self bringSubviewToFront:self.moreInputView];
-            self.moreInputView.hidden = NO;
-            self.expressionInputView.hidden = YES;
+            self.moreInputView.alpha = 0.0;
+            self.expressionInputView.alpha = 0.0;
             
             void(^animations)() = ^{
                 
                 self.moreInputView.frame = newFrame;
+                self.moreInputView.alpha = 1.0;
                 
             };
             void(^completion)(BOOL) =^(BOOL finished){
@@ -409,8 +417,8 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
             self.moreInputView = currentMoreInputView(self, _moreInputView);
             self.moreInputView.frame = newFrame;
             [self bringSubviewToFront:self.moreInputView];
-            self.expressionInputView.hidden = YES;
-            self.moreInputView.hidden = NO;
+            self.expressionInputView.alpha = 0.0;
+            self.moreInputView.alpha = 1.0;
         }
     }
     
@@ -432,23 +440,25 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
         self.moreInputView = currentMoreInputView(self, _moreInputView);
         self.moreInputView.frame = newFrame;
         [self bringSubviewToFront:self.moreInputView];
-        self.moreInputView.hidden = NO;
+        self.moreInputView.alpha = 1.0;
         
         if (self.expressionInputView) {
-            self.expressionInputView.hidden = YES;
+            self.expressionInputView.alpha = 0.0;
         }
         
         void(^animations)() = ^{
             
             self.moreInputView.frame = oldFrame;
+            self.moreInputView.alpha = 0.0;
             
             if (self.expressionInputView && CGRectEqualToRect( self.expressionInputView.frame , newFrame)) {
                 self.expressionInputView.frame = oldFrame;
+                self.expressionInputView.alpha = 0.0;
             }
             
         };
         void(^completion)(BOOL) =^(BOOL finished){
-            self.moreInputView.hidden = YES;
+            
         };
         
         [UIView animateWithDuration:LTZInputToolBarDefaultAnimationDuration
@@ -462,22 +472,24 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
         self.expressionInputView = currentExpressionInputView(self, _expressionInputView);
         self.expressionInputView.frame = newFrame;
         [self bringSubviewToFront:self.expressionInputView];
-        self.expressionInputView.hidden = NO;
+        self.expressionInputView.alpha = 1.0;
         
         if (self.moreInputView) {
-            self.moreInputView.hidden = YES;
+            self.moreInputView.alpha = 0.0;
         }
         
         void(^animations)() = ^{
             
             self.expressionInputView.frame = oldFrame;
+            self.expressionInputView.alpha = 0.0;
             
             if (self.moreInputView && CGRectEqualToRect( self.moreInputView.frame , newFrame)) {
                 self.moreInputView.frame = oldFrame;
+                self.moreInputView.alpha = 0.0;
             }
         };
         void(^completion)(BOOL) =^(BOOL finished){
-            self.expressionInputView.hidden = YES;
+            
         };
         
         [UIView animateWithDuration:LTZInputToolBarDefaultAnimationDuration
@@ -488,10 +500,12 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
     }else{
         if (self.moreInputView) {
             self.moreInputView.frame = oldFrame;
+            self.moreInputView.alpha = 0.0;
         }
         
         if (self.expressionInputView) {
             self.expressionInputView.frame = oldFrame;
+            self.expressionInputView.alpha = 0.0;
         }
     }
 #else
