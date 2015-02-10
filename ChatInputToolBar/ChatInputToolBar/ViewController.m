@@ -67,7 +67,7 @@
 
 - (void)dismissKeyboard
 {
-    [chatBar resignFirstResponder];
+    //[chatBar resignFirstResponder];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -127,6 +127,11 @@
 {
     NSLog(@"didDragOutsideWhenRecordingWithLTZInputTool");
 }
+
+- (void)ltzMoreInputView:(LTZMoreInputView *)ltzMoreInputView didSelecteMoreInputViewItemAtIndex:(NSInteger)index
+{
+    NSLog(@"you have cliked on:%d",index);
+}
 /**
  *  This method called when we our finger drag inside the inputTool again view during recording action
  */
@@ -135,9 +140,23 @@
     NSLog(@"didDragInsideWhenRecordingWithLTZInputTool");
 }
 
+#pragma mark - LTZInputBarDataSource methods
+
 - (NSUInteger)numberOfItemsShowInLTZMoreInputView:(LTZMoreInputView *)ltzMoreInputView
 {
-    return 20;
+    return 23;
+}
+- (NSString *)ltzMoreInputView:(LTZMoreInputView *)ltzMoreInputView imageNameShowAtIndex:(NSUInteger)index
+{
+    return @"keyboard_add_camera.png";
+}
+- (NSString *)ltzMoreInputView:(LTZMoreInputView *)ltzMoreInputView highlightedImageNameShowAtIndex:(NSUInteger)index
+{
+    return @"keyboard_add_photo.png";
+}
+- (NSString *)ltzMoreInputView:(LTZMoreInputView *)ltzMoreInputView titleShowAtIndex:(NSUInteger)index
+{
+    return @"testtest";
 }
 
 #pragma mark - UIGestureRecognizerDelegate methods

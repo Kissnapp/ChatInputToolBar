@@ -21,7 +21,7 @@
 @property (weak, nonatomic) id <LTZMoreInputViewPrivateDelegate> privateDelegate;
 @property (weak, nonatomic) id <LTZMoreInputViewDataSource> dataSource;
 
-@property (strong, nonatomic) NSArray *ltzMoreInputViewItems;
+//@property (strong, nonatomic) NSArray *ltzMoreInputViewItems;
 
 - (instancetype)initWithFrame:(CGRect)frame
                publicDelegate:(id <LTZMoreInputViewPublicDelegate>)publicDelegate

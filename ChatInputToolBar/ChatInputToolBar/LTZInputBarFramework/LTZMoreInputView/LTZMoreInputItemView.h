@@ -12,7 +12,9 @@
 
 @interface LTZMoreInputItemView : UIView
 
-@property (nonatomic, strong, readonly) LTZMoreInputItem *ltzMoreInputItem;
+@property (nonatomic, strong, readonly) UIButton            *imagebutton;
+@property (nonatomic, strong, readonly) UILabel             *titleLabel;
+@property (nonatomic, strong, readonly) LTZMoreInputItem    *ltzMoreInputItem;
 
 + (CGFloat) defaultHeight;
 + (CGFloat) defaultWidth;

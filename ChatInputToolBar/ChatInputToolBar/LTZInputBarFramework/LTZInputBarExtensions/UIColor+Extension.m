@@ -26,9 +26,9 @@
 {
     NSScanner *scanner = [NSScanner scannerWithString:hexString];
     
-    NSInteger hexNumber;
+    unsigned hexNumber;
     
-    if (![scanner scanInteger:&hexNumber]) return nil;
+    if (![scanner scanHexInt:&hexNumber]) return nil;
     
     return [UIColor colorWithHex:hexNumber];
 }

@@ -515,11 +515,6 @@ static inline LTZMoreInputView *currentMoreInputView(LTZInputToolBar *view,LTZMo
             LTZMoreInputView *MoreInputView = [[LTZMoreInputView alloc] initWithFrame:CGRectMake(0, view.frame.size.height, view.frame.size.width, LTZInputToolBarDefaultKetboardHeight) publicDelegate:view.delegate
                                                                       privateDelegate:view
                                                                            dataSource:view.dataSource];
-            
-            MoreInputView.image = [[UIImage imageNamed:@"chat_more_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(20.0f, 20.0f, 20.0f, 20.0f)
-                                                                                       resizingMode:UIImageResizingModeStretch];
-            
-            MoreInputView.userInteractionEnabled = YES;
             [view addSubview:MoreInputView];
             MoreInputView;
         });

@@ -25,16 +25,16 @@
 
 @interface LTZMoreInputItemView ()
 {
-    LTZMoreInputItem *_ltzMoreInputItem;
+    LTZMoreInputItem    *_ltzMoreInputItem;
+    UIButton            *_imagebutton;
+    UILabel             *_titleLabel;
 }
-
-@property (nonatomic, strong) UIButton  *imagebutton;
-@property (nonatomic, strong) UILabel   *titleLabel;
-
 @end
 
 @implementation LTZMoreInputItemView
 @synthesize ltzMoreInputItem = _ltzMoreInputItem;
+@synthesize imagebutton = _imagebutton;
+@synthesize titleLabel = _titleLabel;
 
 + (CGFloat)defaultHeight
 {
@@ -109,21 +109,21 @@
                   highlightName:(NSString *)highlightName
                           title:(NSString *)title
 {
-    self.imagebutton = [self buttonWithImageName:imageName highlightName:highlightName];
-    self.titleLabel = [self titleLabelWithTitle:title];
+    _imagebutton = [self buttonWithImageName:imageName highlightName:highlightName];
+    _titleLabel = [self titleLabelWithTitle:title];
 }
 
 - (void)addTag:(NSInteger)tag target:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;
 {
     if (!self.imagebutton) return;
-    [self.imagebutton setTag:tag];
-    [self.imagebutton addTarget:target action:action forControlEvents:controlEvents];
+    [_imagebutton setTag:tag];
+    [_imagebutton addTarget:target action:action forControlEvents:controlEvents];
 }
 
 - (UIButton *)buttonWithImageName:(NSString *)imageName highlightName:(NSString *)highlightName
 {
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, DEFAULT_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT)];
-    [btn setImageEdgeInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
+    [btn setImageEdgeInsets:UIEdgeInsetsMake(2, 2, 2, 2)];
     [btn setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     [btn setImage:[UIImage imageNamed:highlightName] forState:UIControlStateHighlighted];
     [self addSubview:btn];
@@ -146,8 +146,8 @@
 
 - (void)dealloc
 {
-    self.imagebutton = nil;
-    self.titleLabel = nil;
+    _imagebutton = nil;
+    _titleLabel = nil;
     _ltzMoreInputItem = nil;
 }
 

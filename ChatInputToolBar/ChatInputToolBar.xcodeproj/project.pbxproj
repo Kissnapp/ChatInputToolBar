@@ -50,6 +50,8 @@
 		E7E402041A84B66800919234 /* LTZMoreInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E402031A84B66800919234 /* LTZMoreInputItem.m */; };
 		E7E402121A885FC600919234 /* LTZInputBar.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7E402141A885FC600919234 /* LTZInputBar.strings */; };
 		E7E4021E1A88C10F00919234 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E4021D1A88C10F00919234 /* UIColor+Extension.m */; };
+		E7E402371A89A3A800919234 /* keyboard_add_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E402351A89A3A800919234 /* keyboard_add_camera@2x.png */; };
+		E7E402381A89A3A800919234 /* keyboard_add_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E402361A89A3A800919234 /* keyboard_add_photo@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +132,8 @@
 		E7E402161A885FD100919234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LTZInputBar.strings"; sourceTree = "<group>"; };
 		E7E4021C1A88C10F00919234 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
 		E7E4021D1A88C10F00919234 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
+		E7E402351A89A3A800919234 /* keyboard_add_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_add_camera@2x.png"; sourceTree = "<group>"; };
+		E7E402361A89A3A800919234 /* keyboard_add_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_add_photo@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,8 @@
 				E73857E01A68EB20003D864D /* AppDelegate.m */,
 				E73857E21A68EB20003D864D /* ViewController.h */,
 				E73857E31A68EB20003D864D /* ViewController.m */,
+				E7E402351A89A3A800919234 /* keyboard_add_camera@2x.png */,
+				E7E402361A89A3A800919234 /* keyboard_add_photo@2x.png */,
 				E73857E51A68EB20003D864D /* Main.storyboard */,
 				E71854E31A822D93001FBAD7 /* bg.jpg */,
 				E73857E81A68EB20003D864D /* Images.xcassets */,
@@ -444,9 +450,11 @@
 				E7E402001A84B62E00919234 /* chat_record_selected_bg@2x.png in Resources */,
 				E73857E71A68EB20003D864D /* Main.storyboard in Resources */,
 				E7E401FD1A84B62E00919234 /* chat_more_bg@2x.png in Resources */,
+				E7E402371A89A3A800919234 /* keyboard_add_camera@2x.png in Resources */,
 				E7E401F11A84B62E00919234 /* chat_input_emo_button@2x.png in Resources */,
 				E7E401F21A84B62E00919234 /* chat_input_emo_button@3x.png in Resources */,
 				E7E401FE1A84B62E00919234 /* chat_record_bg@2x.png in Resources */,
+				E7E402381A89A3A800919234 /* keyboard_add_photo@2x.png in Resources */,
 				E7E401FC1A84B62E00919234 /* chat_input_voice_buttonHL@3x.png in Resources */,
 				E7E401EC1A84B62E00919234 /* chat_input_action_button@2x.png in Resources */,
 				E73857EC1A68EB20003D864D /* LaunchScreen.xib in Resources */,
