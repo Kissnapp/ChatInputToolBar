@@ -6,21 +6,23 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		E7E403D71A8B0DBE00919234 /* UniversalLibrary */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = E7E403D81A8B0DBE00919234 /* Build configuration list for PBXAggregateTarget "UniversalLibrary" */;
+			buildPhases = (
+				E7E403DB1A8B0DD300919234 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = UniversalLibrary;
+			productName = UniversalLibrary;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		E7E402CF1A8AF5F200919234 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E402CE1A8AF5F100919234 /* Foundation.framework */; };
 		E7E402D11A8AF5F900919234 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E402D01A8AF5F900919234 /* UIKit.framework */; };
-		E7E403601A8AF76300919234 /* LTZExpressionInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E403251A8AF76300919234 /* LTZExpressionInputView.m */; };
-		E7E403611A8AF76300919234 /* LTZGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E403281A8AF76300919234 /* LTZGrowingTextView.m */; };
-		E7E403621A8AF76300919234 /* LTZTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E4032A1A8AF76300919234 /* LTZTextViewInternal.m */; };
-		E7E403631A8AF76300919234 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E4032E1A8AF76300919234 /* UIColor+Extension.m */; };
-		E7E403651A8AF76300919234 /* LTZInputTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E403351A8AF76300919234 /* LTZInputTextView.m */; };
-		E7E403661A8AF76300919234 /* LTZInputTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E403381A8AF76300919234 /* LTZInputTool.m */; };
-		E7E403671A8AF76300919234 /* LTZInputToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E4033B1A8AF76300919234 /* LTZInputToolBar.m */; };
-		E7E403681A8AF76300919234 /* LTZInputToolBarConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E4033F1A8AF76300919234 /* LTZInputToolBarConstraints.m */; };
-		E7E403691A8AF76300919234 /* LTZKeyboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E403421A8AF76300919234 /* LTZKeyboardController.m */; };
-		E7E4036A1A8AF76300919234 /* LTZMoreInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E403451A8AF76300919234 /* LTZMoreInputItem.m */; };
-		E7E4036B1A8AF76300919234 /* LTZMoreInputItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E403471A8AF76300919234 /* LTZMoreInputItemView.m */; };
-		E7E4036C1A8AF76300919234 /* LTZMoreInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E403491A8AF76300919234 /* LTZMoreInputView.m */; };
 		E7E403831A8AF79E00919234 /* LTZExpressionInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E403251A8AF76300919234 /* LTZExpressionInputView.m */; };
 		E7E403841A8AF79E00919234 /* LTZGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E403281A8AF76300919234 /* LTZGrowingTextView.m */; };
 		E7E403851A8AF79E00919234 /* LTZTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E4032A1A8AF76300919234 /* LTZTextViewInternal.m */; };
@@ -47,7 +49,6 @@
 		E7E4039B1A8AF7C200919234 /* LTZMoreInputItemView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E7E403461A8AF76300919234 /* LTZMoreInputItemView.h */; };
 		E7E4039C1A8AF7C200919234 /* LTZMoreInputView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E7E403481A8AF76300919234 /* LTZMoreInputView.h */; };
 		E7E403B31A8AF93200919234 /* LTZInputBar.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E7E4032B1A8AF76300919234 /* LTZInputBar.h */; };
-		E7E403CC1A8B031500919234 /* LTZInputBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E7E403CB1A8B031500919234 /* LTZInputBar.bundle */; };
 		E7E403CD1A8B032B00919234 /* LTZInputBar.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = E7E403CB1A8B031500919234 /* LTZInputBar.bundle */; };
 		E7E403D01A8B0B9F00919234 /* UIColor+Extension.m in CopyFiles */ = {isa = PBXBuildFile; fileRef = E7E4032E1A8AF76300919234 /* UIColor+Extension.m */; };
 /* End PBXBuildFile section */
@@ -82,7 +83,6 @@
 
 /* Begin PBXFileReference section */
 		E7E402551A8AF50600919234 /* libInputBar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInputBar.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E7E402601A8AF50600919234 /* InputBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InputBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E402631A8AF50600919234 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7E402CE1A8AF5F100919234 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E7E402D01A8AF5F900919234 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -125,13 +125,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E7E4025D1A8AF50600919234 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -150,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				E7E402551A8AF50600919234 /* libInputBar.a */,
-				E7E402601A8AF50600919234 /* InputBarTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -298,23 +290,6 @@
 			productReference = E7E402551A8AF50600919234 /* libInputBar.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		E7E4025F1A8AF50600919234 /* InputBarTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E7E402691A8AF50600919234 /* Build configuration list for PBXNativeTarget "InputBarTests" */;
-			buildPhases = (
-				E7E4025C1A8AF50600919234 /* Sources */,
-				E7E4025D1A8AF50600919234 /* Frameworks */,
-				E7E4025E1A8AF50600919234 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = InputBarTests;
-			productName = InputBarTests;
-			productReference = E7E402601A8AF50600919234 /* InputBarTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -327,7 +302,7 @@
 					E7E402541A8AF50600919234 = {
 						CreatedOnToolsVersion = 6.0;
 					};
-					E7E4025F1A8AF50600919234 = {
+					E7E403D71A8B0DBE00919234 = {
 						CreatedOnToolsVersion = 6.0;
 					};
 				};
@@ -346,21 +321,26 @@
 			projectRoot = "";
 			targets = (
 				E7E402541A8AF50600919234 /* InputBar */,
-				E7E4025F1A8AF50600919234 /* InputBarTests */,
+				E7E403D71A8B0DBE00919234 /* UniversalLibrary */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		E7E4025E1A8AF50600919234 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* Begin PBXShellScriptBuildPhase section */
+		E7E403DB1A8B0DD300919234 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7E403CC1A8B031500919234 /* LTZInputBar.bundle in Resources */,
+			);
+			inputPaths = (
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# define output folder environment variable\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target ${PROJECT_NAME} ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\nxcodebuild -target ${PROJECT_NAME} -configuration ${CONFIGURATION} -sdk iphonesimulator -arch i386 BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 2. Create universal binary file using lipo\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/lib${PROJECT_NAME}.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/lib${PROJECT_NAME}.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/lib${PROJECT_NAME}.a\"\n\n# Last touch. copy the header files. Just for convenience\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/include\" \"${UNIVERSAL_OUTPUTFOLDER}/\"";
 		};
-/* End PBXResourcesBuildPhase section */
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E7E402511A8AF50600919234 /* Sources */ = {
@@ -379,25 +359,6 @@
 				E7E4038C1A8AF79E00919234 /* LTZMoreInputItem.m in Sources */,
 				E7E4038D1A8AF79E00919234 /* LTZMoreInputItemView.m in Sources */,
 				E7E4038E1A8AF79E00919234 /* LTZMoreInputView.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E7E4025C1A8AF50600919234 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E7E403671A8AF76300919234 /* LTZInputToolBar.m in Sources */,
-				E7E4036C1A8AF76300919234 /* LTZMoreInputView.m in Sources */,
-				E7E4036A1A8AF76300919234 /* LTZMoreInputItem.m in Sources */,
-				E7E403621A8AF76300919234 /* LTZTextViewInternal.m in Sources */,
-				E7E403611A8AF76300919234 /* LTZGrowingTextView.m in Sources */,
-				E7E403601A8AF76300919234 /* LTZExpressionInputView.m in Sources */,
-				E7E403681A8AF76300919234 /* LTZInputToolBarConstraints.m in Sources */,
-				E7E403661A8AF76300919234 /* LTZInputTool.m in Sources */,
-				E7E4036B1A8AF76300919234 /* LTZMoreInputItemView.m in Sources */,
-				E7E403651A8AF76300919234 /* LTZInputTextView.m in Sources */,
-				E7E403631A8AF76300919234 /* UIColor+Extension.m in Sources */,
-				E7E403691A8AF76300919234 /* LTZKeyboardController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,8 +442,10 @@
 		E7E402671A8AF50600919234 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos8.0;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -492,36 +455,21 @@
 			buildSettings = {
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos8.0;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
-		E7E4026A1A8AF50600919234 /* Debug */ = {
+		E7E403D91A8B0DBE00919234 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = InputBarTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		E7E4026B1A8AF50600919234 /* Release */ = {
+		E7E403DA1A8B0DBE00919234 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = InputBarTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -547,14 +495,13 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E7E402691A8AF50600919234 /* Build configuration list for PBXNativeTarget "InputBarTests" */ = {
+		E7E403D81A8B0DBE00919234 /* Build configuration list for PBXAggregateTarget "UniversalLibrary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E7E4026A1A8AF50600919234 /* Debug */,
-				E7E4026B1A8AF50600919234 /* Release */,
+				E7E403D91A8B0DBE00919234 /* Debug */,
+				E7E403DA1A8B0DBE00919234 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
