@@ -1,0 +1,15 @@
+/* 
+  LTZInputBar.strings
+  ChatInputToolBar
+
+  Created by Peter Lee on 15/2/6.
+  Copyright (c) 2015年 Peter Lee. All rights reserved.
+*/
+
+"input_text_view_placeholder" = "说点什么吧...";
+
+"record_button_normal_title" = "按住\t对讲";
+"record_button_Highlighted_title" = "松开\t完成";
+
+//test info
+"expresssion_test_info_title" = "这里未来是表情视图";

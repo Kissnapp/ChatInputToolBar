@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "LTZInputBarFramework/LTZInputBar.h"
+#import "LTZInputBar.h"
 
 @interface ViewController ()<UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, LTZInputToolBarDataSource>
 {
