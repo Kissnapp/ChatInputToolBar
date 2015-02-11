@@ -38,6 +38,8 @@
              privatedDelegate:(id<LTZInputToolPrivateDelegate>)privateDelegate
                publicDelegate:(id<LTZInputToolPublicDelegate>) publicDelegate;
 
+- (void)scrollToBottom;
+
 - (BOOL)resignFirstResponder;
 - (BOOL)isFirstResponder;
 - (BOOL)becomeFirstResponder;

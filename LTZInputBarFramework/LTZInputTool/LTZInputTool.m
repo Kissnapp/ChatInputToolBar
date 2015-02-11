@@ -18,6 +18,9 @@
 #define DEFAULT_TEXT_VIEW_WIDTH (self.frame.size.width - 5*DEFAULT_MAGIN_WIDTH - 3*DEFAULT_BUTTON_WITDH)
 #define DEFAULT_TEXT_VIEW_HEIGHT (self.frame.size.height - 2*DEFAULT_MAGIN_HEIGHT)
 
+#define DEFAULT_RECORD_BUTTON_WIDTH DEFAULT_TEXT_VIEW_WIDTH
+#define DEFAULT_RECORD_BUTTON_HEIGHT self.frame.size.height
+
 static void * LTZInputTextViewHidenKeyValueObservingContext = &LTZInputTextViewHidenKeyValueObservingContext;
 
 typedef NS_ENUM(NSUInteger, LTZInputToolStateType) {
@@ -126,10 +129,10 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
 {
     UIView          *_inView;
     UIScrollView    *_scrollView;
-
 }
 
 @property (assign ,nonatomic) LTZInputToolStateType inputToolCurrentStateType;
+@property (assign, nonatomic) CGFloat SpacingBetweenTextViewAndRecordButton;
 
 @end
 
@@ -262,7 +265,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
         textView.font = [UIFont systemFontOfSize:16.0f];
         textView.delegate = self;
         textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
-        textView.backgroundColor = [UIColor whiteColor];
+        textView.backgroundColor = [UIColor clearColor];
         textView.placeholder = LTZInputBarLocalizedString(@"input_text_view_placeholder");
         textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         
@@ -286,7 +289,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
     
     _recordButton = ({
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(2*DEFAULT_MAGIN_WIDTH + DEFAULT_BUTTON_WITDH, DEFAULT_MAGIN_HEIGHT, DEFAULT_TEXT_VIEW_WIDTH, DEFAULT_TEXT_VIEW_HEIGHT);
+        button.frame = CGRectMake(2*DEFAULT_MAGIN_WIDTH + DEFAULT_BUTTON_WITDH, 0, DEFAULT_RECORD_BUTTON_WIDTH, DEFAULT_RECORD_BUTTON_HEIGHT);
         button.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
         [button setBackgroundImage:[[UIImage imageNamed:LTZInputBarImagePathWithName(@"chat_record_bg")] stretchableImageWithLeftCapWidth:30 topCapHeight:30] forState:UIControlStateNormal];
         [button setBackgroundImage:[[UIImage imageNamed:LTZInputBarImagePathWithName(@"chat_record_selected_bg")] stretchableImageWithLeftCapWidth:30 topCapHeight:30] forState:UIControlStateHighlighted];
@@ -305,9 +308,9 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
         [self addSubview:button];
         button;
     });
-    
+
     //Ensure that _inputView's frame and _recordButton's frame are equal
-    _recordButton.frame = _inputTextView.frame;
+    self.SpacingBetweenTextViewAndRecordButton = _recordButton.frame.size.height - _inputTextView.frame.size.height;
     
     _expressionButton = ({
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -467,9 +470,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
     // end animation action
     [UIView commitAnimations];
     
-    [self.scrollView ltz_scrollToBottomWithOptions:LTZAnimationOptionsForCurve(LTZInputToolBarDefaultAnimationCurve)
-                                          duration:LTZInputToolBarDefaultAnimationDuration
-                                   completionBlock:nil];
+    [self scrollToBottom];
 }
 
 - (void)hideMoreViewOrExpressionView
@@ -491,6 +492,15 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
     // end animation action
     [UIView commitAnimations];
     
+}
+
+- (void)scrollToBottom
+{
+    if (!self.scrollView) return;
+    
+    [self.scrollView ltz_scrollToBottomWithOptions:LTZAnimationOptionsForCurve(LTZInputToolBarDefaultAnimationCurve)
+                                          duration:LTZInputToolBarDefaultAnimationDuration
+                                   completionBlock:nil];
 }
 
 - (void)_initData
@@ -750,7 +760,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
 
 - (void)adjustInViewFrameWithInputViewHiddenState:(BOOL)hidde
 {
-    CGFloat changedHeight = _inputTextView.frame.size.height - _recordButton.frame.size.height;
+    CGFloat changedHeight = (_inputTextView.frame.size.height + self.SpacingBetweenTextViewAndRecordButton) - _recordButton.frame.size.height;
     
     if (changedHeight == 0) return;
     
