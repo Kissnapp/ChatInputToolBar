@@ -10,8 +10,8 @@
 
 "input_text_view_placeholder" = "message...";
 
-"record_button_normal_title" = "press to record";
-"record_button_Highlighted_title" = "press to record";
+"record_button_normal_title" = "Press to record";
+"record_button_Highlighted_title" = "Release to cancel";
 
 //test info
 "expresssion_test_info_title" = "This is the expression view here!";

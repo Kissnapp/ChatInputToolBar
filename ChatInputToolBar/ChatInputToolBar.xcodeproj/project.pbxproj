@@ -17,8 +17,9 @@
 		E73857F81A68EB20003D864D /* ChatInputToolBarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E73857F71A68EB20003D864D /* ChatInputToolBarTests.m */; };
 		E7E402371A89A3A800919234 /* keyboard_add_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E402351A89A3A800919234 /* keyboard_add_camera@2x.png */; };
 		E7E402381A89A3A800919234 /* keyboard_add_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E402361A89A3A800919234 /* keyboard_add_photo@2x.png */; };
-		E7E403C81A8AF98100919234 /* LTZInputBar.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7E403B71A8AF98100919234 /* LTZInputBar.strings */; };
 		E7E403CA1A8AFA0800919234 /* libInputBar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E403C91A8AFA0800919234 /* libInputBar.a */; };
+		E7E403CF1A8B048800919234 /* LTZInputBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E7E403CE1A8B048800919234 /* LTZInputBar.bundle */; };
+		E7E403D21A8B0BCD00919234 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E403D11A8B0BCD00919234 /* UIColor+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +52,6 @@
 		E7E402061A885C0A00919234 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		E7E402351A89A3A800919234 /* keyboard_add_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_add_camera@2x.png"; sourceTree = "<group>"; };
 		E7E402361A89A3A800919234 /* keyboard_add_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_add_photo@2x.png"; sourceTree = "<group>"; };
-		E7E403B81A8AF98100919234 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LTZInputBar.strings; sourceTree = "<group>"; };
 		E7E403B91A8AF98100919234 /* LTZExpressionInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZExpressionInputView.h; sourceTree = "<group>"; };
 		E7E403BA1A8AF98100919234 /* LTZGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZGrowingTextView.h; sourceTree = "<group>"; };
 		E7E403BB1A8AF98100919234 /* LTZInputBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputBar.h; sourceTree = "<group>"; };
@@ -66,8 +66,9 @@
 		E7E403C41A8AF98100919234 /* LTZMoreInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZMoreInputView.h; sourceTree = "<group>"; };
 		E7E403C51A8AF98100919234 /* LTZTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZTextViewInternal.h; sourceTree = "<group>"; };
 		E7E403C61A8AF98100919234 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
-		E7E403C71A8AF98100919234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LTZInputBar.strings"; sourceTree = "<group>"; };
 		E7E403C91A8AFA0800919234 /* libInputBar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libInputBar.a; path = "../../../../../../Library/Developer/Xcode/DerivedData/LTZInputBar-capcvyjfvfambmfrwcamhwzlkxmw/Build/Products/Debug-iphoneos/libInputBar.a"; sourceTree = "<group>"; };
+		E7E403CE1A8B048800919234 /* LTZInputBar.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LTZInputBar.bundle; sourceTree = "<group>"; };
+		E7E403D11A8B0BCD00919234 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +173,7 @@
 		E7E403B61A8AF98100919234 /* InputBar */ = {
 			isa = PBXGroup;
 			children = (
-				E7E403B71A8AF98100919234 /* LTZInputBar.strings */,
+				E7E403CE1A8B048800919234 /* LTZInputBar.bundle */,
 				E7E403B91A8AF98100919234 /* LTZExpressionInputView.h */,
 				E7E403BA1A8AF98100919234 /* LTZGrowingTextView.h */,
 				E7E403BB1A8AF98100919234 /* LTZInputBar.h */,
@@ -187,6 +188,7 @@
 				E7E403C41A8AF98100919234 /* LTZMoreInputView.h */,
 				E7E403C51A8AF98100919234 /* LTZTextViewInternal.h */,
 				E7E403C61A8AF98100919234 /* UIColor+Extension.h */,
+				E7E403D11A8B0BCD00919234 /* UIColor+Extension.m */,
 			);
 			path = InputBar;
 			sourceTree = "<group>";
@@ -273,11 +275,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E73857E71A68EB20003D864D /* Main.storyboard in Resources */,
+				E7E403CF1A8B048800919234 /* LTZInputBar.bundle in Resources */,
 				E7E402371A89A3A800919234 /* keyboard_add_camera@2x.png in Resources */,
 				E7E402381A89A3A800919234 /* keyboard_add_photo@2x.png in Resources */,
 				E73857EC1A68EB20003D864D /* LaunchScreen.xib in Resources */,
 				E73857E91A68EB20003D864D /* Images.xcassets in Resources */,
-				E7E403C81A8AF98100919234 /* LTZInputBar.strings in Resources */,
 				E71854E41A822D93001FBAD7 /* bg.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +301,7 @@
 				E73857E41A68EB20003D864D /* ViewController.m in Sources */,
 				E73857E11A68EB20003D864D /* AppDelegate.m in Sources */,
 				E73857DE1A68EB20003D864D /* main.m in Sources */,
+				E7E403D21A8B0BCD00919234 /* UIColor+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,15 +341,6 @@
 				E7E401401A846DAA00919234 /* zh-Hans */,
 			);
 			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-		E7E403B71A8AF98100919234 /* LTZInputBar.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E7E403B81A8AF98100919234 /* en */,
-				E7E403C71A8AF98100919234 /* zh-Hans */,
-			);
-			name = LTZInputBar.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

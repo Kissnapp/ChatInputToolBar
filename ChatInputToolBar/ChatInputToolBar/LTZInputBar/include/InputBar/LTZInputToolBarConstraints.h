@@ -8,6 +8,20 @@
 
 @import UIKit;
 
+#ifndef LTZInputBarImagePathWithName
+
+#define LTZInputBarImagePathWithName(name) \
+[@"LTZInputBar.bundle/images" stringByAppendingPathComponent:(name)]
+
+#endif
+
+#ifndef LTZInputBarLocalizedString
+
+#define LTZInputBarLocalizedString(key) \
+    NSLocalizedStringFromTableInBundle(key, @"LTZInputBar", [NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"LTZInputBar.bundle/LTZInputBarLocalString"]], nil)
+
+#endif
+
 UIKIT_EXTERN CGFloat const LTZInputToolDefaultHeight;
 UIKIT_EXTERN CGFloat const LTZInputToolBarDefaultHeight;
 UIKIT_EXTERN CGFloat const LTZInputToolBarDefaultKetboardHeight;

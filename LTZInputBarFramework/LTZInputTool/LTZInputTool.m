@@ -233,7 +233,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
 {
     self.userInteractionEnabled = YES;
 #if 1
-    self.image = [[UIImage imageNamed:@"chat_input_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(2.0f, 0.0f, 0.0f, 0.0f)
+    self.image = [[UIImage imageNamed:LTZInputBarImagePathWithName(@"chat_input_bg")] resizableImageWithCapInsets:UIEdgeInsetsMake(2.0f, 0.0f, 0.0f, 0.0f)
                                                                        resizingMode:UIImageResizingModeStretch];
 #else
     self.backgroundColor = [UIColor redColor];//For testing
@@ -242,8 +242,8 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(DEFAULT_MAGIN_WIDTH, DEFAULT_MAGIN_HEIGHT, DEFAULT_BUTTON_WITDH, DEFAULT_BUTTON_HEIGHT);
         button.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-        [button setBackgroundImage:[UIImage imageNamed:@"chat_input_voice_button"] forState:UIControlStateNormal];
-        [button setBackgroundImage:[UIImage imageNamed:@"chat_input_voice_buttonHL"] forState:UIControlStateHighlighted];
+        [button setBackgroundImage:[UIImage imageNamed:LTZInputBarImagePathWithName(@"chat_input_voice_button")] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:LTZInputBarImagePathWithName(@"chat_input_voice_buttonHL")] forState:UIControlStateHighlighted];
         [button addTarget:self action:@selector(voiceButtonCliked:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
         button;
@@ -263,7 +263,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
         textView.delegate = self;
         textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
         textView.backgroundColor = [UIColor whiteColor];
-        textView.placeholder = NSLocalizedStringFromTable(@"input_text_view_placeholder",@"LTZInputBar", nil);
+        textView.placeholder = LTZInputBarLocalizedString(@"input_text_view_placeholder");
         textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         
         // textView.text = @"test\n\ntest";
@@ -288,10 +288,10 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(2*DEFAULT_MAGIN_WIDTH + DEFAULT_BUTTON_WITDH, DEFAULT_MAGIN_HEIGHT, DEFAULT_TEXT_VIEW_WIDTH, DEFAULT_TEXT_VIEW_HEIGHT);
         button.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-        [button setBackgroundImage:[[UIImage imageNamed:@"chat_record_bg"] stretchableImageWithLeftCapWidth:30 topCapHeight:30] forState:UIControlStateNormal];
-        [button setBackgroundImage:[[UIImage imageNamed:@"chat_record_selected_bg"] stretchableImageWithLeftCapWidth:30 topCapHeight:30] forState:UIControlStateHighlighted];
-        [button setTitle:NSLocalizedStringFromTable(@"record_button_normal_title",@"LTZInputBar", nil) forState:UIControlStateNormal];
-        [button setTitle:NSLocalizedStringFromTable(@"record_button_Highlighted_title",@"LTZInputBar", nil) forState:UIControlStateHighlighted];
+        [button setBackgroundImage:[[UIImage imageNamed:LTZInputBarImagePathWithName(@"chat_record_bg")] stretchableImageWithLeftCapWidth:30 topCapHeight:30] forState:UIControlStateNormal];
+        [button setBackgroundImage:[[UIImage imageNamed:LTZInputBarImagePathWithName(@"chat_record_selected_bg")] stretchableImageWithLeftCapWidth:30 topCapHeight:30] forState:UIControlStateHighlighted];
+        [button setTitle:LTZInputBarLocalizedString(@"record_button_normal_title") forState:UIControlStateNormal];
+        [button setTitle:LTZInputBarLocalizedString(@"record_button_Highlighted_title") forState:UIControlStateHighlighted];
         [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         [button setHidden:YES];
@@ -313,8 +313,8 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(3*DEFAULT_MAGIN_WIDTH+DEFAULT_BUTTON_WITDH+DEFAULT_TEXT_VIEW_WIDTH, DEFAULT_MAGIN_HEIGHT, DEFAULT_BUTTON_WITDH, DEFAULT_BUTTON_HEIGHT);
         button.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-        [button setBackgroundImage:[UIImage imageNamed:@"chat_input_emo_button"] forState:UIControlStateNormal];
-        [button setBackgroundImage:[UIImage imageNamed:@"chat_input_emo_buttonHL"] forState:UIControlStateHighlighted];
+        [button setBackgroundImage:[UIImage imageNamed:LTZInputBarImagePathWithName(@"chat_input_emo_button")] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:LTZInputBarImagePathWithName(@"chat_input_emo_buttonHL")] forState:UIControlStateHighlighted];
         [button addTarget:self action:@selector(expressionButtonCliked:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
         button;
@@ -324,8 +324,8 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(4*DEFAULT_MAGIN_WIDTH+2*DEFAULT_BUTTON_WITDH+DEFAULT_TEXT_VIEW_WIDTH, DEFAULT_MAGIN_HEIGHT, DEFAULT_BUTTON_WITDH, DEFAULT_BUTTON_HEIGHT);
         button.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-        [button setBackgroundImage:[UIImage imageNamed:@"chat_input_action_button"] forState:UIControlStateNormal];
-        [button setBackgroundImage:[UIImage imageNamed:@"chat_input_action_buttonHL"] forState:UIControlStateHighlighted];
+        [button setBackgroundImage:[UIImage imageNamed:LTZInputBarImagePathWithName(@"chat_input_action_button")] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:LTZInputBarImagePathWithName(@"chat_input_action_buttonHL")] forState:UIControlStateHighlighted];
         [button addTarget:self action:@selector(moreButtonCliked:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
         button;
@@ -641,23 +641,23 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
 - (void)setIsMoreViewShowing:(BOOL)isMoreViewShowing
 {
     _isMoreViewShowing = isMoreViewShowing;
-    [_moreButton setBackgroundImage:[UIImage imageNamed:(isMoreViewShowing ? @"chat_input_keyboard_button":@"chat_input_action_button")] forState:UIControlStateNormal];
-    [_moreButton setBackgroundImage:[UIImage imageNamed:(isMoreViewShowing ? @"chat_input_keyboard_buttonHL":@"chat_input_action_buttonHL")] forState:UIControlStateHighlighted];
+    [_moreButton setBackgroundImage:[UIImage imageNamed:(isMoreViewShowing ? LTZInputBarImagePathWithName(@"chat_input_keyboard_button"):LTZInputBarImagePathWithName(@"chat_input_action_button"))] forState:UIControlStateNormal];
+    [_moreButton setBackgroundImage:[UIImage imageNamed:(isMoreViewShowing ? LTZInputBarImagePathWithName(@"chat_input_keyboard_buttonHL"):LTZInputBarImagePathWithName(@"chat_input_action_buttonHL"))] forState:UIControlStateHighlighted];
     
 }
 
 - (void)setIsExpressionViewShowing:(BOOL)isExpressionViewShowing
 {
     _isExpressionViewShowing = isExpressionViewShowing;
-    [_expressionButton setBackgroundImage:[UIImage imageNamed:(isExpressionViewShowing ? @"chat_input_keyboard_button":@"chat_input_emo_button")] forState:UIControlStateNormal];
-    [_expressionButton setBackgroundImage:[UIImage imageNamed:(isExpressionViewShowing ? @"chat_input_keyboard_buttonHL":@"chat_input_emo_buttonHL")] forState:UIControlStateHighlighted];
+    [_expressionButton setBackgroundImage:[UIImage imageNamed:(isExpressionViewShowing ? LTZInputBarImagePathWithName(@"chat_input_keyboard_button"):LTZInputBarImagePathWithName(@"chat_input_emo_button"))] forState:UIControlStateNormal];
+    [_expressionButton setBackgroundImage:[UIImage imageNamed:(isExpressionViewShowing ? LTZInputBarImagePathWithName(@"chat_input_keyboard_buttonHL"):LTZInputBarImagePathWithName(@"chat_input_emo_buttonHL"))] forState:UIControlStateHighlighted];
 }
 
 - (void)setIsRecordViewShowing:(BOOL)isRecordViewShowing
 {
     _isRecordViewShowing = isRecordViewShowing;
-    [_voiceButton setBackgroundImage:[UIImage imageNamed:(isRecordViewShowing ? @"chat_input_keyboard_button":@"chat_input_voice_button")] forState:UIControlStateNormal];
-    [_voiceButton setBackgroundImage:[UIImage imageNamed:(isRecordViewShowing ? @"chat_input_keyboard_buttonHL":@"chat_input_voice_buttonHL")] forState:UIControlStateHighlighted];
+    [_voiceButton setBackgroundImage:[UIImage imageNamed:(isRecordViewShowing ? LTZInputBarImagePathWithName(@"chat_input_keyboard_button"):LTZInputBarImagePathWithName(@"chat_input_voice_button"))] forState:UIControlStateNormal];
+    [_voiceButton setBackgroundImage:[UIImage imageNamed:(isRecordViewShowing ? LTZInputBarImagePathWithName(@"chat_input_keyboard_buttonHL"):LTZInputBarImagePathWithName(@"chat_input_voice_buttonHL"))] forState:UIControlStateHighlighted];
     
     [_inputTextView setHidden:isRecordViewShowing];
     [_recordButton setHidden:!isRecordViewShowing];

@@ -77,7 +77,7 @@
 {
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.userInteractionEnabled = YES;
-    self.image = [[UIImage imageNamed:@"chat_more_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(20.0f, 20.0f, 20.0f, 20.0f)
+    self.image = [[UIImage imageNamed:LTZInputBarImagePathWithName(@"chat_more_bg")] resizableImageWithCapInsets:UIEdgeInsetsMake(20.0f, 20.0f, 20.0f, 20.0f)
                                                                       resizingMode:UIImageResizingModeStretch];
     
     [self reloadData];
@@ -217,8 +217,8 @@
             [self addSubview:self.pageControl];
         }
         
-        //调整contentSize大小
-        //调整pageControl的数量
+        //adjust contentSize
+        //set pageControl page number
         self.pageControl.numberOfPages = floor(count / (LTZInputToolBarDefaultMutableViewRows * LTZInputToolBarDefaultMutableViewColumns)) + 1;
         [self.scrollView setContentSize:CGSizeMake(DEFAULT_MORE_INPUT_VIEW * self.pageControl.numberOfPages, DEFAULT_SCROLL_VIEW_HEIGHT)];
 

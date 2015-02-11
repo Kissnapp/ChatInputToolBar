@@ -7,6 +7,7 @@
 //
 
 #import "LTZExpressionInputView.h"
+#import "LTZInputToolBarConstraints.h"
 
 @implementation LTZExpressionInputView
 
@@ -16,7 +17,7 @@
     if (self) {
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 40)];
         label.textAlignment = NSTextAlignmentCenter;
-        label.text = NSLocalizedStringFromTable(@"expresssion_test_info_title",@"LTZInputBar", nil);
+        label.text = LTZInputBarLocalizedString(@"expresssion_test_info_title");
         [self addSubview:label];
     }
     return self;
