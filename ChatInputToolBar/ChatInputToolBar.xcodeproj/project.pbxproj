@@ -15,43 +15,11 @@
 		E73857E91A68EB20003D864D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E73857E81A68EB20003D864D /* Images.xcassets */; };
 		E73857EC1A68EB20003D864D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E73857EA1A68EB20003D864D /* LaunchScreen.xib */; };
 		E73857F81A68EB20003D864D /* ChatInputToolBarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E73857F71A68EB20003D864D /* ChatInputToolBarTests.m */; };
-		E7BAAF8A1A87A60A007BF116 /* LTZMoreInputItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BAAF891A87A60A007BF116 /* LTZMoreInputItemView.m */; };
-		E7E401CC1A84ABCC00919234 /* LTZExpressionInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E401B21A84ABCC00919234 /* LTZExpressionInputView.m */; };
-		E7E401CD1A84ABCC00919234 /* LTZGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E401B51A84ABCC00919234 /* LTZGrowingTextView.m */; };
-		E7E401CE1A84ABCC00919234 /* LTZTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E401B71A84ABCC00919234 /* LTZTextViewInternal.m */; };
-		E7E401CF1A84ABCC00919234 /* LTZInputTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E401BB1A84ABCC00919234 /* LTZInputTextView.m */; };
-		E7E401D01A84ABCC00919234 /* LTZInputTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E401BE1A84ABCC00919234 /* LTZInputTool.m */; };
-		E7E401D11A84ABCC00919234 /* LTZInputToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E401C11A84ABCC00919234 /* LTZInputToolBar.m */; };
-		E7E401D21A84ABCC00919234 /* LTZInputToolBarConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E401C51A84ABCC00919234 /* LTZInputToolBarConstraints.m */; };
-		E7E401D31A84ABCC00919234 /* LTZKeyboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E401C81A84ABCC00919234 /* LTZKeyboardController.m */; };
-		E7E401D41A84ABCC00919234 /* LTZMoreInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E401CB1A84ABCC00919234 /* LTZMoreInputView.m */; };
-		E7E401EC1A84B62E00919234 /* chat_input_action_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401D61A84B62E00919234 /* chat_input_action_button@2x.png */; };
-		E7E401ED1A84B62E00919234 /* chat_input_action_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401D71A84B62E00919234 /* chat_input_action_button@3x.png */; };
-		E7E401EE1A84B62E00919234 /* chat_input_action_buttonHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401D81A84B62E00919234 /* chat_input_action_buttonHL@2x.png */; };
-		E7E401EF1A84B62E00919234 /* chat_input_action_buttonHL@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401D91A84B62E00919234 /* chat_input_action_buttonHL@3x.png */; };
-		E7E401F01A84B62E00919234 /* chat_input_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401DA1A84B62E00919234 /* chat_input_bg@2x.png */; };
-		E7E401F11A84B62E00919234 /* chat_input_emo_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401DB1A84B62E00919234 /* chat_input_emo_button@2x.png */; };
-		E7E401F21A84B62E00919234 /* chat_input_emo_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401DC1A84B62E00919234 /* chat_input_emo_button@3x.png */; };
-		E7E401F31A84B62E00919234 /* chat_input_emo_buttonHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401DD1A84B62E00919234 /* chat_input_emo_buttonHL@2x.png */; };
-		E7E401F41A84B62E00919234 /* chat_input_emo_buttonHL@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401DE1A84B62E00919234 /* chat_input_emo_buttonHL@3x.png */; };
-		E7E401F51A84B62E00919234 /* chat_input_keyboard_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401DF1A84B62E00919234 /* chat_input_keyboard_button@2x.png */; };
-		E7E401F61A84B62E00919234 /* chat_input_keyboard_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401E01A84B62E00919234 /* chat_input_keyboard_button@3x.png */; };
-		E7E401F71A84B62E00919234 /* chat_input_keyboard_buttonHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401E11A84B62E00919234 /* chat_input_keyboard_buttonHL@2x.png */; };
-		E7E401F81A84B62E00919234 /* chat_input_keyboard_buttonHL@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401E21A84B62E00919234 /* chat_input_keyboard_buttonHL@3x.png */; };
-		E7E401F91A84B62E00919234 /* chat_input_voice_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401E31A84B62E00919234 /* chat_input_voice_button@2x.png */; };
-		E7E401FA1A84B62E00919234 /* chat_input_voice_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401E41A84B62E00919234 /* chat_input_voice_button@3x.png */; };
-		E7E401FB1A84B62E00919234 /* chat_input_voice_buttonHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401E51A84B62E00919234 /* chat_input_voice_buttonHL@2x.png */; };
-		E7E401FC1A84B62E00919234 /* chat_input_voice_buttonHL@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401E61A84B62E00919234 /* chat_input_voice_buttonHL@3x.png */; };
-		E7E401FD1A84B62E00919234 /* chat_more_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401E71A84B62E00919234 /* chat_more_bg@2x.png */; };
-		E7E401FE1A84B62E00919234 /* chat_record_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401E81A84B62E00919234 /* chat_record_bg@2x.png */; };
-		E7E401FF1A84B62E00919234 /* chat_record_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401E91A84B62E00919234 /* chat_record_bg@3x.png */; };
-		E7E402001A84B62E00919234 /* chat_record_selected_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401EA1A84B62E00919234 /* chat_record_selected_bg@2x.png */; };
-		E7E402011A84B62E00919234 /* chat_record_selected_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E401EB1A84B62E00919234 /* chat_record_selected_bg@3x.png */; };
-		E7E402041A84B66800919234 /* LTZMoreInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E402031A84B66800919234 /* LTZMoreInputItem.m */; };
-		E7E402121A885FC600919234 /* LTZInputBar.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7E402141A885FC600919234 /* LTZInputBar.strings */; };
-		E7E4021E1A88C10F00919234 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E4021D1A88C10F00919234 /* UIColor+Extension.m */; };
 		E7E402371A89A3A800919234 /* keyboard_add_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E402351A89A3A800919234 /* keyboard_add_camera@2x.png */; };
 		E7E402381A89A3A800919234 /* keyboard_add_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E402361A89A3A800919234 /* keyboard_add_photo@2x.png */; };
+		E7E403CA1A8AFA0800919234 /* libInputBar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E403C91A8AFA0800919234 /* libInputBar.a */; };
+		E7E403CF1A8B048800919234 /* LTZInputBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E7E403CE1A8B048800919234 /* LTZInputBar.bundle */; };
+		E7E403D21A8B0BCD00919234 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E403D11A8B0BCD00919234 /* UIColor+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,61 +47,28 @@
 		E73857F11A68EB20003D864D /* ChatInputToolBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatInputToolBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E73857F61A68EB20003D864D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E73857F71A68EB20003D864D /* ChatInputToolBarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatInputToolBarTests.m; sourceTree = "<group>"; };
-		E7BAAF881A87A60A007BF116 /* LTZMoreInputItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZMoreInputItemView.h; sourceTree = "<group>"; };
-		E7BAAF891A87A60A007BF116 /* LTZMoreInputItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZMoreInputItemView.m; sourceTree = "<group>"; };
 		E7E4013F1A846DAA00919234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		E7E401401A846DAA00919234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		E7E401B11A84ABCC00919234 /* LTZExpressionInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZExpressionInputView.h; sourceTree = "<group>"; };
-		E7E401B21A84ABCC00919234 /* LTZExpressionInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZExpressionInputView.m; sourceTree = "<group>"; };
-		E7E401B41A84ABCC00919234 /* LTZGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZGrowingTextView.h; sourceTree = "<group>"; };
-		E7E401B51A84ABCC00919234 /* LTZGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZGrowingTextView.m; sourceTree = "<group>"; };
-		E7E401B61A84ABCC00919234 /* LTZTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZTextViewInternal.h; sourceTree = "<group>"; };
-		E7E401B71A84ABCC00919234 /* LTZTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZTextViewInternal.m; sourceTree = "<group>"; };
-		E7E401B81A84ABCC00919234 /* LTZInputBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputBar.h; sourceTree = "<group>"; };
-		E7E401BA1A84ABCC00919234 /* LTZInputTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputTextView.h; sourceTree = "<group>"; };
-		E7E401BB1A84ABCC00919234 /* LTZInputTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZInputTextView.m; sourceTree = "<group>"; };
-		E7E401BD1A84ABCC00919234 /* LTZInputTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputTool.h; sourceTree = "<group>"; };
-		E7E401BE1A84ABCC00919234 /* LTZInputTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZInputTool.m; sourceTree = "<group>"; };
-		E7E401C01A84ABCC00919234 /* LTZInputToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputToolBar.h; sourceTree = "<group>"; };
-		E7E401C11A84ABCC00919234 /* LTZInputToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZInputToolBar.m; sourceTree = "<group>"; };
-		E7E401C21A84ABCC00919234 /* LTZInputToolBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputToolBarDelegate.h; sourceTree = "<group>"; };
-		E7E401C41A84ABCC00919234 /* LTZInputToolBarConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputToolBarConstraints.h; sourceTree = "<group>"; };
-		E7E401C51A84ABCC00919234 /* LTZInputToolBarConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZInputToolBarConstraints.m; sourceTree = "<group>"; };
-		E7E401C71A84ABCC00919234 /* LTZKeyboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZKeyboardController.h; sourceTree = "<group>"; };
-		E7E401C81A84ABCC00919234 /* LTZKeyboardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZKeyboardController.m; sourceTree = "<group>"; };
-		E7E401CA1A84ABCC00919234 /* LTZMoreInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZMoreInputView.h; sourceTree = "<group>"; };
-		E7E401CB1A84ABCC00919234 /* LTZMoreInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZMoreInputView.m; sourceTree = "<group>"; };
-		E7E401D61A84B62E00919234 /* chat_input_action_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_input_action_button@2x.png"; sourceTree = "<group>"; };
-		E7E401D71A84B62E00919234 /* chat_input_action_button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_input_action_button@3x.png"; sourceTree = "<group>"; };
-		E7E401D81A84B62E00919234 /* chat_input_action_buttonHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_input_action_buttonHL@2x.png"; sourceTree = "<group>"; };
-		E7E401D91A84B62E00919234 /* chat_input_action_buttonHL@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_input_action_buttonHL@3x.png"; sourceTree = "<group>"; };
-		E7E401DA1A84B62E00919234 /* chat_input_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_input_bg@2x.png"; sourceTree = "<group>"; };
-		E7E401DB1A84B62E00919234 /* chat_input_emo_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_input_emo_button@2x.png"; sourceTree = "<group>"; };
-		E7E401DC1A84B62E00919234 /* chat_input_emo_button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_input_emo_button@3x.png"; sourceTree = "<group>"; };
-		E7E401DD1A84B62E00919234 /* chat_input_emo_buttonHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_input_emo_buttonHL@2x.png"; sourceTree = "<group>"; };
-		E7E401DE1A84B62E00919234 /* chat_input_emo_buttonHL@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_input_emo_buttonHL@3x.png"; sourceTree = "<group>"; };
-		E7E401DF1A84B62E00919234 /* chat_input_keyboard_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_input_keyboard_button@2x.png"; sourceTree = "<group>"; };
-		E7E401E01A84B62E00919234 /* chat_input_keyboard_button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_input_keyboard_button@3x.png"; sourceTree = "<group>"; };
-		E7E401E11A84B62E00919234 /* chat_input_keyboard_buttonHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_input_keyboard_buttonHL@2x.png"; sourceTree = "<group>"; };
-		E7E401E21A84B62E00919234 /* chat_input_keyboard_buttonHL@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_input_keyboard_buttonHL@3x.png"; sourceTree = "<group>"; };
-		E7E401E31A84B62E00919234 /* chat_input_voice_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_input_voice_button@2x.png"; sourceTree = "<group>"; };
-		E7E401E41A84B62E00919234 /* chat_input_voice_button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_input_voice_button@3x.png"; sourceTree = "<group>"; };
-		E7E401E51A84B62E00919234 /* chat_input_voice_buttonHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_input_voice_buttonHL@2x.png"; sourceTree = "<group>"; };
-		E7E401E61A84B62E00919234 /* chat_input_voice_buttonHL@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_input_voice_buttonHL@3x.png"; sourceTree = "<group>"; };
-		E7E401E71A84B62E00919234 /* chat_more_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_more_bg@2x.png"; sourceTree = "<group>"; };
-		E7E401E81A84B62E00919234 /* chat_record_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_record_bg@2x.png"; sourceTree = "<group>"; };
-		E7E401E91A84B62E00919234 /* chat_record_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_record_bg@3x.png"; sourceTree = "<group>"; };
-		E7E401EA1A84B62E00919234 /* chat_record_selected_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_record_selected_bg@2x.png"; sourceTree = "<group>"; };
-		E7E401EB1A84B62E00919234 /* chat_record_selected_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_record_selected_bg@3x.png"; sourceTree = "<group>"; };
-		E7E402021A84B66800919234 /* LTZMoreInputItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZMoreInputItem.h; sourceTree = "<group>"; };
-		E7E402031A84B66800919234 /* LTZMoreInputItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTZMoreInputItem.m; sourceTree = "<group>"; };
 		E7E402061A885C0A00919234 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		E7E402151A885FCD00919234 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LTZInputBar.strings; sourceTree = "<group>"; };
-		E7E402161A885FD100919234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LTZInputBar.strings"; sourceTree = "<group>"; };
-		E7E4021C1A88C10F00919234 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
-		E7E4021D1A88C10F00919234 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
 		E7E402351A89A3A800919234 /* keyboard_add_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_add_camera@2x.png"; sourceTree = "<group>"; };
 		E7E402361A89A3A800919234 /* keyboard_add_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_add_photo@2x.png"; sourceTree = "<group>"; };
+		E7E403B91A8AF98100919234 /* LTZExpressionInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZExpressionInputView.h; sourceTree = "<group>"; };
+		E7E403BA1A8AF98100919234 /* LTZGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZGrowingTextView.h; sourceTree = "<group>"; };
+		E7E403BB1A8AF98100919234 /* LTZInputBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputBar.h; sourceTree = "<group>"; };
+		E7E403BC1A8AF98100919234 /* LTZInputTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputTextView.h; sourceTree = "<group>"; };
+		E7E403BD1A8AF98100919234 /* LTZInputTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputTool.h; sourceTree = "<group>"; };
+		E7E403BE1A8AF98100919234 /* LTZInputToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputToolBar.h; sourceTree = "<group>"; };
+		E7E403BF1A8AF98100919234 /* LTZInputToolBarConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputToolBarConstraints.h; sourceTree = "<group>"; };
+		E7E403C01A8AF98100919234 /* LTZInputToolBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputToolBarDelegate.h; sourceTree = "<group>"; };
+		E7E403C11A8AF98100919234 /* LTZKeyboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZKeyboardController.h; sourceTree = "<group>"; };
+		E7E403C21A8AF98100919234 /* LTZMoreInputItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZMoreInputItem.h; sourceTree = "<group>"; };
+		E7E403C31A8AF98100919234 /* LTZMoreInputItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZMoreInputItemView.h; sourceTree = "<group>"; };
+		E7E403C41A8AF98100919234 /* LTZMoreInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZMoreInputView.h; sourceTree = "<group>"; };
+		E7E403C51A8AF98100919234 /* LTZTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZTextViewInternal.h; sourceTree = "<group>"; };
+		E7E403C61A8AF98100919234 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
+		E7E403C91A8AFA0800919234 /* libInputBar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libInputBar.a; path = "../../../../../../Library/Developer/Xcode/DerivedData/LTZInputBar-capcvyjfvfambmfrwcamhwzlkxmw/Build/Products/Debug-iphoneos/libInputBar.a"; sourceTree = "<group>"; };
+		E7E403CE1A8B048800919234 /* LTZInputBar.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LTZInputBar.bundle; sourceTree = "<group>"; };
+		E7E403D11A8B0BCD00919234 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7E403CA1A8AFA0800919234 /* libInputBar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,7 +111,7 @@
 		E73857DA1A68EB20003D864D /* ChatInputToolBar */ = {
 			isa = PBXGroup;
 			children = (
-				E7E401AF1A84ABCC00919234 /* LTZInputBarFramework */,
+				E7E4039D1A8AF85100919234 /* LTZInputBar */,
 				E73857DF1A68EB20003D864D /* AppDelegate.h */,
 				E73857E01A68EB20003D864D /* AppDelegate.m */,
 				E73857E21A68EB20003D864D /* ViewController.h */,
@@ -217,148 +153,44 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E7E401AF1A84ABCC00919234 /* LTZInputBarFramework */ = {
+		E7E4039D1A8AF85100919234 /* LTZInputBar */ = {
 			isa = PBXGroup;
 			children = (
-				E7E4021B1A88C0DC00919234 /* LTZInputBarExtensions */,
-				E7E402071A885E5900919234 /* LTZInputBarLocalString */,
-				E7E401B01A84ABCC00919234 /* LTZExpressionInputView */,
-				E7E401C91A84ABCC00919234 /* LTZMoreInputView */,
-				E7E401B31A84ABCC00919234 /* LTZGrowingTextView */,
-				E7E401B91A84ABCC00919234 /* LTZInputTextView */,
-				E7E401BC1A84ABCC00919234 /* LTZInputTool */,
-				E7E401BF1A84ABCC00919234 /* LTZInputToolBar */,
-				E7E401C31A84ABCC00919234 /* LTZInputToolBarConstraints */,
-				E7E401C61A84ABCC00919234 /* LTZKeyboardController */,
-				E7E401D51A84B62E00919234 /* images */,
-				E7E401B81A84ABCC00919234 /* LTZInputBar.h */,
+				E7E403B51A8AF98100919234 /* include */,
+				E7E403C91A8AFA0800919234 /* libInputBar.a */,
 			);
-			path = LTZInputBarFramework;
+			path = LTZInputBar;
 			sourceTree = "<group>";
 		};
-		E7E401B01A84ABCC00919234 /* LTZExpressionInputView */ = {
+		E7E403B51A8AF98100919234 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				E7E401B11A84ABCC00919234 /* LTZExpressionInputView.h */,
-				E7E401B21A84ABCC00919234 /* LTZExpressionInputView.m */,
+				E7E403B61A8AF98100919234 /* InputBar */,
 			);
-			path = LTZExpressionInputView;
+			path = include;
 			sourceTree = "<group>";
 		};
-		E7E401B31A84ABCC00919234 /* LTZGrowingTextView */ = {
+		E7E403B61A8AF98100919234 /* InputBar */ = {
 			isa = PBXGroup;
 			children = (
-				E7E401B41A84ABCC00919234 /* LTZGrowingTextView.h */,
-				E7E401B51A84ABCC00919234 /* LTZGrowingTextView.m */,
-				E7E401B61A84ABCC00919234 /* LTZTextViewInternal.h */,
-				E7E401B71A84ABCC00919234 /* LTZTextViewInternal.m */,
+				E7E403CE1A8B048800919234 /* LTZInputBar.bundle */,
+				E7E403B91A8AF98100919234 /* LTZExpressionInputView.h */,
+				E7E403BA1A8AF98100919234 /* LTZGrowingTextView.h */,
+				E7E403BB1A8AF98100919234 /* LTZInputBar.h */,
+				E7E403BC1A8AF98100919234 /* LTZInputTextView.h */,
+				E7E403BD1A8AF98100919234 /* LTZInputTool.h */,
+				E7E403BE1A8AF98100919234 /* LTZInputToolBar.h */,
+				E7E403BF1A8AF98100919234 /* LTZInputToolBarConstraints.h */,
+				E7E403C01A8AF98100919234 /* LTZInputToolBarDelegate.h */,
+				E7E403C11A8AF98100919234 /* LTZKeyboardController.h */,
+				E7E403C21A8AF98100919234 /* LTZMoreInputItem.h */,
+				E7E403C31A8AF98100919234 /* LTZMoreInputItemView.h */,
+				E7E403C41A8AF98100919234 /* LTZMoreInputView.h */,
+				E7E403C51A8AF98100919234 /* LTZTextViewInternal.h */,
+				E7E403C61A8AF98100919234 /* UIColor+Extension.h */,
+				E7E403D11A8B0BCD00919234 /* UIColor+Extension.m */,
 			);
-			path = LTZGrowingTextView;
-			sourceTree = "<group>";
-		};
-		E7E401B91A84ABCC00919234 /* LTZInputTextView */ = {
-			isa = PBXGroup;
-			children = (
-				E7E401BA1A84ABCC00919234 /* LTZInputTextView.h */,
-				E7E401BB1A84ABCC00919234 /* LTZInputTextView.m */,
-			);
-			path = LTZInputTextView;
-			sourceTree = "<group>";
-		};
-		E7E401BC1A84ABCC00919234 /* LTZInputTool */ = {
-			isa = PBXGroup;
-			children = (
-				E7E401BD1A84ABCC00919234 /* LTZInputTool.h */,
-				E7E401BE1A84ABCC00919234 /* LTZInputTool.m */,
-			);
-			path = LTZInputTool;
-			sourceTree = "<group>";
-		};
-		E7E401BF1A84ABCC00919234 /* LTZInputToolBar */ = {
-			isa = PBXGroup;
-			children = (
-				E7E401C01A84ABCC00919234 /* LTZInputToolBar.h */,
-				E7E401C11A84ABCC00919234 /* LTZInputToolBar.m */,
-				E7E401C21A84ABCC00919234 /* LTZInputToolBarDelegate.h */,
-			);
-			path = LTZInputToolBar;
-			sourceTree = "<group>";
-		};
-		E7E401C31A84ABCC00919234 /* LTZInputToolBarConstraints */ = {
-			isa = PBXGroup;
-			children = (
-				E7E401C41A84ABCC00919234 /* LTZInputToolBarConstraints.h */,
-				E7E401C51A84ABCC00919234 /* LTZInputToolBarConstraints.m */,
-			);
-			path = LTZInputToolBarConstraints;
-			sourceTree = "<group>";
-		};
-		E7E401C61A84ABCC00919234 /* LTZKeyboardController */ = {
-			isa = PBXGroup;
-			children = (
-				E7E401C71A84ABCC00919234 /* LTZKeyboardController.h */,
-				E7E401C81A84ABCC00919234 /* LTZKeyboardController.m */,
-			);
-			path = LTZKeyboardController;
-			sourceTree = "<group>";
-		};
-		E7E401C91A84ABCC00919234 /* LTZMoreInputView */ = {
-			isa = PBXGroup;
-			children = (
-				E7E401CA1A84ABCC00919234 /* LTZMoreInputView.h */,
-				E7E401CB1A84ABCC00919234 /* LTZMoreInputView.m */,
-				E7E402021A84B66800919234 /* LTZMoreInputItem.h */,
-				E7E402031A84B66800919234 /* LTZMoreInputItem.m */,
-				E7BAAF881A87A60A007BF116 /* LTZMoreInputItemView.h */,
-				E7BAAF891A87A60A007BF116 /* LTZMoreInputItemView.m */,
-			);
-			path = LTZMoreInputView;
-			sourceTree = "<group>";
-		};
-		E7E401D51A84B62E00919234 /* images */ = {
-			isa = PBXGroup;
-			children = (
-				E7E401D61A84B62E00919234 /* chat_input_action_button@2x.png */,
-				E7E401D71A84B62E00919234 /* chat_input_action_button@3x.png */,
-				E7E401D81A84B62E00919234 /* chat_input_action_buttonHL@2x.png */,
-				E7E401D91A84B62E00919234 /* chat_input_action_buttonHL@3x.png */,
-				E7E401DA1A84B62E00919234 /* chat_input_bg@2x.png */,
-				E7E401DB1A84B62E00919234 /* chat_input_emo_button@2x.png */,
-				E7E401DC1A84B62E00919234 /* chat_input_emo_button@3x.png */,
-				E7E401DD1A84B62E00919234 /* chat_input_emo_buttonHL@2x.png */,
-				E7E401DE1A84B62E00919234 /* chat_input_emo_buttonHL@3x.png */,
-				E7E401DF1A84B62E00919234 /* chat_input_keyboard_button@2x.png */,
-				E7E401E01A84B62E00919234 /* chat_input_keyboard_button@3x.png */,
-				E7E401E11A84B62E00919234 /* chat_input_keyboard_buttonHL@2x.png */,
-				E7E401E21A84B62E00919234 /* chat_input_keyboard_buttonHL@3x.png */,
-				E7E401E31A84B62E00919234 /* chat_input_voice_button@2x.png */,
-				E7E401E41A84B62E00919234 /* chat_input_voice_button@3x.png */,
-				E7E401E51A84B62E00919234 /* chat_input_voice_buttonHL@2x.png */,
-				E7E401E61A84B62E00919234 /* chat_input_voice_buttonHL@3x.png */,
-				E7E401E71A84B62E00919234 /* chat_more_bg@2x.png */,
-				E7E401E81A84B62E00919234 /* chat_record_bg@2x.png */,
-				E7E401E91A84B62E00919234 /* chat_record_bg@3x.png */,
-				E7E401EA1A84B62E00919234 /* chat_record_selected_bg@2x.png */,
-				E7E401EB1A84B62E00919234 /* chat_record_selected_bg@3x.png */,
-			);
-			path = images;
-			sourceTree = "<group>";
-		};
-		E7E402071A885E5900919234 /* LTZInputBarLocalString */ = {
-			isa = PBXGroup;
-			children = (
-				E7E402141A885FC600919234 /* LTZInputBar.strings */,
-			);
-			path = LTZInputBarLocalString;
-			sourceTree = "<group>";
-		};
-		E7E4021B1A88C0DC00919234 /* LTZInputBarExtensions */ = {
-			isa = PBXGroup;
-			children = (
-				E7E4021C1A88C10F00919234 /* UIColor+Extension.h */,
-				E7E4021D1A88C10F00919234 /* UIColor+Extension.m */,
-			);
-			path = LTZInputBarExtensions;
+			path = InputBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -442,34 +274,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7E401EE1A84B62E00919234 /* chat_input_action_buttonHL@2x.png in Resources */,
-				E7E401FF1A84B62E00919234 /* chat_record_bg@3x.png in Resources */,
-				E7E402121A885FC600919234 /* LTZInputBar.strings in Resources */,
-				E7E401ED1A84B62E00919234 /* chat_input_action_button@3x.png in Resources */,
-				E7E401F61A84B62E00919234 /* chat_input_keyboard_button@3x.png in Resources */,
-				E7E402001A84B62E00919234 /* chat_record_selected_bg@2x.png in Resources */,
 				E73857E71A68EB20003D864D /* Main.storyboard in Resources */,
-				E7E401FD1A84B62E00919234 /* chat_more_bg@2x.png in Resources */,
+				E7E403CF1A8B048800919234 /* LTZInputBar.bundle in Resources */,
 				E7E402371A89A3A800919234 /* keyboard_add_camera@2x.png in Resources */,
-				E7E401F11A84B62E00919234 /* chat_input_emo_button@2x.png in Resources */,
-				E7E401F21A84B62E00919234 /* chat_input_emo_button@3x.png in Resources */,
-				E7E401FE1A84B62E00919234 /* chat_record_bg@2x.png in Resources */,
 				E7E402381A89A3A800919234 /* keyboard_add_photo@2x.png in Resources */,
-				E7E401FC1A84B62E00919234 /* chat_input_voice_buttonHL@3x.png in Resources */,
-				E7E401EC1A84B62E00919234 /* chat_input_action_button@2x.png in Resources */,
 				E73857EC1A68EB20003D864D /* LaunchScreen.xib in Resources */,
-				E7E401F91A84B62E00919234 /* chat_input_voice_button@2x.png in Resources */,
-				E7E401F01A84B62E00919234 /* chat_input_bg@2x.png in Resources */,
-				E7E401F41A84B62E00919234 /* chat_input_emo_buttonHL@3x.png in Resources */,
 				E73857E91A68EB20003D864D /* Images.xcassets in Resources */,
-				E7E401FB1A84B62E00919234 /* chat_input_voice_buttonHL@2x.png in Resources */,
-				E7E402011A84B62E00919234 /* chat_record_selected_bg@3x.png in Resources */,
-				E7E401F51A84B62E00919234 /* chat_input_keyboard_button@2x.png in Resources */,
-				E7E401F31A84B62E00919234 /* chat_input_emo_buttonHL@2x.png in Resources */,
-				E7E401F81A84B62E00919234 /* chat_input_keyboard_buttonHL@3x.png in Resources */,
-				E7E401FA1A84B62E00919234 /* chat_input_voice_button@3x.png in Resources */,
-				E7E401EF1A84B62E00919234 /* chat_input_action_buttonHL@3x.png in Resources */,
-				E7E401F71A84B62E00919234 /* chat_input_keyboard_buttonHL@2x.png in Resources */,
 				E71854E41A822D93001FBAD7 /* bg.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,21 +298,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7E401D11A84ABCC00919234 /* LTZInputToolBar.m in Sources */,
-				E7E401D41A84ABCC00919234 /* LTZMoreInputView.m in Sources */,
-				E7E401CF1A84ABCC00919234 /* LTZInputTextView.m in Sources */,
-				E7E401D21A84ABCC00919234 /* LTZInputToolBarConstraints.m in Sources */,
-				E7E401D01A84ABCC00919234 /* LTZInputTool.m in Sources */,
-				E7E401D31A84ABCC00919234 /* LTZKeyboardController.m in Sources */,
-				E7BAAF8A1A87A60A007BF116 /* LTZMoreInputItemView.m in Sources */,
-				E7E401CC1A84ABCC00919234 /* LTZExpressionInputView.m in Sources */,
 				E73857E41A68EB20003D864D /* ViewController.m in Sources */,
-				E7E4021E1A88C10F00919234 /* UIColor+Extension.m in Sources */,
 				E73857E11A68EB20003D864D /* AppDelegate.m in Sources */,
-				E7E401CE1A84ABCC00919234 /* LTZTextViewInternal.m in Sources */,
-				E7E401CD1A84ABCC00919234 /* LTZGrowingTextView.m in Sources */,
 				E73857DE1A68EB20003D864D /* main.m in Sources */,
-				E7E402041A84B66800919234 /* LTZMoreInputItem.m in Sources */,
+				E7E403D21A8B0BCD00919234 /* UIColor+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,15 +341,6 @@
 				E7E401401A846DAA00919234 /* zh-Hans */,
 			);
 			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-		E7E402141A885FC600919234 /* LTZInputBar.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E7E402151A885FCD00919234 /* en */,
-				E7E402161A885FD100919234 /* zh-Hans */,
-			);
-			name = LTZInputBar.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -636,9 +426,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/ChatInputToolBar/LTZInputBar/include/InputBar",
+				);
 				INFOPLIST_FILE = ChatInputToolBar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/PeterLee/Documents/项目工程/ChatInputToolBar/InputBar/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/ChatInputToolBar/LTZInputBar",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/LTZInputBar-capcvyjfvfambmfrwcamhwzlkxmw/Build/Products/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -647,9 +448,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/ChatInputToolBar/LTZInputBar/include/InputBar",
+				);
 				INFOPLIST_FILE = ChatInputToolBar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/PeterLee/Documents/项目工程/ChatInputToolBar/InputBar/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/ChatInputToolBar/LTZInputBar",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/LTZInputBar-capcvyjfvfambmfrwcamhwzlkxmw/Build/Products/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
