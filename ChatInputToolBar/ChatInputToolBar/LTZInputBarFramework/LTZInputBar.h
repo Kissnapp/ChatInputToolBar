@@ -12,6 +12,14 @@
 #import "LTZInputToolBarDelegate.h"
 
 #import "LTZMoreInputView.h"
+#import "LTZMoreInputItem.h"
+#import "LTZMoreInputItemView.h"
 #import "LTZExpressionInputView.h"
+
+#import "UIColor+Extension.h"
+
+#import "LTZInputTextView.h"
+#import "LTZGrowingTextView.h"
+#import "LTZKeyboardController.h"
 
 
