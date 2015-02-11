@@ -93,6 +93,15 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
     _panGestureRecognizer = panGestureRecognizer;
     [_panGestureRecognizer addTarget:self action:@selector(resignFirstResponder)];
 }
+
+- (void)scrollToBottom
+{
+    if (!self.inputTool) return;
+    
+    [self.inputTool scrollToBottom];
+}
+
+
 #pragma mark - properties 
 - (LTZInputTool *)inputTool
 {
