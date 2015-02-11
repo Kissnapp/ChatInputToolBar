@@ -47,7 +47,7 @@
     
     _panGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     _panGestureRecognizer.delegate = self;
-    [self.view addGestureRecognizer:_panGestureRecognizer];
+    [self.tableView addGestureRecognizer:_panGestureRecognizer];
 }
 
 - (void)test
@@ -67,7 +67,7 @@
 
 - (void)dismissKeyboard
 {
-    //[chatBar resignFirstResponder];
+    [chatBar resignFirstResponder];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
