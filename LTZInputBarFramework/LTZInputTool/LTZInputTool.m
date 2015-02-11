@@ -132,7 +132,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
 }
 
 @property (assign ,nonatomic) LTZInputToolStateType inputToolCurrentStateType;
-@property (assign, nonatomic) CGFloat SpacingBetweenTextViewAndRecordButton;
+@property (assign, nonatomic) CGFloat spacingBetweenTextViewAndRecordButton;
 
 @end
 
@@ -224,7 +224,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
 - (CGRect)currentFrameWhenInput
 {
     CGRect frame = self.frame;
-    frame.size.height = LTZInputToolDefaultHeight + (_inputTextView.frame.size.height - _recordButton.frame.size.height);
+    frame.size.height = LTZInputToolDefaultHeight + ((_inputTextView.frame.size.height + self.spacingBetweenTextViewAndRecordButton) - _recordButton.frame.size.height);
     return frame;
 }
 
@@ -310,7 +310,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
     });
 
     //Ensure that _inputView's frame and _recordButton's frame are equal
-    self.SpacingBetweenTextViewAndRecordButton = _recordButton.frame.size.height - _inputTextView.frame.size.height;
+    self.spacingBetweenTextViewAndRecordButton = _recordButton.frame.size.height - _inputTextView.frame.size.height;
     
     _expressionButton = ({
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -760,7 +760,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
 
 - (void)adjustInViewFrameWithInputViewHiddenState:(BOOL)hidde
 {
-    CGFloat changedHeight = (_inputTextView.frame.size.height + self.SpacingBetweenTextViewAndRecordButton) - _recordButton.frame.size.height;
+    CGFloat changedHeight = (_inputTextView.frame.size.height + self.spacingBetweenTextViewAndRecordButton) - _recordButton.frame.size.height;
     
     if (changedHeight == 0) return;
     
