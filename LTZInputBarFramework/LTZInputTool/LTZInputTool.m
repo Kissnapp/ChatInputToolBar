@@ -672,6 +672,8 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
     [_inputTextView setHidden:isRecordViewShowing];
     [_recordButton setHidden:!isRecordViewShowing];
     
+    [self bringSubviewToFront:(isRecordViewShowing ? _recordButton:_inputTextView)];
+    
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - LTZGrowingTextViewDelegate methods
