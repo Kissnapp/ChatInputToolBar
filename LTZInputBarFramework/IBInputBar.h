@@ -8,7 +8,6 @@
 
 #import "IBInputTool.h"
 #import "IBInputToolBar.h"
-#import "IBInputToolBarConstraints.h"
 #import "IBInputToolBarDelegate.h"
 
 #import "IBMoreInputView.h"
@@ -18,8 +17,5 @@
 
 #import "UIColor+Extension.h"
 
-#import "IBInputTextView.h"
-#import "IBGrowingTextView.h"
-#import "IBKeyboardController.h"
 
 

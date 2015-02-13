@@ -52,18 +52,18 @@
 		E7E402061A885C0A00919234 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		E7E402351A89A3A800919234 /* keyboard_add_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_add_camera@2x.png"; sourceTree = "<group>"; };
 		E7E402361A89A3A800919234 /* keyboard_add_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_add_photo@2x.png"; sourceTree = "<group>"; };
-		E7E403B91A8AF98100919234 /* LTZExpressionInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZExpressionInputView.h; sourceTree = "<group>"; };
-		E7E403BA1A8AF98100919234 /* LTZGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZGrowingTextView.h; sourceTree = "<group>"; };
+		E7E403B91A8AF98100919234 /* IBExpressionInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBExpressionInputView.h; sourceTree = "<group>"; };
+		E7E403BA1A8AF98100919234 /* IBGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBGrowingTextView.h; sourceTree = "<group>"; };
 		E7E403BB1A8AF98100919234 /* LTZInputBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputBar.h; sourceTree = "<group>"; };
-		E7E403BC1A8AF98100919234 /* LTZInputTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputTextView.h; sourceTree = "<group>"; };
-		E7E403BD1A8AF98100919234 /* LTZInputTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputTool.h; sourceTree = "<group>"; };
-		E7E403BE1A8AF98100919234 /* LTZInputToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputToolBar.h; sourceTree = "<group>"; };
+		E7E403BC1A8AF98100919234 /* IBInputTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBInputTextView.h; sourceTree = "<group>"; };
+		E7E403BD1A8AF98100919234 /* IBInputTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBInputTool.h; sourceTree = "<group>"; };
+		E7E403BE1A8AF98100919234 /* IBInputToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBInputToolBar.h; sourceTree = "<group>"; };
 		E7E403BF1A8AF98100919234 /* LTZInputToolBarConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputToolBarConstraints.h; sourceTree = "<group>"; };
 		E7E403C01A8AF98100919234 /* LTZInputToolBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZInputToolBarDelegate.h; sourceTree = "<group>"; };
-		E7E403C11A8AF98100919234 /* LTZKeyboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZKeyboardController.h; sourceTree = "<group>"; };
-		E7E403C21A8AF98100919234 /* LTZMoreInputItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZMoreInputItem.h; sourceTree = "<group>"; };
-		E7E403C31A8AF98100919234 /* LTZMoreInputItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZMoreInputItemView.h; sourceTree = "<group>"; };
-		E7E403C41A8AF98100919234 /* LTZMoreInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZMoreInputView.h; sourceTree = "<group>"; };
+		E7E403C11A8AF98100919234 /* IBKeyboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBKeyboardController.h; sourceTree = "<group>"; };
+		E7E403C21A8AF98100919234 /* IBMoreInputItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBMoreInputItem.h; sourceTree = "<group>"; };
+		E7E403C31A8AF98100919234 /* IBMoreInputItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBMoreInputItemView.h; sourceTree = "<group>"; };
+		E7E403C41A8AF98100919234 /* IBMoreInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBMoreInputView.h; sourceTree = "<group>"; };
 		E7E403C51A8AF98100919234 /* LTZTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTZTextViewInternal.h; sourceTree = "<group>"; };
 		E7E403C61A8AF98100919234 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
 		E7E403C91A8AFA0800919234 /* libInputBar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libInputBar.a; path = "../../../../../../Library/Developer/Xcode/DerivedData/LTZInputBar-capcvyjfvfambmfrwcamhwzlkxmw/Build/Products/Debug-iphoneos/libInputBar.a"; sourceTree = "<group>"; };
@@ -174,18 +174,18 @@
 			isa = PBXGroup;
 			children = (
 				E7E403CE1A8B048800919234 /* LTZInputBar.bundle */,
-				E7E403B91A8AF98100919234 /* LTZExpressionInputView.h */,
-				E7E403BA1A8AF98100919234 /* LTZGrowingTextView.h */,
+				E7E403B91A8AF98100919234 /* IBExpressionInputView.h */,
+				E7E403BA1A8AF98100919234 /* IBGrowingTextView.h */,
 				E7E403BB1A8AF98100919234 /* LTZInputBar.h */,
-				E7E403BC1A8AF98100919234 /* LTZInputTextView.h */,
-				E7E403BD1A8AF98100919234 /* LTZInputTool.h */,
-				E7E403BE1A8AF98100919234 /* LTZInputToolBar.h */,
+				E7E403BC1A8AF98100919234 /* IBInputTextView.h */,
+				E7E403BD1A8AF98100919234 /* IBInputTool.h */,
+				E7E403BE1A8AF98100919234 /* IBInputToolBar.h */,
 				E7E403BF1A8AF98100919234 /* LTZInputToolBarConstraints.h */,
 				E7E403C01A8AF98100919234 /* LTZInputToolBarDelegate.h */,
-				E7E403C11A8AF98100919234 /* LTZKeyboardController.h */,
-				E7E403C21A8AF98100919234 /* LTZMoreInputItem.h */,
-				E7E403C31A8AF98100919234 /* LTZMoreInputItemView.h */,
-				E7E403C41A8AF98100919234 /* LTZMoreInputView.h */,
+				E7E403C11A8AF98100919234 /* IBKeyboardController.h */,
+				E7E403C21A8AF98100919234 /* IBMoreInputItem.h */,
+				E7E403C31A8AF98100919234 /* IBMoreInputItemView.h */,
+				E7E403C41A8AF98100919234 /* IBMoreInputView.h */,
 				E7E403C51A8AF98100919234 /* LTZTextViewInternal.h */,
 				E7E403C61A8AF98100919234 /* UIColor+Extension.h */,
 				E7E403D11A8B0BCD00919234 /* UIColor+Extension.m */,
