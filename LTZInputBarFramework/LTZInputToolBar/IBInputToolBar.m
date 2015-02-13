@@ -43,12 +43,12 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
 @synthesize scrollView      =   _scrollView;
 
 #pragma mark - class methods
-+ (CGFloat)LTZInputToolDefaultHeight
++ (CGFloat)IBInputToolDefaultHeight
 {
-    return [IBInputTool LTZInputToolDefaultHeight];
+    return [IBInputTool IBInputToolDefaultHeight];
 }
 
-+ (CGFloat)LTZInputToolBarDefaultHeight
++ (CGFloat)IBInputToolBarDefaultHeight
 {
     return LTZInputToolBarDefaultHeight;
 }
@@ -106,7 +106,7 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
 - (IBInputTool *)inputTool
 {
     if (!_inputTool) {
-        _inputTool = [[IBInputTool alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, [IBInputTool LTZInputToolDefaultHeight])
+        _inputTool = [[IBInputTool alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, [IBInputTool IBInputToolDefaultHeight])
                                                   inView:self
                                               scrollView:_scrollView
                                         privatedDelegate:self

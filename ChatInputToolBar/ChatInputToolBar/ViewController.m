@@ -53,7 +53,7 @@
 - (void)test
 {
     [self.view setBackgroundColor:[UIColor lightGrayColor]];
-    chatBar = [[IBInputToolBar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-[IBInputToolBar LTZInputToolDefaultHeight], self.view.frame.size.width, [IBInputToolBar LTZInputToolBarDefaultHeight])
+    chatBar = [[IBInputToolBar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-[IBInputToolBar IBInputToolDefaultHeight], self.view.frame.size.width, [IBInputToolBar IBInputToolBarDefaultHeight])
                                                            scrollView:self.tableView
                                                                inView:self.view
                                                     gestureRecognizer:self.tableView.panGestureRecognizer

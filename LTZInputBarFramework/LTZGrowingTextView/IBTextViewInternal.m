@@ -1,5 +1,5 @@
 //
-//  LTZTextViewInternal.m
+//  IBTextViewInternal.m
 //
 //  Created by Peter Lee on 29-06-10.
 //

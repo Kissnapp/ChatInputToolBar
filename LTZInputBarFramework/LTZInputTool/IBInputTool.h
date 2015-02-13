@@ -11,7 +11,7 @@
 
 @protocol IBInputToolPublicDelegate;
 @protocol IBInputToolPrivateDelegate;
-@interface IBInputTool : UIImageView<LTZGrowingTextViewDelegate>
+@interface IBInputTool : UIImageView<IBGrowingTextViewDelegate>
 
 @property (strong, nonatomic) IBGrowingTextView        *inputTextView;
 
@@ -30,7 +30,7 @@
 @property (weak, nonatomic) id<IBInputToolPrivateDelegate>    privateDelegate;
 @property (weak, nonatomic) id<IBInputToolPublicDelegate>    publicDelegate;
 
-+ (CGFloat)LTZInputToolDefaultHeight;
++ (CGFloat)IBInputToolDefaultHeight;
 
 - (instancetype)initWithFrame:(CGRect)frame
                        inView:(UIView *)inView

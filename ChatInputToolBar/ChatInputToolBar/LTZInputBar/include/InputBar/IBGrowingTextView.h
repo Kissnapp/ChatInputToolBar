@@ -1,5 +1,5 @@
 //
-//  LTZTextView.h
+//  IBTextView.h
 //
 //  Created by Peter Lee on 29-06-10.
 //
@@ -36,7 +36,7 @@
 @class IBGrowingTextView;
 @class IBTextViewInternal;
 
-@protocol LTZGrowingTextViewDelegate <NSObject>
+@protocol IBGrowingTextViewDelegate <NSObject>
 
 @optional
 - (BOOL)growingTextViewShouldBeginEditing:(IBGrowingTextView *)growingTextView;
@@ -70,7 +70,7 @@
     NSTimeInterval animationDuration;
 	
 	//uitextview properties
-	NSObject <LTZGrowingTextViewDelegate> *__unsafe_unretained delegate;
+	NSObject <IBGrowingTextViewDelegate> *__unsafe_unretained delegate;
 	NSTextAlignment textAlignment;
 	NSRange selectedRange;
 	BOOL editable;
@@ -94,7 +94,7 @@
 
 
 //uitextview properties
-@property(unsafe_unretained) NSObject<LTZGrowingTextViewDelegate> *delegate;
+@property(unsafe_unretained) NSObject<IBGrowingTextViewDelegate> *delegate;
 @property(nonatomic,strong) NSString *text;
 @property(nonatomic,strong) UIFont *font;
 @property(nonatomic,strong) UIColor *textColor;

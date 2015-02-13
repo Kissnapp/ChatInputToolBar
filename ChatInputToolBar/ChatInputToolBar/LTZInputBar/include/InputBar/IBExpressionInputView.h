@@ -1,5 +1,5 @@
 //
-//  LTZExpressionInputView.h
+//  IBExpressionInputView.h
 //  ChatInputToolBar
 //
 //  Created by Peter Lee on 15/2/2.

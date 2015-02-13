@@ -38,9 +38,9 @@
  */
 @property (strong, nonatomic, readonly) UIScrollView *scrollView;
 
-+ (CGFloat)LTZInputToolDefaultHeight;
++ (CGFloat)IBInputToolDefaultHeight;
 
-+ (CGFloat)LTZInputToolBarDefaultHeight;
++ (CGFloat)IBInputToolBarDefaultHeight;
 
 /**
  *  init a object with a view which this inputToolBar view will display on
