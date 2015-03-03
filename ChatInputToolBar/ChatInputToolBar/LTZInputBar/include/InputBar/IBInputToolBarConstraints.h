@@ -11,14 +11,14 @@
 #ifndef LTZInputBarImagePathWithName
 
 #define LTZInputBarImagePathWithName(name) \
-[@"LTZInputBar.bundle/images" stringByAppendingPathComponent:(name)]
+[@"IBInputBar.bundle/images" stringByAppendingPathComponent:(name)]
 
 #endif
 
 #ifndef LTZInputBarLocalizedString
 
 #define LTZInputBarLocalizedString(key) \
-    NSLocalizedStringFromTableInBundle(key, @"LTZInputBar", [NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"LTZInputBar.bundle/LTZInputBarLocalString"]], nil)
+    NSLocalizedStringFromTableInBundle(key, @"LTZInputBar", [NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"IBInputBar.bundle/LTZInputBarLocalString"]], nil)
 
 #endif
 

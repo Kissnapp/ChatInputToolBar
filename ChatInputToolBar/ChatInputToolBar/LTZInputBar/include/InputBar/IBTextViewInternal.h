@@ -28,7 +28,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface LTZTextViewInternal : UITextView
+@interface IBTextViewInternal : UITextView
 
 @property (nonatomic, strong) NSString *placeholder;
 @property (nonatomic, strong) UIColor *placeholderColor;

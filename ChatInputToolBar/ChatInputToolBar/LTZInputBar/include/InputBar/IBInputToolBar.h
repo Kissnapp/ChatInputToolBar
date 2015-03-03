@@ -65,7 +65,10 @@
  *  close the keyboard
  */
 - (void)resignFirstResponder;
-
+/**
+ *  Scroll the UIScrollView to its bottom
+ */
+- (void)scrollToBottom;
 
 @end
 

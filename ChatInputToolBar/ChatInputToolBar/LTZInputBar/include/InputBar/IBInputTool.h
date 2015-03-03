@@ -1,5 +1,5 @@
 //
-//  IBInputTool.h
+//  LTZInputTool.h
 //  ChatInputToolBar
 //
 //  Created by Peter Lee on 15/2/3.
@@ -37,6 +37,8 @@
                    scrollView:(UIScrollView *)scrollView
              privatedDelegate:(id<IBInputToolPrivateDelegate>)privateDelegate
                publicDelegate:(id<IBInputToolPublicDelegate>) publicDelegate;
+
+- (void)scrollToBottom;
 
 - (BOOL)resignFirstResponder;
 - (BOOL)isFirstResponder;

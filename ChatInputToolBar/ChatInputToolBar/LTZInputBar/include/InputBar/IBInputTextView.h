@@ -1,6 +1,6 @@
 //
-//  IBInputTextView.h
-//  IBInputToolBar
+//  LTZInputTextView.h
+//  LTZInputToolBar
 //
 //  Created by Peter Lee on 15/1/16.
 //  Copyright (c) 2015年 Peter Lee. All rights reserved.

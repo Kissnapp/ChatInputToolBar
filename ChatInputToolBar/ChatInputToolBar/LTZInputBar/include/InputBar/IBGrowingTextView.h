@@ -1,5 +1,5 @@
 //
-//  IBTextView.h
+//  LTZTextView.h
 //
 //  Created by Peter Lee on 29-06-10.
 //
