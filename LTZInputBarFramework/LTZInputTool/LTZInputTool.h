@@ -20,8 +20,8 @@
 @property (strong, nonatomic) UIButton                  *moreButton;
 @property (strong, nonatomic) UIButton                  *recordButton;
 
-@property (strong, nonatomic, readonly) UIView          *inView;
-@property (strong, nonatomic, readonly) UIScrollView    *scrollView;
+@property (weak, nonatomic, readonly) UIView            *inView;
+@property (weak, nonatomic, readonly) UIScrollView      *scrollView;
 
 @property (assign, nonatomic) BOOL                      isKeyboardShowing;
 @property (assign, nonatomic) BOOL                      isRecordViewShowing;

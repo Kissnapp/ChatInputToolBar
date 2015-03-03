@@ -23,8 +23,8 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
 
 @interface LTZInputToolBar ()<UITextViewDelegate, LTZInputToolPrivateDelegate>
 {
-    UIView              *_contextView;
-    UIScrollView        *_scrollView;
+    UIView          __weak          *_contextView;
+    UIScrollView    __weak          *_scrollView;
     LTZInputTool        *_inputTool;
 }
 

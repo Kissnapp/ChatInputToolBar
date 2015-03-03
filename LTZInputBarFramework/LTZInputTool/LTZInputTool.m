@@ -127,8 +127,8 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
 
 @interface LTZInputTool ()
 {
-    UIView          *_inView;
-    UIScrollView    *_scrollView;
+    UIView          __weak      *_inView;
+    UIScrollView    __weak      *_scrollView;
 }
 
 @property (assign ,nonatomic) LTZInputToolStateType inputToolCurrentStateType;
@@ -517,7 +517,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
 {
     @try {
         [_inputTextView removeObserver:self
-                            forKeyPath:NSStringFromSelector(@selector(frame))
+                            forKeyPath:NSStringFromSelector(@selector(hidden))
                                context:LTZInputTextViewHidenKeyValueObservingContext];
     }@catch (NSException * __unused exception) {
     
