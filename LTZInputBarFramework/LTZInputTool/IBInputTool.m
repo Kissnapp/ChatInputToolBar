@@ -517,7 +517,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
 {
     @try {
         [_inputTextView removeObserver:self
-                            forKeyPath:NSStringFromSelector(@selector(frame))
+                            forKeyPath:NSStringFromSelector(@selector(hidden))
                                context:LTZInputTextViewHidenKeyValueObservingContext];
     }@catch (NSException * __unused exception) {
     
