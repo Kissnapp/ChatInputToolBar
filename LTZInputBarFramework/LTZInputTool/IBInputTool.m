@@ -1,4 +1,4 @@
-//
+ //
 //  LTZInputTool.m
 //  ChatInputToolBar
 //
@@ -127,8 +127,8 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
 
 @interface IBInputTool ()
 {
-    UIView          *_inView;
-    UIScrollView    *_scrollView;
+    UIView          __weak  *_inView;
+    UIScrollView    __weak  *_scrollView;
 }
 
 @property (assign ,nonatomic) LTZInputToolStateType inputToolCurrentStateType;

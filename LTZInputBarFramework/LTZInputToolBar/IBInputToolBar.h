@@ -23,7 +23,7 @@
 /**
  *  The pan gesture recognizer responsible for handling user interaction with the system keyboard.
  */
-@property (strong, nonatomic) UIPanGestureRecognizer *panGestureRecognizer;
+@property (weak, nonatomic) UIPanGestureRecognizer *panGestureRecognizer;
 /**
  *  The text view in which the user is editing with the system keyboard.
  */
@@ -32,11 +32,11 @@
 /**
  *  The view in which the keyboard will be shown. This should be the parent or a sibling of `textView`.
  */
-@property (strong, nonatomic, readonly) UIView *contextView;
+@property (weak, nonatomic, readonly) UIView *contextView;
 /**
  *  The view in which the keyboard will be shown. This should be the parent or a sibling of `textView`.
  */
-@property (strong, nonatomic, readonly) UIScrollView *scrollView;
+@property (weak, nonatomic, readonly) UIScrollView *scrollView;
 
 + (CGFloat)IBInputToolDefaultHeight;
 

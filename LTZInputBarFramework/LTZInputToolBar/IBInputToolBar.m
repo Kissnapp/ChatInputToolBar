@@ -23,9 +23,9 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
 
 @interface IBInputToolBar ()<UITextViewDelegate, IBInputToolPrivateDelegate>
 {
-    UIView              *_contextView;
-    UIScrollView        *_scrollView;
-    IBInputTool        *_inputTool;
+    UIView          __weak       *_contextView;
+    UIScrollView    __weak       *_scrollView;
+    IBInputTool                  *_inputTool;
 }
 
 @property (strong, nonatomic) IBExpressionInputView    *expressionInputView;
