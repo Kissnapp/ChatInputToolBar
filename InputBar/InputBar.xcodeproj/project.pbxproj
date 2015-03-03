@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		E7446B041AA5B76300DC8EFC /* IBInputBar.bundle in Sources */ = {isa = PBXBuildFile; fileRef = E7E403CB1A8B031500919234 /* IBInputBar.bundle */; };
 		E7E402CF1A8AF5F200919234 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E402CE1A8AF5F100919234 /* Foundation.framework */; };
 		E7E402D11A8AF5F900919234 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E402D01A8AF5F900919234 /* UIKit.framework */; };
 		E7E403831A8AF79E00919234 /* IBExpressionInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E403251A8AF76300919234 /* IBExpressionInputView.m */; };
@@ -347,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7446B041AA5B76300DC8EFC /* IBInputBar.bundle in Sources */,
 				E7E403831A8AF79E00919234 /* IBExpressionInputView.m in Sources */,
 				E7E403841A8AF79E00919234 /* IBGrowingTextView.m in Sources */,
 				E7E403851A8AF79E00919234 /* IBTextViewInternal.m in Sources */,

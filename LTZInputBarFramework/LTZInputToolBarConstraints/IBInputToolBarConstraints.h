@@ -18,7 +18,7 @@
 #ifndef LTZInputBarLocalizedString
 
 #define LTZInputBarLocalizedString(key) \
-    NSLocalizedStringFromTableInBundle(key, @"LTZInputBar", [NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"IBInputBar.bundle/LTZInputBarLocalString"]], nil)
+    NSLocalizedStringFromTableInBundle(key, @"InputBar", [NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"IBInputBar.bundle/InputBarLocalString"]], nil)
 
 #endif
 
