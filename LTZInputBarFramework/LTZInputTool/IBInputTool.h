@@ -23,6 +23,7 @@
 
 @property (weak, nonatomic, readonly) UIView            *inView;
 @property (weak, nonatomic, readonly) UIScrollView      *scrollView;
+@property (strong, nonatomic, readonly) NSString        *placeholder;
 
 @property (assign, nonatomic) BOOL                      isKeyboardShowing;
 @property (assign, nonatomic) BOOL                      isRecordViewShowing;
@@ -36,6 +37,13 @@
 - (instancetype)initWithFrame:(CGRect)frame
                        inView:(UIView *)inView
                    scrollView:(UIScrollView *)scrollView
+             privatedDelegate:(id<IBInputToolPrivateDelegate>)privateDelegate
+               publicDelegate:(id<IBInputToolPublicDelegate>) publicDelegate;
+
+- (instancetype)initWithFrame:(CGRect)frame
+                       inView:(UIView *)inView
+                   scrollView:(UIScrollView *)scrollView
+                  placeholder:(NSString *)placeholder
              privatedDelegate:(id<IBInputToolPrivateDelegate>)privateDelegate
                publicDelegate:(id<IBInputToolPublicDelegate>) publicDelegate;
 

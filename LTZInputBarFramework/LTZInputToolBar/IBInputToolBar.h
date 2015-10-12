@@ -51,12 +51,33 @@
  *  @param contextView          contextView
  *  @param panGestureRecognizer panGestureRecognizer
  *  @param delegate             delegate
+ *  @param dataSource           dataSource
  *
  *  @return this object
  */
 - (id)initWithFrame:(CGRect)frame
          scrollView:(UIScrollView *)scrollView
              inView:(UIView *)contextView
+  gestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer
+           delegate:(id<IBInputToolBarDelegate>)delegate
+         dataSource:(id<IBInputToolBarDataSource>)dataSource;
+/**
+ *  init a object with a view which this inputToolBar view will display on
+ *
+ *  @param frame                frame
+ *  @param scrollView           scrollView
+ *  @param contextView          contextView
+ *  @param placeholder          placeholder
+ *  @param panGestureRecognizer panGestureRecognizer
+ *  @param delegate             delegate
+ *  @param dataSource           dataSource
+ *
+ *  @return this object
+ */
+- (id)initWithFrame:(CGRect)frame
+         scrollView:(UIScrollView *)scrollView
+             inView:(UIView *)contextView
+        placeholder:(NSString *)placeholder
   gestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer
            delegate:(id<IBInputToolBarDelegate>)delegate
          dataSource:(id<IBInputToolBarDataSource>)dataSource;

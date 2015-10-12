@@ -139,6 +139,8 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
 @implementation IBInputTool
 @synthesize inView = _inView;
 @synthesize scrollView = _scrollView;
+@synthesize placeholder = _placeholder;
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - LTZInputTool class public methods
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -162,10 +164,26 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
              privatedDelegate:(id<IBInputToolPrivateDelegate>)privateDelegate
                publicDelegate:(id<IBInputToolPublicDelegate>) publicDelegate
 {
+     return [self initWithFrame:frame
+                         inView:inView
+                     scrollView:scrollView
+                    placeholder:nil
+               privatedDelegate:privateDelegate
+                 publicDelegate:publicDelegate];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+                       inView:(UIView *)inView
+                   scrollView:(UIScrollView *)scrollView
+                  placeholder:(NSString *)placeholder
+             privatedDelegate:(id<IBInputToolPrivateDelegate>)privateDelegate
+               publicDelegate:(id<IBInputToolPublicDelegate>) publicDelegate
+{
     self = [super initWithFrame:frame];
     if (self) {
         _inView                 =   inView;
         _scrollView             =   scrollView;
+        _placeholder            =   placeholder;
         self.privateDelegate    =   privateDelegate;
         self.publicDelegate     =   publicDelegate;
         
@@ -266,7 +284,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
         textView.delegate = self;
         textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
         textView.backgroundColor = [UIColor clearColor];
-        textView.placeholder = LTZInputBarLocalizedString(@"input_text_view_placeholder");
+        textView.placeholder = self.placeholder ? :LTZInputBarLocalizedString(@"input_text_view_placeholder");
         textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         
         // textView.text = @"test\n\ntest";
