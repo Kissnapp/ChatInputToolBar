@@ -128,6 +128,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
 @interface IBInputTool ()
 {
     UIView          __weak  *_inView;
+    UIView          __weak  *_backgroundView;
     UIScrollView    __weak  *_scrollView;
 }
 
@@ -138,6 +139,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
 
 @implementation IBInputTool
 @synthesize inView = _inView;
+@synthesize backgroundView = _backgroundView;
 @synthesize scrollView = _scrollView;
 @synthesize placeholder = _placeholder;
 
@@ -155,12 +157,13 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    return [self initWithFrame:frame inView:nil scrollView:nil privatedDelegate:nil publicDelegate:nil];
+    return [self initWithFrame:frame inView:nil scrollView:nil backgroundView:nil privatedDelegate:nil publicDelegate:nil];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
                        inView:(UIView *)inView
                    scrollView:(UIScrollView *)scrollView
+               backgroundView:(UIView *)backgroundView
              privatedDelegate:(id<IBInputToolPrivateDelegate>)privateDelegate
                publicDelegate:(id<IBInputToolPublicDelegate>) publicDelegate
 {
@@ -168,6 +171,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
                         inView:inView
                     scrollView:scrollView
                    placeholder:nil
+                backgroundView:backgroundView
               privatedDelegate:privateDelegate
                 publicDelegate:publicDelegate];
 }
@@ -176,6 +180,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
                        inView:(UIView *)inView
                    scrollView:(UIScrollView *)scrollView
                   placeholder:(NSString *)placeholder
+               backgroundView:(UIView *)backgroundView
              privatedDelegate:(id<IBInputToolPrivateDelegate>)privateDelegate
                publicDelegate:(id<IBInputToolPublicDelegate>) publicDelegate
 {
@@ -184,6 +189,12 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
         _inView                 =   inView;
         _scrollView             =   scrollView;
         _placeholder            =   placeholder;
+        if (backgroundView == nil){
+            UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+            _backgroundView = window.rootViewController.view;
+        }else{
+            _backgroundView = backgroundView;
+        }
         self.privateDelegate    =   privateDelegate;
         self.publicDelegate     =   publicDelegate;
         
@@ -477,14 +488,11 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:LTZInputToolBarDefaultAnimationDuration];
     [UIView setAnimationCurve:(UIViewAnimationCurve)LTZInputToolBarDefaultAnimationCurve];
-    
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    UIView *view = window.rootViewController.view;
-    
+
     CGRect newFrame = self.inView.frame;
-    newFrame.origin.y = view.frame.size.height - self.frame.size.height - LTZInputToolBarDefaultKetboardHeight;
+    newFrame.origin.y = self.backgroundView.bounds.size.height - self.frame.size.height - LTZInputToolBarDefaultKetboardHeight;
     _inView.frame = newFrame;
-    NSLog(@"frame:super:%@####root:%@",NSStringFromCGRect(self.inView.frame),NSStringFromCGRect(view.frame));
+    NSLog(@"frame:super:%@####root:%@",NSStringFromCGRect(self.inView.frame),NSStringFromCGRect(self.backgroundView.frame));
     // end animation action
     [UIView commitAnimations];
     
@@ -500,11 +508,8 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
     [UIView setAnimationDuration:LTZInputToolBarDefaultAnimationDuration];
     [UIView setAnimationCurve:(UIViewAnimationCurve)LTZInputToolBarDefaultAnimationCurve];
     
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    UIView *view = window.rootViewController.view;
-    
     CGRect newFrame = self.inView.frame;
-    newFrame.origin.y = view.frame.size.height - self.frame.size.height;
+    newFrame.origin.y = self.backgroundView.bounds.size.height - self.frame.size.height;
     _inView.frame = newFrame;
     
     // end animation action
@@ -631,17 +636,14 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
         [UIView setAnimationCurve:(UIViewAnimationCurve)animationCurve];
         
         {
-            UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-            UIView *view = window.rootViewController.view;
-            
-            CGFloat keyboardY = [view convertRect:keyboardRect fromView:nil].origin.y;
+            CGFloat keyboardY = [self.backgroundView convertRect:keyboardRect fromView:nil].origin.y;
             
             CGRect inputViewFrame = self.inView.frame;
             
             CGFloat inputViewFrameY = keyboardY - self.frame.size.height;
             
             // for ipad modal form presentations
-            CGFloat messageViewFrameBottom = view.frame.size.height - self.frame.size.height;
+            CGFloat messageViewFrameBottom = self.backgroundView.bounds.size.height - self.frame.size.height;
             
             if(inputViewFrameY > messageViewFrameBottom) inputViewFrameY = messageViewFrameBottom;
             

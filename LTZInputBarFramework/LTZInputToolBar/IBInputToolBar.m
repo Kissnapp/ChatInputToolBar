@@ -130,6 +130,7 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
                                                  inView:self
                                              scrollView:_scrollView
                                             placeholder:self.placeholder
+                                         backgroundView:_contextView
                                        privatedDelegate:self
                                          publicDelegate:self.delegate];
         [self addSubview:_inputTool];
@@ -208,7 +209,7 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
                   forKeyPath:NSStringFromSelector(@selector(frame))
                      context:LTZInputBarFrameKeyValueObservingContext];
     }@catch (NSException * __unused exception) {
-    
+        NSLog(@"Here is a NSException:name:%@#reason:%@#userInfo:%@",exception.name,exception.reason,exception.userInfo.description);
     }
 }
 

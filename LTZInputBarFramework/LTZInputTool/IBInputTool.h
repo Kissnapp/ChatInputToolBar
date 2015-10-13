@@ -22,6 +22,7 @@
 @property (strong, nonatomic) UIButton                  *recordButton;
 
 @property (weak, nonatomic, readonly) UIView            *inView;
+@property (weak, nonatomic, readonly) UIView            *backgroundView;
 @property (weak, nonatomic, readonly) UIScrollView      *scrollView;
 @property (strong, nonatomic, readonly) NSString        *placeholder;
 
@@ -37,6 +38,7 @@
 - (instancetype)initWithFrame:(CGRect)frame
                        inView:(UIView *)inView
                    scrollView:(UIScrollView *)scrollView
+               backgroundView:(UIView *)backgroundView
              privatedDelegate:(id<IBInputToolPrivateDelegate>)privateDelegate
                publicDelegate:(id<IBInputToolPublicDelegate>) publicDelegate;
 
@@ -44,6 +46,7 @@
                        inView:(UIView *)inView
                    scrollView:(UIScrollView *)scrollView
                   placeholder:(NSString *)placeholder
+               backgroundView:(UIView *)backgroundView
              privatedDelegate:(id<IBInputToolPrivateDelegate>)privateDelegate
                publicDelegate:(id<IBInputToolPublicDelegate>) publicDelegate;
 
