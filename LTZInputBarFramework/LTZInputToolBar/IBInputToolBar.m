@@ -66,21 +66,13 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
            delegate:(id<IBInputToolBarDelegate>)delegate
          dataSource:(id<IBInputToolBarDataSource>)dataSource
 {
-    frame.size.height = LTZInputToolBarDefaultHeight;
-    self = [super initWithFrame:frame];
-    if (self) {
-        _scrollView = scrollView;
-        _contextView = contextView;
-        _delegate = delegate;
-        _dataSource = dataSource;
-        _scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
-        self.panGestureRecognizer = panGestureRecognizer;
-        
-        // Initialization code
-        [self _initData];
-        [self _setupViews];
-    }
-    return self;
+    return [self initWithFrame:frame
+                    scrollView:scrollView
+                        inView:contextView
+                   placeholder:nil
+             gestureRecognizer:panGestureRecognizer
+                      delegate:delegate
+                    dataSource:dataSource];
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -101,18 +93,6 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
         _placeholder = placeholder;
         _scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
         self.panGestureRecognizer = panGestureRecognizer;
-        
-        // init the input tool
-        if (!self.inputTool) {
-            _inputTool = [[IBInputTool alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, [IBInputTool IBInputToolDefaultHeight])
-                                                     inView:self
-                                                 scrollView:_scrollView
-                                                placeholder:self.placeholder
-                                           privatedDelegate:self
-                                             publicDelegate:self.delegate];
-            [self addSubview:_inputTool];
-        }
-
         
         // Initialization code
         [self _initData];
@@ -143,6 +123,18 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
 #pragma mark - properties 
 - (IBInputTool *)inputTool
 {
+    
+    // init the input tool
+    if (!_inputTool) {
+        _inputTool = [[IBInputTool alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, [IBInputTool IBInputToolDefaultHeight])
+                                                 inView:self
+                                             scrollView:_scrollView
+                                            placeholder:self.placeholder
+                                       privatedDelegate:self
+                                         publicDelegate:self.delegate];
+        [self addSubview:_inputTool];
+    }
+    
     return _inputTool;
 }
 
@@ -222,6 +214,7 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
 
 - (void)_setupViews
 {
+    // self
     self.userInteractionEnabled = YES;
     self.image = [[UIImage imageNamed:LTZInputBarImagePathWithName(@"chat_more_bg")] resizableImageWithCapInsets:UIEdgeInsetsMake(20.0f, 20.0f, 20.0f, 20.0f)
                                                                       resizingMode:UIImageResizingModeStretch];

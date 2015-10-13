@@ -164,12 +164,12 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
              privatedDelegate:(id<IBInputToolPrivateDelegate>)privateDelegate
                publicDelegate:(id<IBInputToolPublicDelegate>) publicDelegate
 {
-     return [self initWithFrame:frame
-                         inView:inView
-                     scrollView:scrollView
-                    placeholder:nil
-               privatedDelegate:privateDelegate
-                 publicDelegate:publicDelegate];
+    return [self initWithFrame:frame
+                        inView:inView
+                    scrollView:scrollView
+                   placeholder:nil
+              privatedDelegate:privateDelegate
+                publicDelegate:publicDelegate];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -484,7 +484,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
     CGRect newFrame = self.inView.frame;
     newFrame.origin.y = view.frame.size.height - self.frame.size.height - LTZInputToolBarDefaultKetboardHeight;
     _inView.frame = newFrame;
-    
+    NSLog(@"frame:super:%@####root:%@",NSStringFromCGRect(self.inView.frame),NSStringFromCGRect(view.frame));
     // end animation action
     [UIView commitAnimations];
     
