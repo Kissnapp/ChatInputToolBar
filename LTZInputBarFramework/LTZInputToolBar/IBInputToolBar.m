@@ -348,7 +348,14 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
             self.expressionInputView.frame = CGRectMake(0, self.inputTool.frame.size.height, self.frame.size.width, LTZInputToolBarDefaultKetboardHeight);
             self.moreInputView.frame = CGRectMake(0, self.inputTool.frame.size.height, self.frame.size.width, LTZInputToolBarDefaultKetboardHeight);
 #endif
+            // FIXME: here mybe a display bug 
             [self updateScrollViewCurrentInsetsWithValue:changedHeight];
+            
+            /*
+            if ((oldKeyboardFrame.origin.y + self.inputTool.bounds.size.height) <= self.contextView.bounds.size.height) {
+                [self updateScrollViewCurrentInsetsWithValue:changedHeight];
+            }
+             */
         }
     }
 }
