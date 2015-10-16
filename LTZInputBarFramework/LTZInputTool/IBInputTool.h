@@ -30,6 +30,9 @@
 @property (assign, nonatomic) BOOL                      isRecordViewShowing;
 @property (assign, nonatomic) BOOL                      isExpressionViewShowing;
 @property (assign, nonatomic) BOOL                      isMoreViewShowing;
+
+@property (assign, nonatomic) BOOL                      allowEmoji;
+
 @property (weak, nonatomic) id<IBInputToolPrivateDelegate>    privateDelegate;
 @property (weak, nonatomic) id<IBInputToolPublicDelegate>    publicDelegate;
 
@@ -39,6 +42,7 @@
                        inView:(UIView *)inView
                    scrollView:(UIScrollView *)scrollView
                backgroundView:(UIView *)backgroundView
+                   allowEmoji:(BOOL)allowEmoji
              privatedDelegate:(id<IBInputToolPrivateDelegate>)privateDelegate
                publicDelegate:(id<IBInputToolPublicDelegate>) publicDelegate;
 
@@ -47,6 +51,7 @@
                    scrollView:(UIScrollView *)scrollView
                   placeholder:(NSString *)placeholder
                backgroundView:(UIView *)backgroundView
+                   allowEmoji:(BOOL)allowEmoji
              privatedDelegate:(id<IBInputToolPrivateDelegate>)privateDelegate
                publicDelegate:(id<IBInputToolPublicDelegate>) publicDelegate;
 

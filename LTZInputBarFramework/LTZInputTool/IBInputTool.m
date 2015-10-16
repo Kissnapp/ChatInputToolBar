@@ -157,13 +157,14 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    return [self initWithFrame:frame inView:nil scrollView:nil backgroundView:nil privatedDelegate:nil publicDelegate:nil];
+    return [self initWithFrame:frame inView:nil scrollView:nil backgroundView:nil allowEmoji:YES privatedDelegate:nil publicDelegate:nil];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
                        inView:(UIView *)inView
                    scrollView:(UIScrollView *)scrollView
                backgroundView:(UIView *)backgroundView
+                   allowEmoji:(BOOL)allowEmoji
              privatedDelegate:(id<IBInputToolPrivateDelegate>)privateDelegate
                publicDelegate:(id<IBInputToolPublicDelegate>) publicDelegate
 {
@@ -172,6 +173,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
                     scrollView:scrollView
                    placeholder:nil
                 backgroundView:backgroundView
+                    allowEmoji:allowEmoji
               privatedDelegate:privateDelegate
                 publicDelegate:publicDelegate];
 }
@@ -181,6 +183,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
                    scrollView:(UIScrollView *)scrollView
                   placeholder:(NSString *)placeholder
                backgroundView:(UIView *)backgroundView
+                   allowEmoji:(BOOL)allowEmoji
              privatedDelegate:(id<IBInputToolPrivateDelegate>)privateDelegate
                publicDelegate:(id<IBInputToolPublicDelegate>) publicDelegate
 {
@@ -189,6 +192,7 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
         _inView                 =   inView;
         _scrollView             =   scrollView;
         _placeholder            =   placeholder;
+        _allowEmoji             =   allowEmoji;
         if (backgroundView == nil){
             UIWindow *window = [[UIApplication sharedApplication] keyWindow];
             _backgroundView = window.rootViewController.view;
@@ -257,6 +261,38 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
     return frame;
 }
 
+- (void)setAllowEmoji:(BOOL)allowEmoji
+{
+    _allowEmoji = allowEmoji;
+    
+    // expressionButton
+    _expressionButton.hidden = !_allowEmoji;
+    
+    CGRect tempInputTextViewFrame = self.inputTextView.frame;
+    CGRect tempRecordButtonFrame = self.recordButton.frame;
+    
+    if (_allowEmoji) {
+        // TextView
+        self.inputTextView.frame = CGRectMake(tempInputTextViewFrame.origin.x, tempInputTextViewFrame.origin.y, DEFAULT_TEXT_VIEW_WIDTH, tempInputTextViewFrame.size.height);
+        
+        //recordButton
+        self.recordButton.frame = CGRectMake(tempRecordButtonFrame.origin.x, tempRecordButtonFrame.origin.y, DEFAULT_RECORD_BUTTON_WIDTH, tempRecordButtonFrame.size.height);
+        
+    }else{
+        // TextView
+        self.inputTextView.frame = CGRectMake(tempInputTextViewFrame.origin.x, tempInputTextViewFrame.origin.y, DEFAULT_TEXT_VIEW_WIDTH+DEFAULT_MAGIN_WIDTH+DEFAULT_BUTTON_WITDH, tempInputTextViewFrame.size.height);
+    
+        //recordButton
+        self.recordButton.frame = CGRectMake(tempRecordButtonFrame.origin.x, tempRecordButtonFrame.origin.y, DEFAULT_RECORD_BUTTON_WIDTH+DEFAULT_MAGIN_WIDTH+DEFAULT_BUTTON_WITDH, tempRecordButtonFrame.size.height);
+    }
+    
+    CGPoint center = self.inputTextView.center;
+    center.y = self.center.y;
+    self.inputTextView.center = center;
+    
+    [self setNeedsDisplay];
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - LTZInputTool object private methods
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -307,6 +343,12 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
         textView.layer.borderColor = [UIColor colorWithWhite:0.8f alpha:1.0f].CGColor;
         textView.layer.cornerRadius = cornerRadius;
         
+
+        if (!self.allowEmoji) {
+            CGRect tempFrame = textView.frame;
+            textView.frame = CGRectMake(tempFrame.origin.x, tempFrame.origin.y, DEFAULT_TEXT_VIEW_WIDTH+DEFAULT_MAGIN_WIDTH+DEFAULT_BUTTON_WITDH, tempFrame.size.height);
+        }
+        
         CGPoint center = textView.center;
         center.y = self.center.y;
         textView.center = center;
@@ -335,6 +377,12 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
         [button addTarget:self action:@selector(recordDragInside:) forControlEvents:UIControlEventTouchDragEnter];
         
         [self addSubview:button];
+        
+        if (!self.allowEmoji) {
+            CGRect tempFrame = button.frame;
+            button.frame = CGRectMake(tempFrame.origin.x, tempFrame.origin.y, DEFAULT_RECORD_BUTTON_WIDTH+DEFAULT_MAGIN_WIDTH+DEFAULT_BUTTON_WITDH, tempFrame.size.height);
+        }
+        
         button;
     });
 
@@ -349,6 +397,9 @@ static inline UIViewAnimationOptions LTZAnimationOptionsForCurve(UIViewAnimation
         [button setBackgroundImage:[UIImage imageNamed:LTZInputBarImagePathWithName(@"chat_input_emo_buttonHL")] forState:UIControlStateHighlighted];
         [button addTarget:self action:@selector(expressionButtonCliked:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
+        
+        button.hidden = !self.allowEmoji;
+        
         button;
     });
     

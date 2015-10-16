@@ -56,13 +56,14 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
 #pragma mark - public methods
 - (id)initWithFrame:(CGRect)frame
 {
-    return [self initWithFrame:frame scrollView:nil inView:nil gestureRecognizer:nil delegate:nil dataSource:nil];
+    return [self initWithFrame:frame scrollView:nil inView:nil gestureRecognizer:nil allowEmoji:YES delegate:nil dataSource:nil];
 }
 
 - (id)initWithFrame:(CGRect)frame
          scrollView:(UIScrollView *)scrollView
              inView:(UIView *)contextView
   gestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer
+         allowEmoji:(BOOL)allowEmoji
            delegate:(id<IBInputToolBarDelegate>)delegate
          dataSource:(id<IBInputToolBarDataSource>)dataSource
 {
@@ -71,6 +72,7 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
                         inView:contextView
                    placeholder:nil
              gestureRecognizer:panGestureRecognizer
+                    allowEmoji:allowEmoji
                       delegate:delegate
                     dataSource:dataSource];
 }
@@ -80,6 +82,7 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
              inView:(UIView *)contextView
         placeholder:(NSString *)placeholder
   gestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer
+         allowEmoji:(BOOL)allowEmoji
            delegate:(id<IBInputToolBarDelegate>)delegate
          dataSource:(id<IBInputToolBarDataSource>)dataSource
 {
@@ -91,6 +94,7 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
         _delegate = delegate;
         _dataSource = dataSource;
         _placeholder = placeholder;
+        _allowEmoji = allowEmoji;
         _scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
         self.panGestureRecognizer = panGestureRecognizer;
         
@@ -121,16 +125,27 @@ static void * LTZInputBarFrameKeyValueObservingContext = &LTZInputBarFrameKeyVal
 
 
 #pragma mark - properties 
+
+- (void)setAllowEmoji:(BOOL)allowEmoji
+{
+    _allowEmoji = allowEmoji;
+    
+    self.inputTool.allowEmoji = _allowEmoji;
+}
+
 - (IBInputTool *)inputTool
 {
     
     // init the input tool
     if (!_inputTool) {
+        
+        
         _inputTool = [[IBInputTool alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, [IBInputTool IBInputToolDefaultHeight])
                                                  inView:self
                                              scrollView:_scrollView
                                             placeholder:self.placeholder
                                          backgroundView:_contextView
+                                             allowEmoji:self.allowEmoji
                                        privatedDelegate:self
                                          publicDelegate:self.delegate];
         [self addSubview:_inputTool];
