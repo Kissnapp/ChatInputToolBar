@@ -7,12 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "LTZInputBar.h"
+#import "IBInputBar.h"
 
-@interface ViewController ()<UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, LTZInputToolBarDataSource>
+@interface ViewController ()<UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, IBInputToolBarDataSource>
 {
     UITapGestureRecognizer *_panGestureRecognizer;
-    LTZInputToolBar *chatBar;
+    IBInputToolBar *chatBar;
 }
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -53,7 +53,7 @@
 - (void)test
 {
     [self.view setBackgroundColor:[UIColor lightGrayColor]];
-    chatBar = [[LTZInputToolBar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-[LTZInputToolBar LTZInputToolDefaultHeight], self.view.frame.size.width, [LTZInputToolBar LTZInputToolBarDefaultHeight])
+    chatBar = [[IBInputToolBar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-[IBInputToolBar IBInputToolDefaultHeight], self.view.frame.size.width, [IBInputToolBar IBInputToolBarDefaultHeight])
                                                            scrollView:self.tableView
                                                                inView:self.view
                                                     gestureRecognizer:self.tableView.panGestureRecognizer
@@ -95,66 +95,66 @@
  *
  *  @param ltzInputTool The input tool
  */
-- (void)ltzInputTool:(LTZInputTool *)ltzInputTool didSentTextContent:content
+- (void)ltzInputTool:(IBInputTool *)ltzInputTool didSentTextContent:content
 {
     NSLog(content);
 }
 /**
  *  when we press the record button
  */
-- (void)didStartRecordingWithLTZInputTool:(LTZInputTool *)ltzInputTool
+- (void)didStartRecordingWithLTZInputTool:(IBInputTool *)ltzInputTool
 {
     NSLog(@"didStartRecordingWithLTZInputTool");
 }
 /**
  *  When we cancel a recording action
  */
-- (void)didCancelRecordingWithLTZInputTool:(LTZInputTool *)ltzInputTool
+- (void)didCancelRecordingWithLTZInputTool:(IBInputTool *)ltzInputTool
 {
     NSLog(@"didCancelRecordingWithLTZInputTool");
 }
 /**
  *  When we finish a recording action
  */
-- (void)didFinishRecordingWithLTZInputTool:(LTZInputTool *)ltzInputTool
+- (void)didFinishRecordingWithLTZInputTool:(IBInputTool *)ltzInputTool
 {
     NSLog(@"didFinishRecordingWithLTZInputTool");
 }
 /**
  *  This method called when we our finger drag outside the inputTool view during recording action
  */
-- (void)didDragOutsideWhenRecordingWithLTZInputTool:(LTZInputTool *)ltzInputTool
+- (void)didDragOutsideWhenRecordingWithLTZInputTool:(IBInputTool *)ltzInputTool
 {
     NSLog(@"didDragOutsideWhenRecordingWithLTZInputTool");
 }
 
-- (void)ltzMoreInputView:(LTZMoreInputView *)ltzMoreInputView didSelecteMoreInputViewItemAtIndex:(NSInteger)index
+- (void)ltzMoreInputView:(IBMoreInputView *)ltzMoreInputView didSelecteMoreInputViewItemAtIndex:(NSInteger)index
 {
     NSLog(@"you have cliked on:%d",index);
 }
 /**
  *  This method called when we our finger drag inside the inputTool again view during recording action
  */
-- (void)didDragInsideWhenRecordingWithLTZInputTool:(LTZInputTool *)ltzInputTool
+- (void)didDragInsideWhenRecordingWithLTZInputTool:(IBInputTool *)ltzInputTool
 {
     NSLog(@"didDragInsideWhenRecordingWithLTZInputTool");
 }
 
 #pragma mark - LTZInputBarDataSource methods
 
-- (NSUInteger)numberOfItemsShowInLTZMoreInputView:(LTZMoreInputView *)ltzMoreInputView
+- (NSUInteger)numberOfItemsShowInLTZMoreInputView:(IBMoreInputView *)ltzMoreInputView
 {
     return 23;
 }
-- (NSString *)ltzMoreInputView:(LTZMoreInputView *)ltzMoreInputView imageNameShowAtIndex:(NSUInteger)index
+- (NSString *)ltzMoreInputView:(IBMoreInputView *)ltzMoreInputView imageNameShowAtIndex:(NSUInteger)index
 {
     return @"keyboard_add_camera.png";
 }
-- (NSString *)ltzMoreInputView:(LTZMoreInputView *)ltzMoreInputView highlightedImageNameShowAtIndex:(NSUInteger)index
+- (NSString *)ltzMoreInputView:(IBMoreInputView *)ltzMoreInputView highlightedImageNameShowAtIndex:(NSUInteger)index
 {
     return @"keyboard_add_photo.png";
 }
-- (NSString *)ltzMoreInputView:(LTZMoreInputView *)ltzMoreInputView titleShowAtIndex:(NSUInteger)index
+- (NSString *)ltzMoreInputView:(IBMoreInputView *)ltzMoreInputView titleShowAtIndex:(NSUInteger)index
 {
     return @"testtest";
 }
@@ -164,7 +164,7 @@
 {
     // Disallow recognition of tap gestures in the segmented control.
     
-    if ([touch.view isKindOfClass:[LTZInputTool class]]) {
+    if ([touch.view isKindOfClass:[IBInputTool class]]) {
         return NO;
     }
     
