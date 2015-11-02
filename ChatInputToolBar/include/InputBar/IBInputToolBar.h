@@ -20,6 +20,9 @@
 @property (weak, nonatomic) id<IBInputToolBarDelegate> delegate;
 
 @property (weak, nonatomic) id<IBInputToolBarDataSource> dataSource;
+
+@property (assign, nonatomic) BOOL allowEmoji;
+
 /**
  *  The pan gesture recognizer responsible for handling user interaction with the system keyboard.
  */
@@ -51,6 +54,7 @@
  *  @param contextView          contextView
  *  @param panGestureRecognizer panGestureRecognizer
  *  @param delegate             delegate
+ *  @param dataSource           dataSource
  *
  *  @return this object
  */
@@ -58,6 +62,28 @@
          scrollView:(UIScrollView *)scrollView
              inView:(UIView *)contextView
   gestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer
+         allowEmoji:(BOOL)allowEmoji
+           delegate:(id<IBInputToolBarDelegate>)delegate
+         dataSource:(id<IBInputToolBarDataSource>)dataSource;
+/**
+ *  init a object with a view which this inputToolBar view will display on
+ *
+ *  @param frame                frame
+ *  @param scrollView           scrollView
+ *  @param contextView          contextView
+ *  @param placeholder          placeholder
+ *  @param panGestureRecognizer panGestureRecognizer
+ *  @param delegate             delegate
+ *  @param dataSource           dataSource
+ *
+ *  @return this object
+ */
+- (id)initWithFrame:(CGRect)frame
+         scrollView:(UIScrollView *)scrollView
+             inView:(UIView *)contextView
+        placeholder:(NSString *)placeholder
+  gestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer
+         allowEmoji:(BOOL)allowEmoji
            delegate:(id<IBInputToolBarDelegate>)delegate
          dataSource:(id<IBInputToolBarDataSource>)dataSource;
 

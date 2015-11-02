@@ -15,11 +15,11 @@
 		E73857E91A68EB20003D864D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E73857E81A68EB20003D864D /* Images.xcassets */; };
 		E73857EC1A68EB20003D864D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E73857EA1A68EB20003D864D /* LaunchScreen.xib */; };
 		E73857F81A68EB20003D864D /* ChatInputToolBarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E73857F71A68EB20003D864D /* ChatInputToolBarTests.m */; };
-		E7446B021AA57A4F00DC8EFC /* IBInputBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E7446AF41AA57A4F00DC8EFC /* IBInputBar.bundle */; };
-		E7446B031AA57A4F00DC8EFC /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E7446B011AA57A4F00DC8EFC /* UIColor+Extension.m */; };
+		E7CD07231BE7492F00990AA8 /* libInputBar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CD07101BE7492F00990AA8 /* libInputBar.a */; };
+		E7CD07241BE7492F00990AA8 /* IBInputBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E7CD07151BE7492F00990AA8 /* IBInputBar.bundle */; };
+		E7CD07251BE7492F00990AA8 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CD07221BE7492F00990AA8 /* UIColor+Extension.m */; };
 		E7E402371A89A3A800919234 /* keyboard_add_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E402351A89A3A800919234 /* keyboard_add_camera@2x.png */; };
 		E7E402381A89A3A800919234 /* keyboard_add_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E402361A89A3A800919234 /* keyboard_add_photo@2x.png */; };
-		E7E403CA1A8AFA0800919234 /* libInputBar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E403C91A8AFA0800919234 /* libInputBar.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,28 +47,28 @@
 		E73857F11A68EB20003D864D /* ChatInputToolBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatInputToolBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E73857F61A68EB20003D864D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E73857F71A68EB20003D864D /* ChatInputToolBarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatInputToolBarTests.m; sourceTree = "<group>"; };
-		E7446AF21AA57A4F00DC8EFC /* IBExpressionInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBExpressionInputView.h; sourceTree = "<group>"; };
-		E7446AF31AA57A4F00DC8EFC /* IBGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBGrowingTextView.h; sourceTree = "<group>"; };
-		E7446AF41AA57A4F00DC8EFC /* IBInputBar.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IBInputBar.bundle; sourceTree = "<group>"; };
-		E7446AF51AA57A4F00DC8EFC /* IBInputBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBInputBar.h; sourceTree = "<group>"; };
-		E7446AF61AA57A4F00DC8EFC /* IBInputTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBInputTextView.h; sourceTree = "<group>"; };
-		E7446AF71AA57A4F00DC8EFC /* IBInputTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBInputTool.h; sourceTree = "<group>"; };
-		E7446AF81AA57A4F00DC8EFC /* IBInputToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBInputToolBar.h; sourceTree = "<group>"; };
-		E7446AF91AA57A4F00DC8EFC /* IBInputToolBarConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBInputToolBarConstraints.h; sourceTree = "<group>"; };
-		E7446AFA1AA57A4F00DC8EFC /* IBInputToolBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBInputToolBarDelegate.h; sourceTree = "<group>"; };
-		E7446AFB1AA57A4F00DC8EFC /* IBKeyboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBKeyboardController.h; sourceTree = "<group>"; };
-		E7446AFC1AA57A4F00DC8EFC /* IBMoreInputItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBMoreInputItem.h; sourceTree = "<group>"; };
-		E7446AFD1AA57A4F00DC8EFC /* IBMoreInputItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBMoreInputItemView.h; sourceTree = "<group>"; };
-		E7446AFE1AA57A4F00DC8EFC /* IBMoreInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBMoreInputView.h; sourceTree = "<group>"; };
-		E7446AFF1AA57A4F00DC8EFC /* IBTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBTextViewInternal.h; sourceTree = "<group>"; };
-		E7446B001AA57A4F00DC8EFC /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
-		E7446B011AA57A4F00DC8EFC /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
+		E7CD07101BE7492F00990AA8 /* libInputBar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libInputBar.a; sourceTree = "<group>"; };
+		E7CD07131BE7492F00990AA8 /* IBExpressionInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBExpressionInputView.h; sourceTree = "<group>"; };
+		E7CD07141BE7492F00990AA8 /* IBGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBGrowingTextView.h; sourceTree = "<group>"; };
+		E7CD07151BE7492F00990AA8 /* IBInputBar.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IBInputBar.bundle; sourceTree = "<group>"; };
+		E7CD07161BE7492F00990AA8 /* IBInputBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBInputBar.h; sourceTree = "<group>"; };
+		E7CD07171BE7492F00990AA8 /* IBInputTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBInputTextView.h; sourceTree = "<group>"; };
+		E7CD07181BE7492F00990AA8 /* IBInputTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBInputTool.h; sourceTree = "<group>"; };
+		E7CD07191BE7492F00990AA8 /* IBInputToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBInputToolBar.h; sourceTree = "<group>"; };
+		E7CD071A1BE7492F00990AA8 /* IBInputToolBarConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBInputToolBarConstraints.h; sourceTree = "<group>"; };
+		E7CD071B1BE7492F00990AA8 /* IBInputToolBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBInputToolBarDelegate.h; sourceTree = "<group>"; };
+		E7CD071C1BE7492F00990AA8 /* IBKeyboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBKeyboardController.h; sourceTree = "<group>"; };
+		E7CD071D1BE7492F00990AA8 /* IBMoreInputItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBMoreInputItem.h; sourceTree = "<group>"; };
+		E7CD071E1BE7492F00990AA8 /* IBMoreInputItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBMoreInputItemView.h; sourceTree = "<group>"; };
+		E7CD071F1BE7492F00990AA8 /* IBMoreInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBMoreInputView.h; sourceTree = "<group>"; };
+		E7CD07201BE7492F00990AA8 /* IBTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBTextViewInternal.h; sourceTree = "<group>"; };
+		E7CD07211BE7492F00990AA8 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
+		E7CD07221BE7492F00990AA8 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
 		E7E4013F1A846DAA00919234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		E7E401401A846DAA00919234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		E7E402061A885C0A00919234 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		E7E402351A89A3A800919234 /* keyboard_add_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_add_camera@2x.png"; sourceTree = "<group>"; };
 		E7E402361A89A3A800919234 /* keyboard_add_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_add_photo@2x.png"; sourceTree = "<group>"; };
-		E7E403C91A8AFA0800919234 /* libInputBar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libInputBar.a; path = "../../../../../../Library/Developer/Xcode/DerivedData/LTZInputBar-capcvyjfvfambmfrwcamhwzlkxmw/Build/Products/Debug-iphoneos/libInputBar.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7E403CA1A8AFA0800919234 /* libInputBar.a in Frameworks */,
+				E7CD07231BE7492F00990AA8 /* libInputBar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +93,8 @@
 		E73857CF1A68EB20003D864D = {
 			isa = PBXGroup;
 			children = (
+				E7CD07101BE7492F00990AA8 /* libInputBar.a */,
+				E7CD07111BE7492F00990AA8 /* include */,
 				E73857DA1A68EB20003D864D /* ChatInputToolBar */,
 				E73857F41A68EB20003D864D /* ChatInputToolBarTests */,
 				E73857D91A68EB20003D864D /* Products */,
@@ -111,7 +113,6 @@
 		E73857DA1A68EB20003D864D /* ChatInputToolBar */ = {
 			isa = PBXGroup;
 			children = (
-				E7E4039D1A8AF85100919234 /* LTZInputBar */,
 				E73857DF1A68EB20003D864D /* AppDelegate.h */,
 				E73857E01A68EB20003D864D /* AppDelegate.m */,
 				E73857E21A68EB20003D864D /* ViewController.h */,
@@ -153,44 +154,35 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E7446AF11AA57A4F00DC8EFC /* InputBar */ = {
+		E7CD07111BE7492F00990AA8 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				E7446AF21AA57A4F00DC8EFC /* IBExpressionInputView.h */,
-				E7446AF31AA57A4F00DC8EFC /* IBGrowingTextView.h */,
-				E7446AF41AA57A4F00DC8EFC /* IBInputBar.bundle */,
-				E7446AF51AA57A4F00DC8EFC /* IBInputBar.h */,
-				E7446AF61AA57A4F00DC8EFC /* IBInputTextView.h */,
-				E7446AF71AA57A4F00DC8EFC /* IBInputTool.h */,
-				E7446AF81AA57A4F00DC8EFC /* IBInputToolBar.h */,
-				E7446AF91AA57A4F00DC8EFC /* IBInputToolBarConstraints.h */,
-				E7446AFA1AA57A4F00DC8EFC /* IBInputToolBarDelegate.h */,
-				E7446AFB1AA57A4F00DC8EFC /* IBKeyboardController.h */,
-				E7446AFC1AA57A4F00DC8EFC /* IBMoreInputItem.h */,
-				E7446AFD1AA57A4F00DC8EFC /* IBMoreInputItemView.h */,
-				E7446AFE1AA57A4F00DC8EFC /* IBMoreInputView.h */,
-				E7446AFF1AA57A4F00DC8EFC /* IBTextViewInternal.h */,
-				E7446B001AA57A4F00DC8EFC /* UIColor+Extension.h */,
-				E7446B011AA57A4F00DC8EFC /* UIColor+Extension.m */,
-			);
-			path = InputBar;
-			sourceTree = "<group>";
-		};
-		E7E4039D1A8AF85100919234 /* LTZInputBar */ = {
-			isa = PBXGroup;
-			children = (
-				E7E403B51A8AF98100919234 /* include */,
-				E7E403C91A8AFA0800919234 /* libInputBar.a */,
-			);
-			path = LTZInputBar;
-			sourceTree = "<group>";
-		};
-		E7E403B51A8AF98100919234 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				E7446AF11AA57A4F00DC8EFC /* InputBar */,
+				E7CD07121BE7492F00990AA8 /* InputBar */,
 			);
 			path = include;
+			sourceTree = "<group>";
+		};
+		E7CD07121BE7492F00990AA8 /* InputBar */ = {
+			isa = PBXGroup;
+			children = (
+				E7CD07131BE7492F00990AA8 /* IBExpressionInputView.h */,
+				E7CD07141BE7492F00990AA8 /* IBGrowingTextView.h */,
+				E7CD07151BE7492F00990AA8 /* IBInputBar.bundle */,
+				E7CD07161BE7492F00990AA8 /* IBInputBar.h */,
+				E7CD07171BE7492F00990AA8 /* IBInputTextView.h */,
+				E7CD07181BE7492F00990AA8 /* IBInputTool.h */,
+				E7CD07191BE7492F00990AA8 /* IBInputToolBar.h */,
+				E7CD071A1BE7492F00990AA8 /* IBInputToolBarConstraints.h */,
+				E7CD071B1BE7492F00990AA8 /* IBInputToolBarDelegate.h */,
+				E7CD071C1BE7492F00990AA8 /* IBKeyboardController.h */,
+				E7CD071D1BE7492F00990AA8 /* IBMoreInputItem.h */,
+				E7CD071E1BE7492F00990AA8 /* IBMoreInputItemView.h */,
+				E7CD071F1BE7492F00990AA8 /* IBMoreInputView.h */,
+				E7CD07201BE7492F00990AA8 /* IBTextViewInternal.h */,
+				E7CD07211BE7492F00990AA8 /* UIColor+Extension.h */,
+				E7CD07221BE7492F00990AA8 /* UIColor+Extension.m */,
+			);
+			path = InputBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,7 +271,7 @@
 				E7E402381A89A3A800919234 /* keyboard_add_photo@2x.png in Resources */,
 				E73857EC1A68EB20003D864D /* LaunchScreen.xib in Resources */,
 				E73857E91A68EB20003D864D /* Images.xcassets in Resources */,
-				E7446B021AA57A4F00DC8EFC /* IBInputBar.bundle in Resources */,
+				E7CD07241BE7492F00990AA8 /* IBInputBar.bundle in Resources */,
 				E71854E41A822D93001FBAD7 /* bg.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,7 +293,7 @@
 				E73857E41A68EB20003D864D /* ViewController.m in Sources */,
 				E73857E11A68EB20003D864D /* AppDelegate.m in Sources */,
 				E73857DE1A68EB20003D864D /* main.m in Sources */,
-				E7446B031AA57A4F00DC8EFC /* UIColor+Extension.m in Sources */,
+				E7CD07251BE7492F00990AA8 /* UIColor+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +431,7 @@
 					"/Users/PeterLee/Documents/项目工程/ChatInputToolBar/InputBar/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/ChatInputToolBar/LTZInputBar",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/LTZInputBar-capcvyjfvfambmfrwcamhwzlkxmw/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -461,6 +454,7 @@
 					"/Users/PeterLee/Documents/项目工程/ChatInputToolBar/InputBar/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/ChatInputToolBar/LTZInputBar",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/LTZInputBar-capcvyjfvfambmfrwcamhwzlkxmw/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

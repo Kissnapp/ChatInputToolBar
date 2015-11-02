@@ -11,6 +11,7 @@
 
 @protocol IBInputToolPublicDelegate;
 @protocol IBInputToolPrivateDelegate;
+
 @interface IBInputTool : UIImageView<IBGrowingTextViewDelegate>
 
 @property (strong, nonatomic) IBGrowingTextView        *inputTextView;
@@ -20,13 +21,18 @@
 @property (strong, nonatomic) UIButton                  *moreButton;
 @property (strong, nonatomic) UIButton                  *recordButton;
 
-@property (strong, nonatomic, readonly) UIView          *inView;
-@property (strong, nonatomic, readonly) UIScrollView    *scrollView;
+@property (weak, nonatomic, readonly) UIView            *inView;
+@property (weak, nonatomic, readonly) UIView            *backgroundView;
+@property (weak, nonatomic, readonly) UIScrollView      *scrollView;
+@property (strong, nonatomic, readonly) NSString        *placeholder;
 
 @property (assign, nonatomic) BOOL                      isKeyboardShowing;
 @property (assign, nonatomic) BOOL                      isRecordViewShowing;
 @property (assign, nonatomic) BOOL                      isExpressionViewShowing;
 @property (assign, nonatomic) BOOL                      isMoreViewShowing;
+
+@property (assign, nonatomic) BOOL                      allowEmoji;
+
 @property (weak, nonatomic) id<IBInputToolPrivateDelegate>    privateDelegate;
 @property (weak, nonatomic) id<IBInputToolPublicDelegate>    publicDelegate;
 
@@ -35,6 +41,17 @@
 - (instancetype)initWithFrame:(CGRect)frame
                        inView:(UIView *)inView
                    scrollView:(UIScrollView *)scrollView
+               backgroundView:(UIView *)backgroundView
+                   allowEmoji:(BOOL)allowEmoji
+             privatedDelegate:(id<IBInputToolPrivateDelegate>)privateDelegate
+               publicDelegate:(id<IBInputToolPublicDelegate>) publicDelegate;
+
+- (instancetype)initWithFrame:(CGRect)frame
+                       inView:(UIView *)inView
+                   scrollView:(UIScrollView *)scrollView
+                  placeholder:(NSString *)placeholder
+               backgroundView:(UIView *)backgroundView
+                   allowEmoji:(BOOL)allowEmoji
              privatedDelegate:(id<IBInputToolPrivateDelegate>)privateDelegate
                publicDelegate:(id<IBInputToolPublicDelegate>) publicDelegate;
 

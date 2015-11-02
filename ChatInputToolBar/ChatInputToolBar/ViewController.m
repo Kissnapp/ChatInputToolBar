@@ -53,12 +53,15 @@
 - (void)test
 {
     [self.view setBackgroundColor:[UIColor lightGrayColor]];
-    chatBar = [[IBInputToolBar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-[IBInputToolBar IBInputToolDefaultHeight], self.view.frame.size.width, [IBInputToolBar IBInputToolBarDefaultHeight])
-                                                           scrollView:self.tableView
-                                                               inView:self.view
-                                                    gestureRecognizer:self.tableView.panGestureRecognizer
-                                                             delegate:self
-                                          dataSource:self];
+    chatBar = [[IBInputToolBar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-[IBInputToolBar IBInputToolDefaultHeight], self.view.frame.size.width, [IBInputToolBar IBInputToolBarDefaultHeight] )
+                                         scrollView:self.tableView
+                                             inView:self.view
+                                        placeholder:@"123"
+                                  gestureRecognizer:self.tableView.panGestureRecognizer
+                                         allowEmoji:YES
+                                           delegate:self
+                                         dataSource:self];
+    
     chatBar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     //textView.placeHolder = @"这是测试！";
     //textView.font = [UIFont systemFontOfSize:28];
