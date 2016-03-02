@@ -671,5 +671,42 @@
 }
 
 
+/**
+ *  这个方法决定了MenuController的菜单项内容
+ *  返回YES，就代表MenuController会有action菜单项
+ */
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    if (self.text.length > 0) {
+        if (action == @selector(cut:)
+            || action == @selector(copy:)
+            || action == @selector(paste:)) return YES;
+    }else{
+        if (action == @selector(paste:)) return YES;
+    }
+    return NO;
+}
+
+#pragma mark - 菜单点击处理
+- (void)cut:(UIMenuController *)menu
+{
+    // 将当前label的文字设置到粘贴板
+    [UIPasteboard generalPasteboard].string = self.text;
+    
+    // 清空文字
+    self.text = nil;
+}
+
+- (void)copy:(UIMenuController *)menu
+{
+    // 将当前label的文字设置到粘贴板
+    [UIPasteboard generalPasteboard].string = self.text;
+}
+
+- (void)paste:(UIMenuController *)menu
+{
+    // 将粘贴板的文字设置到当前label上
+    self.text = [UIPasteboard generalPasteboard].string;
+}
 
 @end

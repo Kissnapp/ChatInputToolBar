@@ -52,6 +52,9 @@
 
 - (void)test
 {
+    [UIMenuController sharedMenuController].menuItems = @[ [[UIMenuItem alloc] initWithTitle:@"转发" action:@selector(forwardToOthers:)],
+                                                           [[UIMenuItem alloc] initWithTitle:@"存储" action:@selector(saveInLibrary:)]];
+    
     [self.view setBackgroundColor:[UIColor lightGrayColor]];
     chatBar = [[IBInputToolBar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-[IBInputToolBar IBInputToolDefaultHeight], self.view.frame.size.width, [IBInputToolBar IBInputToolBarDefaultHeight] )
                                          scrollView:self.tableView
